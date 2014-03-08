@@ -1,4 +1,7 @@
 GTU14
 =====
 
-Gestión de tarjetas universitarias para la asignatura ISST.
+Proyecto sobre la gestión de tarjetas universitarias para la asignatura ISST.
+
+E.S.I. de Telecomunicación.
+Universidad Politécnica de Madrid.
