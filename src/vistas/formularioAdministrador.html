@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<meta charset="utf-8">
+<title>Formulario administrador</title>
+<script type="text/javascript" src="js/datetimepicker.js">
+</script>
+</head><body>
+<form method="post" action="#">
+  <input type="hidden" name="_method" value="post">
+  Nombre:
+  <input type="text" name="nombre" size="40" maxlength="100">
+  <br>
+  <br>
+  Apellidos:
+  <input type="text" name="apellidos" size="40" maxlength="100">
+  <br>
+  <br>
+  Correo electrónico:
+  <input type="text" name="email" size="40" maxlength="100">
+  <select name="correo">
+    <option value="1">@alumnos.upm.es</option>
+    <option value="2">@dit.upm.es</option>
+    <option value="3">@upm.es</option>
+  </select>
+  <br>
+  <br>
+  Contraseña:
+  <input type="text" name="password" size="40" maxlength="100">
+  <br>
+  <br>
+  Rol: <br>
+  <select name="centro" size="2">
+    <option value="1">Solicitante</option>
+    <option value="2">Universidad</option>
+    <option value="3">Banco</option>
+    <option value="4">Estampadora</option>
+    <option value="5">Administrador</option>
+  </select>
+  <br>
+  <br>
+  <input type="submit" value="Dar de alta">
+</form>
+<hr>
+<form method="post" action="#">
+  <input type="hidden" name="_method" value="delete">
+  ID Usuario:
+  <input type="text" name="userID" size="40" maxlength="100">
+  <br>
+  <br>
+  <input type="submit" value="Dar de baja">
+</form>
+</body>
+</html>
