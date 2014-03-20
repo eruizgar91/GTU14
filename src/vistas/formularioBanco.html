@@ -9,17 +9,37 @@
 <body>
 <form method="post" action="#">
   <input type="hidden" name="_method" value="post">
+  <p>
+  Nombre del Banco:
+  <input type="text" name="banco" size="40" maxlength="100">
+  </p>
+  <p>
+  CIF:
+  <input type="text" name="cif" size="40" maxlength="100">
+  </p>
+  <p>
+  Número de tarjeta:
+  <input type="text" name="numtarjeta" size="40" maxlength="100">
+  </p>
+  <p>
+  PIN:
+  <input type="text" name="pin" size="40" maxlength="100">
+  </p>
+  <p>
+  Número de cuenta:
+  <input type="text" name="numcuenta" size="40" maxlength="100">
+  </p>
   <p>Nombre:
-  <input type="text" name="nombre" size="40" maxlength="100">
+  <input type="text" name="nombre" size="40" maxlength="100" readonly>
   </p>
   <p>
   Apellidos:
-  <input type="text" name="apellidos" size="40" maxlength="100">
+  <input type="text" name="apellidos" size="40" maxlength="100" readonly>
   </p>
   <p>
   Correo electrónico:
-  <input type="text" name="email" size="40" maxlength="100">
-  <select name="correo">
+  <input type="text" name="email" size="40" maxlength="100" readonly>
+  <select name="correo" disabled>
     <option value="1">@alumnos.upm.es</option>
     <option value="2">@dit.upm.es</option>
     <option value="3">@upm.es</option>
@@ -27,11 +47,11 @@
   </p>
   <p>
   Contraseña:
-  <input type="text" name="password" size="40" maxlength="100">
+  <input type="text" name="password" size="40" maxlength="100" readonly>
   </p>
   <p>
   Rol: <br>
-  <select name="centro" size="2">
+  <select name="centro" size="2" disabled>
     <option value="1">Solicitante</option>
     <option value="2">Universidad</option>
     <option value="3">Banco</option>
@@ -41,19 +61,19 @@
   </p>
   <p>
   Universidad:
-  <input type="text" name="universidad" size="40" maxlength="100">
+  <input type="text" name="universidad" size="40" maxlength="100" readonly>
   </p>
   <p>
   CIF Universidad:
-  <input type="text" name="cifuniversidad" size="40" maxlength="100">
+  <input type="text" name="cifuniversidad" size="40" maxlength="100" readonly>
   </p>
   <p></p>
   ID Academico:
-  <input type="text" name="idacademico" size="40" maxlength="100">
+  <input type="text" name="idacademico" size="40" maxlength="100" readonly>
   </p>
   <p>
  Centro <br>
-  <select name="centro" size="2">
+  <select name="centro" size="2" disabled>
     <option value="1">ETSI Aeronaútica y del Espacio</option>
     <option value="2">ETSI y Sistemas de Telecomunicación</option>
     <option value="3">ETSI Montes, Forestal y del Medio Natural</option>
@@ -80,34 +100,17 @@
   </p>
   <p>
   Inicio de estudios:
-  <input id="demo1" type="text" size="25">
+  <input id="demo1" type="text" size="25" readonly>
   <a href="javascript:NewCal('demo1','ddmmyyyy')"><img src="img/cal.gif" width="16" height="16" alt="Pick a date"></a> <br>
-  </p>
-  <p>
-  Nombre del Banco:
-  <input type="text" name="banco" size="40" maxlength="100">
-  </p>
-  <p>
-  CIF:
-  <input type="text" name="cif" size="40" maxlength="100">
-  </p>
-  <p>
-  Número de tarjeta:
-  <input type="text" name="numtarjeta" size="40" maxlength="100">
-  </p>
-  <p>
-  PIN:
-  <input type="text" name="pin" size="40" maxlength="100">
-  </p>
-  <p>
-  Número de cuenta:
-  <input type="text" name="numcuenta" size="40" maxlength="100">
   </p>
   <div>
   <input type="submit" value="Validar Datos">
   </div>
   <div>
-      <input type="Reset" value="Borrar formulario">
+   <input type="Reset" value="Borrar formulario">
+  </div>
+  <div>
+   <input type="submit" value="Rechazar petición">
   </div>
 </form>
 <hr>
