@@ -1,53 +1,67 @@
 <!doctype html>
-<html>
+<html lang="es">
+<head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Formulario administrador</title>
-<script type="text/javascript" src="js/datetimepicker.js">
-</script>
-</head><body>
-<form method="post" action="#">
-  <input type="hidden" name="_method" value="post">
-  Nombre:
-  <input type="text" name="nombre" size="40" maxlength="100">
-  <br>
-  <br>
-  Apellidos:
-  <input type="text" name="apellidos" size="40" maxlength="100">
-  <br>
-  <br>
-  Correo electrónico:
-  <input type="text" name="email" size="40" maxlength="100">
-  <select name="correo">
-    <option value="1">@alumnos.upm.es</option>
-    <option value="2">@dit.upm.es</option>
-    <option value="3">@upm.es</option>
-  </select>
-  <br>
-  <br>
-  Contraseña:
-  <input type="text" name="password" size="40" maxlength="100">
-  <br>
-  <br>
-  Rol: <br>
-  <select name="centro" size="2">
-    <option value="1">Solicitante</option>
-    <option value="2">Universidad</option>
-    <option value="3">Banco</option>
-    <option value="4">Estampadora</option>
-    <option value="5">Administrador</option>
-  </select>
-  <br>
-  <br>
-  <input type="submit" value="Dar de alta">
-</form>
-<hr>
-<form method="post" action="#">
-  <input type="hidden" name="_method" value="delete">
-  ID Usuario:
-  <input type="text" name="userID" size="40" maxlength="100">
-  <br>
-  <br>
-  <input type="submit" value="Dar de baja">
-</form>
+<!-- BootStrap -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/jquery-2.1.0.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="page-header text-center">
+    <h1>Formulario de administrador</h1>
+  </div>
+  <div class="row center-block">
+    <div class="col-sm-6">
+    <div class="page-header">
+      <h3>Alta de usuarios</h3>
+      </div>
+      <form method="post" action="#">
+        <input type="hidden" name="_method" value="post">
+        <div class="form-group">
+          <label for="nombreID">Nombre</label>
+          <input type="text" class="form-control" name="nombre" id="nombreID" placeholder="Escribe el nombre" required>
+          <label for="apellidosID">Apellidos</label>
+          <input type="text" class="form-control" name="apellidos" id="apellidosID" placeholder="Escribe los apellidos" required>
+          <label for="entidadID">Entidad</label>
+          <input type="text" class="form-control" name="entidad" id="entidadID" placeholder="Escribe la entidad" required>
+          <label for="correoID">Correo electrónico</label>
+          <input type="email" class="form-control" name="correo" id="correoID" placeholder="Escribe el correo electrónico" required>
+          <label for="contrasenaID">Contraseña</label>
+          <input type="password" class="form-control" name="contrasena" id="correoID" placeholder="Escribe la contraseña" required>
+          <label for="rolID">Rol</label>
+          <select name="rol" id="rolID" size="4" class="form-control" required>
+            <option value="UNIVERSIDAD">Universidad</option>
+            <option value="BANCO">Banco</option>
+            <option value="ESTAMPADORA">Estampadora</option>
+            <option value="ADMINISTRADOR">Administrador</option>
+          </select>
+        </div>
+        <div class="form-group text-left">
+          <button type="submit" class="btn btn-default btn-lg">Nuevo usuario</button>
+        </div>
+      </form>
+    </div>
+    <hr class="visible-xs">
+    <div class="col-sm-6">
+      <div class="page-header">
+      <h3>Baja de usuarios</h3>
+      </div>
+      <form class="" method="post" action="#">
+        <input type="hidden" name="_method" value="delete">
+        <div class="form-group">
+          <label for="usuarioID">ID del usuario</label>
+          <input type="password" class="form-control" name="idusuario" id="usuarioID" placeholder="Escribe el identificador del usuario" required>
+        </div>
+        <div class="form-group text-right">
+          <button type="submit" class="btn btn-danger btn-xs">Eliminar usuario</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 </body>
 </html>
