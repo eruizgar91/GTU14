@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Formulario banco</title>
+<!-- BootStrap -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/jquery-2.1.0.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="page-header text-center">
+    <h1>Formulario de banco</h1>
+  </div>
+  <div class="row center-block">
+    <div class="col-xs-12 col-md-3 col-md-offset-2">
+      <div class="page-header">
+        <h3>Campos banco</h3>
+      </div>
+      <form method="put" action="#">
+        <input type="hidden" name="_method" value="put">
+        <div class="form-group">
+          <label for="bancoID">Banco:</label>
+          <input type="text" class="form-control" name="banco" id="bancoID" placeholder="Escribe el banco" required>
+          <label for="cifbancoID">CIF Banco</label>
+          <input type="text" class="form-control" name="cifbanco" id="cifbancoID" placeholder="Escribe el CIF del banco" required>
+          <label for="numtarjetaID">Número de tarjeta</label>
+          <input type="text" class="form-control" name="numtarjeta" id="numtarjetaID" placeholder="Escribe el número de tarjeta" required>
+          <label for="numcuentaID">Número de cuenta</label>
+          <input type="text" class="form-control" name="numcuenta" id="numcuentaID" placeholder="Escribe el número de cuenta" required>
+          <label for="estampadoraID">Estampadora</label>
+          <input type="text" class="form-control" name="estampadora" id="estampadoraID" placeholder="Escribe la estampadora" required>
+        </div>
+        <div class="form-group">
+          <label for="universidadID">Universidad</label>
+          <input type="text" class="form-control" name="universidad" id="universidadID" placeholder="Escribe la universidad" readonly>
+          <label for="cifuniversidadID">CIF Universidad</label>
+          <input type="text" class="form-control" name="cifuniversidad" id="cifuniversidadID" placeholder="Escribe el CIF de la universidad" readonly>
+          <label for="idacademicoID">ID Academico</label>
+          <input type="text" class="form-control" name="idacademico" id="idacademicoID" placeholder="Escribe el ID academico" readonly>
+        </div>
+        <div class="form-group">
+          <label>Nombre</label>
+          <input type="text" class="form-control" name="nombre" readonly>
+          <label>Apellidos</label>
+          <input type="text" class="form-control" name="apellidos" readonly>
+          <label>Correo electrónico</label>
+          <input type="text" class="form-control" name="correo" readonly>
+          <label>Contraseña</label>
+          <input type="password" class="form-control" name="contraseña" readonly>
+          <label>Función</label>
+          <select name="funcion" size="4" class="form-control" readonly>
+            <option value="ALUMNO">Alumno</option>
+            <option value="DOCENTE">Docente</option>
+            <option value="PAS">PAS</option>
+            <option value="INVESTIGADOR">Investigador</option>
+          </select>
+        </div>
+        <div class="form-group text-left">
+          <button type="reset" class="btn btn-default btn-md">Borrar formulario</button>
+          <button type="submit" class="btn btn-default btn-lg text-left">Enviar solicitud</button>
+        </div>
+      </form>
+    </div>
+    <hr class="visible-xs">
+    <div class="col-xs-12 col-md-3 col-md-offset-2">
+      <div class="page-header">
+        <h3>Cancelar solicitud</h3>
+      </div>
+      <form>
+        <div class="form-group">
+          <label>Motivo cancelación</label>
+          <textarea class="form-control" name="comentarios" class="btn btn-default btn-lg" placeholder="Escribe aquí motivo de cancelación" required></textarea>
+        </div>
+        <div class="form-group text-right">
+          <button type="submit" class="btn btn-danger btn-xs">Cancelar solicitud</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>
