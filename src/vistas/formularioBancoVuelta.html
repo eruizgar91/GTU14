@@ -22,7 +22,7 @@
       <form method="post" action="#">
           <input type="hidden" name="_method" value="post">
           <div class="form-group">
-              <label for="pin">PIN</label>
+              <label for="pinID">PIN</label>
               <input type="text" class="form-control" name="pin" id="pinID" placeholder="Escribe el PIN de la tarjeta" required>
               <label for="bancoID">Banco</label>
               <input type="text" class="form-control" name="banco" id="bancoID" placeholder="Escribe el banco" readonly>
@@ -35,26 +35,14 @@
           </div>
               <div class="form-group text-left">
                 <button type="submit" class="btn btn-default btn-lg">Validar tarjeta</button>
-                <button type="submit" class="btn btn-default btn-lg">Rechazar tarjeta</button>
-                 <div>
-                 <label for="motivoID">Motivo rechazo:</label>
-                <textarea name="comentarios" rows="10" cols="30" class="btn btn-default btn-lg" placeholder="Escribe aquí motivo de
-                rechazo"></textarea> 
-              </div>
+                
               </div>
          
-      </form>
-    </div>
    
-
-
-    <hr class="visible-xs">
-    <div class="col-xs-12 col-md-3 col-md-offset-2">
       <div class="page-header">
         <h3>Campos usuario</h3>
       </div>
-      <form class="" method="post" action="#">
-        <input type="hidden" name="_method" value="delete">
+          <input type="hidden" name="_method" value="delete">
           <div class="form-group">
               <label for="universidadID">Universidad:</label>
               <input type="text" class="form-control" name="universidad" id="universidadID" placeholder="Escribe la universidad" readonly>
@@ -73,14 +61,31 @@
             <label for="contraseñaID">Contraseña:</label>
             <input type="password" class="form-control" name="contraseña" id="contraseñaID"  readonly>
             <label for="funcionID">Función:</label>
-                <select name="funcion" id="funcionID" size="4" class="form-control" readonly>
+                <select name="funcion" id="funcionID" size="4" class="form-control" disabled>
                    <option value="ALUMNO">Alumno</option>
                    <option value="DOCENTE">Docente</option>
                    <option value="PAS">PAS</option>
                    <option value="INVESTIGADOR">Investigador</option>
                 </select>
           </div>
+
        </form>
+             </div>
+   
+
+
+    <hr class="visible-xs">
+    <div class="col-xs-12 col-md-3 col-md-offset-2">
+      <div class="page-header">
+        <h3>Tarjeta incorrecta</h3>
+      </div>
+       <form method="post" action="#">
+       <button type="submit" class="btn btn-default btn-lg">Rechazar tarjeta</button>
+                 <div class="form-group text-left">
+                 <label for="motivoID">Motivo rechazo:</label>
+                <textarea name="comentarios" id="motivoID" rows="10" cols="30" class="btn btn-default btn-lg" placeholder="Escribe aquí motivo de rechazo"></textarea> 
+                </div>
+         </form>       
     </div>
   </div>
 </div>
