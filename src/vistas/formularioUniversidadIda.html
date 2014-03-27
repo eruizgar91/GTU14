@@ -19,7 +19,7 @@
       <div class="page-header">
         <h3>Campos universidad</h3>
       </div>
-      <form method="put" action="#">
+      <form method="post" action="#">
         <input type="hidden" name="_method" value="put">
         <div class="form-group">
           <label for="universidadID">Universidad</label>
@@ -41,7 +41,7 @@
           <label>Contraseña</label>
           <input type="password" class="form-control" name="contraseña" readonly>
           <label>Función</label>
-          <select name="funcion" size="4" class="form-control" readonly>
+          <select name="funcion" size="4" class="form-control" disabled>
             <option value="ALUMNO">Alumno</option>
             <option value="DOCENTE">Docente</option>
             <option value="PAS">PAS</option>
@@ -62,7 +62,7 @@
       <form>
         <div class="form-group">
           <label>Motivo cancelación</label>
-          <textarea class="form-control" name="comentarios" class="btn btn-default btn-lg" placeholder="Escribe aquí motivo de cancelación" required></textarea>
+          <textarea name="comentarios" class="btn btn-default btn-lg" rows="10" cols="30" placeholder="Escribe aquí motivo de cancelación" required></textarea>
         </div>
         <div class="form-group text-right">
           <button type="submit" class="btn btn-danger btn-xs">Cancelar solicitud</button>
