@@ -6,3 +6,5 @@ Thumbs.db
 *.jar
 *.war
 *.ear
+/GTU14/build/
+/GTU14/nbproject/private/
