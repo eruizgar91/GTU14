@@ -34,6 +34,8 @@ public class Usuario implements Serializable {
     private String nombre;
     @Column(name="APELLIDOS")
     private String apellidos;
+    @Column(name="ENTIDAD")
+    private String entidad;
     @Column(name="CORREO")
     private String correo;
     @Column(name="CONTRASENA")
@@ -44,15 +46,24 @@ public class Usuario implements Serializable {
     public Usuario() {
     }
 
-    public Usuario(Long id, String nombre, String apellidos, String correo, String contrasena, rol rol) {
+    public Usuario(Long id, String nombre, String apellidos, String entidad, String correo, String contrasena, rol rol) {
         this.id = id;
         this.nombre = nombre;
         this.apellidos = apellidos;
+        this.entidad = entidad;
         this.correo = correo;
         this.contrasena = contrasena;
         this.rol = rol;
     }
 
+    public String getEntidad() {
+        return entidad;
+    }
+
+    public void setEntidad(String entidad) {
+        this.entidad = entidad;
+    }
+    
     public rol getRol() {
         return rol;
     }
@@ -127,7 +138,7 @@ public class Usuario implements Serializable {
 
     @Override
     public String toString() {
-        return "com.web01.entity.Usuario[ id=" + id + " ]";
+        return "com.gtu14.entity.Usuario[ id=" + id + " ]";
     }
     
 }

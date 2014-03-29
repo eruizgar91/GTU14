@@ -11,5 +11,5 @@ package com.gtu14.entity;
  * @author gonzalo
  */
 public class TipoRol {
-    public enum rol{UNIVERSIDAD, BANCO, ESTAMPADORA, ADMINISTRADOR}
+    public enum rol {Universidad, Banco, Estampadora, Administrador}
 }
