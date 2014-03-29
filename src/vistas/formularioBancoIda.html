@@ -22,8 +22,6 @@
       <form method="post" action="#">
         <input type="hidden" name="_method" value="put">
         <div class="form-group">
-          <label for="bancoID">Banco:</label>
-          <input type="text" class="form-control" name="banco" id="bancoID" placeholder="Escribe el banco" required>
           <label for="cifbancoID">CIF Banco</label>
           <input type="text" class="form-control" name="cifbanco" id="cifbancoID" placeholder="Escribe el CIF del banco" required>
           <label for="numtarjetaID">Número de tarjeta</label>
@@ -33,14 +31,20 @@
           <label for="estampadoraID">Estampadora</label>
           <input type="text" class="form-control" name="estampadora" id="estampadoraID" placeholder="Escribe la estampadora" required>
         </div>
+      <div class="page-header">
+        <h3>Campos universidad</h3>
+      </div>
         <div class="form-group">
-          <label for="universidadID">Universidad</label>
-          <input type="text" class="form-control" name="universidad" id="universidadID" placeholder="Escribe la universidad" readonly>
           <label for="cifuniversidadID">CIF Universidad</label>
           <input type="text" class="form-control" name="cifuniversidad" id="cifuniversidadID" placeholder="Escribe el CIF de la universidad" readonly>
           <label for="idacademicoID">ID Academico</label>
           <input type="text" class="form-control" name="idacademico" id="idacademicoID" placeholder="Escribe el ID academico" readonly>
+          <label for="bancoID">Banco</label>
+          <input type="text" class="form-control" name="banco" id="bancoID" placeholder="Escribe el banco" readonly>
         </div>
+      <div class="page-header">
+        <h3>Campos solicitante</h3>
+      </div>
         <div class="form-group">
           <label for="name">Nombre</label>
           <input type="text" class="form-control" name="name" id="name" placeholder="Nombre" readonly>
@@ -90,7 +94,7 @@
       <form>
         <div class="form-group">
           <label>Motivo cancelación</label>
-          <textarea name="comentarios" class="btn btn-default btn-lg" placeholder="Escribe aquí motivo de cancelación" required></textarea>
+          <textarea name="comentarios" class="btn btn-default btn-lg" rows="10" cols="30" placeholder="Escribe aquí motivo de cancelación" required></textarea>
         </div>
         <div class="form-group text-right">
           <button type="submit" class="btn btn-danger btn-xs">Cancelar solicitud</button>
