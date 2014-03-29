@@ -24,6 +24,8 @@
           <div class="form-group">
               <!--<label for="pinID">PIN</label>
               <input type="text" class="form-control" name="pin" id="pinID" placeholder="Escribe el PIN de la tarjeta" required>-->
+              <label for="bancoID">Banco</label>
+              <input type="text" class="form-control" name="banco" id="bancoID" placeholder="Escribe el banco" readonly>
               <label for="cifbancoID">CIF Banco</label>
               <input type="text" class="form-control" name="cifbanco" id="cifbancoID" placeholder="Escribe el CIF del banco" readonly>
               <label for="numtarjetaID">Número de tarjeta</label>
@@ -33,20 +35,19 @@
 	      <label for="estampadoraID">Estampadora</label>
               <input type="text" class="form-control" name="estampadora" id="estampadoraID" placeholder="Escribe la estampadora" readonly>
           </div>
-          <div class="form-group text-left">
-              <button type="submit" class="btn btn-default btn-lg">Validar tarjeta</button>
-	  </div>  
+          
       <div class="page-header">
         <h3>Campos universidad</h3>
       </div>
           <input type="hidden" name="_method" value="delete">
           <div class="form-group">
+              <label for="university">Universidad</label>
+              <input type="text" class="form-control" name="university" id="university" placeholder="Universidad" readonly>
               <label for="cifuniversidadID">CIF Universidad</label>
               <input type="text" class="form-control" name="cifuniversidad" id="cifuniversidadID" placeholder="Escribe el CIF de la universidad" readonly>
               <label for="idacademicoID">ID Academico</label>
               <input type="text" class="form-control" name="idacademico" id="idacademicoID" placeholder="Escribe el ID academico" readonly>
-	      <label for="bancoID">Banco</label>
-              <input type="text" class="form-control" name="banco" id="bancoID" placeholder="Escribe el banco" readonly>
+	      
           </div>
       <div class="page-header">
         <h3>Campos solicitante</h3>
@@ -74,8 +75,6 @@
             <input type="tel" class="form-control" name="phone" id="phone" placeholder="Telefono fijo" readonly>
             <label for="mobille">Telefono movil</label>
             <input type="tel" class="form-control" name="mobille" id="mobille" placeholder="Telefono movil" readonly>
-            <label for="university">Universidad</label>
-            <input type="text" class="form-control" name="university" id="university" placeholder="Universidad" readonly>
             <label for="college">Centro</label>
             <input type="text" class="form-control" name="college" id="college" placeholder="Escuela o facultad" readonly>
             <label>Funcion</label>
@@ -86,6 +85,9 @@
               <option value="INVESTIGADOR">Investigador</option>
             </select>
           </div>
+          <div class="form-group text-left">
+              <button type="submit" class="btn btn-default btn-lg">Validar tarjeta</button>
+         </div>  
        </form>
              </div>
    
