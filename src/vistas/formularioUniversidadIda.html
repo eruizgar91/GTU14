@@ -22,26 +22,46 @@
       <form method="post" action="#">
         <input type="hidden" name="_method" value="put">
         <div class="form-group">
-          <label for="universidadID">Universidad</label>
-          <input type="text" class="form-control" name="universidad" id="universidadID" placeholder="Escribe la universidad" required>
           <label for="cifuniversidadID">CIF Universidad</label>
           <input type="text" class="form-control" name="cifuniversidad" id="cifuniversidadID" placeholder="Escribe el CIF de la universidad" required>
           <label for="idacademicoID">ID Academico</label>
           <input type="text" class="form-control" name="idacademico" id="idacademicoID" placeholder="Escribe el ID academico" required>
-          <label for="bancoID">Banco:</label>
+          <label for="bancoID">Banco</label>
           <input type="text" class="form-control" name="banco" id="bancoID" placeholder="Escribe el banco" required>
         </div>
+
+      <div class="page-header">
+        <h3>Campos usuario</h3>
+      </div>
         <div class="form-group">
-          <label>Nombre</label>
-          <input type="text" class="form-control" name="nombre" readonly>
-          <label>Apellidos</label>
-          <input type="text" class="form-control" name="apellidos" readonly>
-          <label>Correo electrónico</label>
-          <input type="text" class="form-control" name="correo" readonly>
-          <label>Contraseña</label>
-          <input type="password" class="form-control" name="contraseña" readonly>
-          <label>Función</label>
-          <select name="funcion" size="4" class="form-control" disabled>
+          <label for="name">Nombre</label>
+          <input type="text" class="form-control" name="name" id="name" placeholder="Nombre" readonly>
+          <label for="surname">Apellidos</label>
+          <input type="text" class="form-control" name="surname" id="surname" placeholder="Apellidos" readonly>
+          <label for="birthday">Fecha de nacimiento</label>
+          <input type="date" class="form-control" name="birthday" id="birthday" readonly>
+          <label for="ID">ID</label>
+          <input type="text" class="form-control" name="ID" id="ID" placeholder="Nacionalidad" readonly>
+          <label for="nationality">Nacionalidad</label>
+          <input type="text" class="form-control" name="nationality" id="nationality" placeholder="Nacionalidad" readonly>
+          <label for="mail">Correo electronico</label>
+          <input type="email" class="form-control" name="mail" id="mail" placeholder="Correo electronico" readonly>
+          <label for="address">Direccion</label>
+          <input type="text" class="form-control" name="address" id="address" placeholder="Direccion" readonly>
+          <label for="city">Poblacion</label>
+          <input type="text" class="form-control" name="city" id="city" placeholder="Poblacion" readonly>
+          <label for="province">Provincia</label>
+          <input type="text" class="form-control" name="province" id="province" placeholder="Provincia" readonly>
+          <label for="phone">Telefono fijo</label>
+          <input type="tel" class="form-control" name="phone" id="phone" placeholder="Telefono fijo" readonly>
+          <label for="mobille">Telefono movil</label>
+          <input type="tel" class="form-control" name="mobille" id="mobille" placeholder="Telefono movil" readonly>
+          <label for="university">Universidad</label>
+          <input type="text" class="form-control" name="university" id="university" placeholder="Universidad" readonly>
+          <label for="college">Centro</label>
+          <input type="text" class="form-control" name="college" id="college" placeholder="Escuela o facultad" readonly>
+          <label>Funcion</label>
+          <select name="function" size="4" class="form-control" disabled>
             <option value="ALUMNO">Alumno</option>
             <option value="DOCENTE">Docente</option>
             <option value="PAS">PAS</option>
