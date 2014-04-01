@@ -2,10 +2,9 @@
 Thumbs.db
 *.class
 *.*~
+.metadata/
+RemoteSystemsTempFiles/
 # Package Files #
 *.jar
 *.war
 *.ear
-/GTU14/build/
-/GTU14/nbproject/private/
-/JsfJpa/nbproject/private/
