@@ -6,7 +6,7 @@
 
 package com.gtu14.entity;
 
-import com.gtu14.entity.TipoRol.rol;
+import com.gtu14.entity.Tipos.rol;
 import java.io.Serializable;
 import javax.enterprise.context.SessionScoped;
 import javax.persistence.Column;

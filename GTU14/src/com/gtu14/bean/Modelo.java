@@ -5,7 +5,7 @@
  */
 package com.gtu14.bean;
 
-import com.gtu14.entity.TipoRol;
+import com.gtu14.entity.Tipos;
 import com.gtu14.entity.Usuario;
 import java.io.Serializable;
 import javax.enterprise.context.SessionScoped;
@@ -34,9 +34,17 @@ public class Modelo implements Serializable {
     }
 
     public SelectItem[] getRolValues() {
-        SelectItem[] items = new SelectItem[TipoRol.rol.values().length];
+        SelectItem[] items = new SelectItem[Tipos.rol.values().length];
         int i = 0;
-        for (TipoRol.rol g : TipoRol.rol.values()) {
+        for (Tipos.rol g : Tipos.rol.values()) {
+            items[i++] = new SelectItem(g, g.toString());
+        }
+        return items;
+    }
+    public SelectItem[] getFuncionValues() {
+        SelectItem[] items = new SelectItem[Tipos.funcion.values().length];
+        int i = 0;
+        for (Tipos.funcion g : Tipos.funcion.values()) {
             items[i++] = new SelectItem(g, g.toString());
         }
         return items;
