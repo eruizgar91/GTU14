@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Formulario de solicitud</title>
+<!-- BootStrap -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/jquery-2.1.0.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="page-header text-center">
+    <h1>Formulario de solicitud</h1>
+  </div>
+  <div class="row center-block">
+    <div class="col-xs-12 col-md-3 col-md-offset-2">
+      <div class="page-header">
+        <h3>Campos de solicitud</h3>
+      </div>
+      <form method="post" action="#">
+        <input type="hidden" name="_method" value="put">
+        <div class="form-group">
+          <label for="name">Nombre</label>
+          <input type="text" class="form-control" name="name" id="name" placeholder="Nombre" required>
+          <label for="surname">Apellidos</label>
+          <input type="text" class="form-control" name="surname" id="surname" placeholder="Apellidos" required>
+          <label for="birthday">Fecha de nacimiento</label>
+          <input type="date" class="form-control" name="birthday" id="birthday" required>
+          <label for="ID">ID</label>
+          <input type="text" class="form-control" name="ID" id="ID" placeholder="DNI/NIF" required>
+          <label for="nationality">Nacionalidad</label>
+          <input type="text" class="form-control" name="nationality" id="nationality" placeholder="Nacionalidad" required>
+          <label for="mail">Correo electronico</label>
+          <input type="email" class="form-control" name="mail" id="mail" placeholder="Correo electronico" required>
+          <label for="address">Direccion</label>
+          <input type="text" class="form-control" name="address" id="address" placeholder="Direccion" required>
+          <label for="city">Poblacion</label>
+          <input type="text" class="form-control" name="city" id="city" placeholder="Poblacion" required>
+          <label for="province">Provincia</label>
+          <input type="text" class="form-control" name="province" id="province" placeholder="Provincia" required>
+          <label for="phone">Telefono fijo</label>
+          <input type="tel" class="form-control" name="phone" id="phone" placeholder="Telefono fijo" required>
+          <label for="mobille">Telefono movil</label>
+          <input type="tel" class="form-control" name="mobille" id="mobille" placeholder="Telefono movil" required>
+          <label for="university">Universidad</label>
+          <input type="text" class="form-control" name="university" id="university" placeholder="Universidad" required>
+          <label for="college">Centro</label>
+          <input type="text" class="form-control" name="college" id="college" placeholder="Escuela o facultad" required>
+          <label>Funcion</label>
+          <select name="function" size="4" class="form-control" required>
+            <option value="ALUMNO">Alumno</option>
+            <option value="DOCENTE">Docente</option>
+            <option value="PAS">PAS</option>
+            <option value="INVESTIGADOR">Investigador</option>
+          </select>
+        </div>
+        <div class="form-group text-left">
+          <button type="reset" class="btn btn-default btn-md">Borrar formulario</button>
+          <button type="submit" class="btn btn-default btn-lg text-left">Enviar solicitud</button>
+        </div>
+      </form>
+    </div>
+    <hr class="visible-xs">
+  </div>
+</div>
+</body>
+</html>

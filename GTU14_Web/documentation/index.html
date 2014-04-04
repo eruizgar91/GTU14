@@ -1,0 +1,468 @@
+<!doctype html>  
+<!--[if IE 6 ]><html lang="en-us" class="ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en-us" class="ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en-us" class="ie8"> <![endif]-->
+<!--[if (gt IE 7)|!(IE)]><!-->
+<html lang="en-us"><!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	
+	<title>wowthemesnet@gmail.com - HTML Theme</title>
+	
+	<meta name="description" content="Thank you for purchasing my theme. If you have any questions that are beyond the scope of this help file, please feel free to email via my user page contact form here. Thanks so much!">
+	<meta name="author" content="WowThemes.net">
+	<meta name="copyright" content="WowThemes.net">
+	<meta name="generator" content="Documenter v1.6 http://rxa.li/documenter">
+	<meta name="date" content="2013-03-27T00:00:00+02:00">	
+	<link rel="stylesheet" href="css/documenter_style.css" media="all">	
+	<script src="js/jquery.1.6.4.js"></script>	
+	<script src="js/jquery.scrollTo-1.4.2-min.js"></script>
+	<script src="js/jquery.easing.js"></script>	
+	<link rel="stylesheet" href="css/shDocumenter.css" media="screen">
+	<script src="js/shCore.js"></script>
+	<script src="js/shBrushCss.js"></script>
+	<script src="js/shBrushJScript.js"></script>	
+	<script>SyntaxHighlighter.defaults['toolbar'] = false;SyntaxHighlighter.all();</script>
+	<script>document.createElement('section');var duration=500,easing='swing';</script>
+	<script src="js/script.js"></script>	
+	<style>
+		html{background-color:#FFFFFF;color:#383838;}
+		::-moz-selection{background:#444444;color:#DDDDDD;}
+		::selection{background:#444444;color:#DDDDDD;}
+		#documenter_sidebar #documenter_logo{background-image:url(assets/images/logo.png);}
+		a{color:#0000FF;}
+		hr{border-top:1px solid #EBEBEB;border-bottom:1px solid #FFFFFF;}
+		#documenter_sidebar, #documenter_sidebar ol a{background-color:#DDDDDD;color:#222222;}
+		#documenter_sidebar ol a{-webkit-text-shadow:1px 1px 0px #EEEEEE;-moz-text-shadow:1px 1px 0px #EEEEEE;text-shadow:1px 1px 0px #EEEEEE;}
+		#documenter_sidebar ol{border-top:1px solid #AAAAAA;}
+		#documenter_sidebar ol a{border-top:1px solid #EEEEEE;border-bottom:1px solid #AAAAAA;color:#444444;}
+		#documenter_sidebar ol a:hover{background:#444444;color:#DDDDDD;border-top:1px solid #444444;}
+		#documenter_sidebar ol a.current{background:#444444;color:#DDDDDD;border-top:1px solid #444444;}
+		#documenter_copyright{display:block !important;visibility:visible !important;}
+	</style>
+	
+</head>
+<body>
+	<div id="documenter_sidebar">
+		<a href="#documenter_cover" id="documenter_logo"></a>
+		<ol id="documenter_nav">
+			<li><a class="current" href="#documenter_cover">Start</a></li>
+			<li><a href="#html_structure">HTML Structure</a></li>
+			<li><a href="#css_files_and_structure">CSS Files & Skin Options</a></li>
+			<li><a href="#javascript">JavaScript</a></li>
+			<li><a href="#elasticslideshow">Elastic Slideshow</a></li>
+			<li><a href="#nivoslider">Nivo Slider</a></li>
+			<li><a href="#carousel">Carousel</a></li>
+			<li><a href="#testimonials">Testimonials</a></li>
+			<li><a href="#portofolio">Portofolio & Gallery</a></li>
+			<li><a href="#twitter">Twitter Feeds</a></li>
+			<li><a href="#contact">Contact Forms</a></li>
+			<li><a href="#sources_and_credits">Sources and Credits</a></li>
+		</ol>
+		<div id="documenter_copyright">Copyright WowThemes.net 2013<br>		
+		</div>
+	</div>
+	<div id="documenter_content">
+	<section id="documenter_cover"><h1>Studio Francesca</h1><h2>Responsive HTML Theme</h2><hr><ul><li>Created: June, 2013</li><li>By: WowThemes.net</li><li><a href=""></a></li><li>Email: <a href="mailto:wowthemesnet@gmail.com">wowthemesnet@gmail.com</a></li></ul>. <p>Thank you for purchasing my theme. If you have any questions that are beyond the scope of this help file, please feel free to email me. Thank you!</p></section><section id="html_structure">
+	<h3>HTML Structure</h3><hr class="notop">
+<p>The grid is built around two key elements: rows and columns. Rows create a max-width and contain the columns; columns create the actual structure. For layouts to work properly, always put your page content inside a row and a column.</p>
+<p>What you need to know is that columns don't have a fixed width. They can vary based on the resolution of the screen, or the size of the window.</p>
+<p>The main structure of our theme is:</p>
+<p><img alt="" src="assets/images/str.jpg"></p>
+<p>Each column block is sized based on how many of the 12 columns it takes up. Example of main content + sidebar layout:</p>
+ <pre class="brush: css">
+<div class="row">
+	<div class="eight columns">
+		Main content here
+	</div>
+	<div class="four columns">
+		Sidebar here
+	</div> 
+</div>
+</pre> 
+<p>Our document "columns.html" is useful if you want to see more of these 12 columns variations.</p>
+<p><img alt="" src="assets/images/grid.png"></p>
+<p>&nbsp;</p>
+</section>
+
+<section id="css_files_and_structure">
+	<h3>CSS Files and Structure</h3><hr class="notop">
+<p>
+	<span style="color: rgb(56, 56, 56); font-family: Arial, verdana, arial, sans-serif; line-height: 18px; -webkit-text-size-adjust: none; ">I&#39;m using three main CSS files in this theme.&nbsp; </span></p>
+
+<ol style="margin-top: 18px; margin-right: 0px; margin-bottom: 18px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; border-image: initial; outline-width: 0px; outline-style: initial; outline-color: initial; font-style: inherit; font-family: inherit; vertical-align: baseline; line-height: 1.5em; color: rgb(56, 56, 56); -webkit-text-size-adjust: none; border-style: initial; border-color: initial; ">
+	<li style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 36px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; border-image: initial; outline-width: 0px; outline-style: initial; outline-color: initial; font-style: inherit; font-family: inherit; vertical-align: baseline; list-style-type: decimal; list-style-position: initial; list-style-image: initial; border-style: initial; border-color: initial; ">
+		<strong style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; border-image: initial; outline-width: 0px; outline-style: initial; outline-color: initial; font-weight: 700; font-style: inherit; font-family: inherit; vertical-align: baseline; border-style: initial; border-color: initial; ">style.css</strong>&nbsp;-&nbsp;main css files (included reset styles);</li>
+	<li style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 36px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; border-image: initial; outline-width: 0px; outline-style: initial; outline-color: initial; font-style: inherit; font-family: inherit; vertical-align: baseline; list-style-type: decimal; list-style-position: initial; list-style-image: initial; border-style: initial; border-color: initial; ">
+		<strong style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; border-image: initial; outline-width: 0px; outline-style: initial; outline-color: initial; font-weight: 700; font-style: inherit; font-family: inherit; vertical-align: baseline; border-style: initial; border-color: initial; ">teal.css</strong>&nbsp;- the default skin for this theme.</li>
+    <p>In order to change the color skin, replace <b>teal.css</b> in all of our html documents with the skin color of your choice from <b>stylesheets/skins/</b>.</p>
+	<p>Example,if you choose the green skin, replace:</p>
+	<pre class="brush:css"><link rel="stylesheet" href="stylesheets/skins/teal.css"></pre>
+	with
+	<pre class="brush:css"><link rel="stylesheet" href="stylesheets/skins/green.css"></pre>	
+	<br/>
+	<li style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 36px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; border-image: initial; outline-width: 0px; outline-style: initial; outline-color: initial; font-style: inherit; font-family: inherit; vertical-align: baseline; list-style-type: decimal; list-style-position: initial; list-style-image: initial; border-style: initial; border-color: initial; ">
+		<strong style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; border-image: initial; outline-width: 0px; outline-style: initial; outline-color: initial; font-weight: 700; font-style: inherit; font-family: inherit; vertical-align: baseline; border-style: initial; border-color: initial; ">responsive.css</strong>&nbsp;- stylesheet for responsive layout.</li>
+</ol>
+
+<p>
+	<strong style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; border-image: initial; outline-width: 0px; outline-style: initial; outline-color: initial; font-weight: 700; font-style: inherit; font-family: inherit; vertical-align: baseline; color: rgb(56, 56, 56); line-height: 18px; -webkit-text-size-adjust: none; border-style: initial; border-color: initial; ">style.css</strong><strong style="font-family: inherit; font-style: inherit; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; border-image: initial; outline-width: 0px; outline-style: initial; outline-color: initial; font-weight: 700; vertical-align: baseline; color: rgb(56, 56, 56); line-height: 18px; -webkit-text-size-adjust: none; border-style: initial; border-color: initial; ">&nbsp;</strong><span style="color: rgb(56, 56, 56); font-family: Arial, verdana, arial, sans-serif; line-height: 18px; -webkit-text-size-adjust: none; ">file contains all of the specific stylings for the page. The file is separated into sections using:</span></p>
+<pre class="brush: css">
+Stylesheet Guide
+-------------------------
+ Global Reset & Standards
+ 
+ Table of Contents
+
+:: Alerts
+:: Labels
+:: Tooltips
+:: Panels
+:: Accordion
+:: Side Nav
+:: Sub Nav
+:: Pagination
+:: Breadcrumbs
+:: Lists
+:: Link Lists
+:: Keystroke Chars
+:: Image Thumbnails
+:: Video
+:: Tables
+:: Microformats
+:: Progress Bars
+:: Menu Superfish
+:: Portofolio
+:: Content
+</pre>
+
+<p>Optional stylesheets:</p>
+<b>homepage.css</b> - home page stylesheet<br/>
+<b>blog.css</b> - blog stylesheet<br/>
+<b>nivoslider.css</b> - nivo slider stylesheet<br/>
+<b>prettyphoto.css</b> - gallery stylesheet<br/>
+<p class="info">I have separated these stylsheets because they are not necessary in all documents, but if you modify your layout/design and you see something wrong, one of these stylesheets may be missing in your case, so it's best to add them, (in the same place with the stylsheet for skin above) as in the following example:</p>
+<pre class="brush: css">
+<link rel="stylesheet" href="stylesheets/homepage.css">
+<link rel="stylesheet" href="stylesheets/blog.css">
+<link rel="stylesheet" href="stylesheets/nivoslider.css">
+<link rel="stylesheet" href="stylesheets/prettyphoto.css">
+<link rel="stylesheet" href="stylesheets/skins/green.css"> -> always keep the stylesheet for skin color the last one
+<link rel="stylesheet" href="stylesheets/responsive.css">
+</pre>
+
+</section>
+<section id="javascript">
+	<h3>JavaScript</h3><hr class="notop">
+<p>
+	&nbsp;</p>
+<p>
+	<span style="color: rgb(56, 56, 56); font-family: Arial, verdana, arial, sans-serif; line-height: 18px; -webkit-text-size-adjust: none; ">This theme imports several Javascript files, treated separately in our documentation according to the function they're serving.&nbsp;</span></strong></p>
+<b>foundation.min.js<br/>
+jquery.easing.1.3.js<br/> 
+elasticslideshow.js<br/> 
+jquery.nivo.slider.pack.js<br/>    
+jquery.carouFredSel-6.0.5-packed.js<br/> 
+jquery.cycle.js"<br/> 
+app.js<br/> 
+modernizr.foundation.js<br/> 
+slidepanel.js<br/> 
+scrolltotop.js<br/> 
+hoverIntent.js<br/> 
+superfish.js<br/> 
+responsivemenu.js<br/> 
+jquery.tweet.js<br/> 
+twitterusername.js<br/>
+formvalidation.js</b>
+
+</section>
+<section id="elasticslideshow">
+	<h3>Elastic Slideshow</h3><hr class="notop">
+<p>	It is the main slider of this theme, placed in <b>index.html</b> document. It uses the <b>homepage.css</b> stylesheet and the javascript files: <b>jquery.easing.1.3.js</b> and  <b>elasticslideshow.js</b>. (make sure it is called if you are using it outside the home pages)</p>
+<p> Structure of this slideshow: two lists, one for the main slider and one for the thumbnail navigation beneath the large image. The large slider list contains the image and a title with an h2 and h3 element. The list for the thumbnail contains absolute element (the first list element with the class ei-slider-element and the thumbnail list elements which consist of an anchor and an image (the thumbnail).</p>
+So for each image you want to add, follow this structure:
+<pre class="brush:css">
+<div id="ei-slider" class="ei-slider">
+    <ul class="ei-slider-large">
+        <li>
+            <img src="images/yourimage.jpg" alt="" /> 
+            <div class="ei-title">
+                <h2>Responsive</h2>
+                <h3>Design</h3>
+            </div>
+        </li>
+        <li>...</li>
+    </ul>
+    <ul class="ei-slider-thumbs">
+        <li class="ei-slider-element">Current</li>
+        <li>
+            <a href="#">Slide 1</a>
+            <img src="images/yourimage.jpg" alt="" /> 
+        </li>
+        <li>...</li>
+    </ul>
+</div>
+</pre>
+<p class="info">
+Replace lines 4 & 16 with your own image path. In my theme I have used placeholders.
+</p>
+	</section>
+
+<section id="nivoslider">
+	<h3>Nivo Slider</h3><hr class="notop">
+<p>It is the boxed slider of this theme, placed in <b>index2.html</b> and <b>portofoliodetail.html</b> documents. It uses the <b>nivoslider.css</b> stylesheet and the <b>jquery.nivo.slider.pack.js</b> javascript file. (make sure it is called if you are using it outside these page.)</p> 	
+Extremly easy to manage, all you have to do is follow the structure:
+<pre class="brush:css">
+<div id="slider" class="nivoSlider boxedslider wrapshadow">
+		<img src="images/yourimage1.jpg" data-thumb="" alt=""/>
+		<img src="images/yourimage2.jpg" data-thumb="" alt=""/>
+		<img src="images/yourimage3.jpg" data-thumb="" alt=""/>		
+	</div>
+</pre>
+<p class="info">
+Replace lines 2, 3 & 4 with your own image paths.
+</p>
+</section>
+
+<section id="carousel">
+     <h3>Carousel</h3><hr class="notop">
+
+<p>In our theme the carousel plugin is used in home pages, for clients' logo display, but you may use it of course in any way you like.<br/>
+ Javascript: <b>jquery.carouFredSel-6.0.5-packed.js</b> (make sure it is called if you are using it outside these pages)
+ <br/>Stylesheet: <b>homepage.css</b>
+<p>To add images in carousel, follow the structure:</p>
+<pre class="brush:css">
+<div class="image_carousel">
+	<div id="foo2">
+		<img src="images/yourimage1.jpg" alt="" width="140" height="140"/>
+		<img src="images/yourimage2.jpg" alt="" width="140" height="140"/>
+		<img src="images/yourimage3.jpg" alt="" width="140" height="140"/>
+		<img src="images/yourimage4.jpg" alt="" width="140" height="140"/>
+		<img src="images/yourimage5.jpg" alt="" width="140" height="140"/>
+	</div>
+		<div class="clearfix"></div>
+	<a class="prev" id="foo2_prev" href="#"><span>prev</span></a>
+	<a class="next" id="foo2_next" href="#"><span>next</span></a>
+</div>
+</pre>
+<p class="info">
+Replace lines 3, 4, 5, 6 & 7 with your own image paths.
+</p>
+</section>	
+
+<section id="testimonials">
+     <h3>Testimonials</h3><hr class="notop">
+In our theme, testimonials are displayed in homepages and services.html.<br/>
+Javascript: <b>jquery.cycle.js</b> (make sure it is called if you are using it outside these pages)
+<p>To add a testimonial, or any other content you like, follow the structure:</p>
+<pre class="brush:css">
+<div id="testimonials">
+	<blockquote>
+		<p> Content here <cite>&ndash;By author</cite></p>
+	</blockquote>
+	
+	<blockquote>
+		<p>	Another content here <cite>&ndash;By someonelse</cite></p>
+	</blockquote>			
+</div>
+</pre>
+</section>
+
+<section id="portofolio">
+     <h3>Portofolio & Gallery</h3><hr class="notop">
+<p>The default <b>style.css</b> includes the stylesheet for portofolio, while the gallery has an extra stylesheet <b>prettyphoto.css</b>. So if you want to use these plugins outside their main documents (portofolios), make sure you include the right stylesheet and javascripts.</p>
+<p>Javascripts:</p>
+<b>jquery.isotope.min.js</b> for filterable portofolio<br/>
+<b>jquery.prettyPhoto.js</b> for gallery. The gallery link is displayed on hover (portofolio images)<br/>
+<b>custom.js</b> for both<br/>
+
+<p><b><span style="color:red;">2 COLUMNS PORTOFOLIO STRUCTURE: (see explanation after code)</span></b></p>
+<pre class="brush:css">
+<div class="row">
+	<div class="twelve columns">
+		<!-- CATEGORIES-->
+		<section id="options" class="clearfix">
+		<ul id="filters" class="option-set clearfix" data-option-key="filter">
+			<li><a href="#filter" data-option-value="*" class="portofoliobutton selected">Show all</a></li>
+			<li><a href="#filter" data-option-value=".nature" class="portofoliobutton">Nature</a></li>
+			<li><a href="#filter" data-option-value=".trains" class="portofoliobutton">Trains</a></li>
+			<li><a href="#filter" data-option-value=".castles" class="portofoliobutton">Castles</a></li>
+		</ul>
+		</section>
+	</div>
+</div>
+
+ <div id="portofolio" class="row">
+	<!-- Project 1-->
+	  <div class="six columns category trains nature">
+		<h5>Project Name 1</h5>
+		<p>Description</p>
+			<div class="portofoliothumb">
+				<div class="portofoliothumboverlay">
+					
+					<div class="viewgallery">
+						<a rel="prettyPhoto[gallery]" href="images/yourimage1.jpg" alt="">
+						<img src="images/playgal.png" class="left galleryicon" alt=""> Gallery
+						</a>
+					</div>
+					
+					<div class="inner">
+						<a class="projectdetail" href="portofoliodetail.html">+ Project Details</a>
+					</div>
+					
+				</div>
+				<img src="images/yourimage1.jpg" alt="">
+			</div>
+	  </div>
+	<!-- Project 2-->	
+    <!-- Project 3  etc.-->    	
+ </div>
+ </pre>
+  <p>STEP A. <br/>Notice "nature", "trains", "castle" from lines 7,8,9. These are categories. Replace them with your own and add some more if needed.</p>
+  <p>STEP B. <br/>Line 17, after "category", include the category(or categories) in which you want this image displayed. Example:"six columns category trains nature". So, I have just included two cateories:trains and nature.</p>
+  <p>STEP C. <br/>Line 24, replace <b>images/yourimage1.jpg</b> with your own image path.</p>
+  <p>STEP D. <br/>Line 30, replace <b>portofoliodetail.html</b> with the path (link) to the detailed project document.</p>
+  <P>STEP E. <br/>Line 34, repeat the third step, so replace <b>images/yourimage1.jpg</b> with your own image path.</p>
+<p><b><span style="color:red;">3 COLUMNS PORTOFOLIO STRUCTURE: (see explanation after code)</span></b></p>
+<pre class="brush:css">  
+  <div class="row">
+	<div class="twelve columns">
+		<!-- CATEGORIES-->
+		<section id="options" class="clearfix">
+		<ul id="filters" class="option-set clearfix" data-option-key="filter">
+			<li><a href="#filter" data-option-value="*" class="portofoliobutton selected">Show all</a></li>
+			<li><a href="#filter" data-option-value=".nature" class="portofoliobutton">Nature</a></li>
+			<li><a href="#filter" data-option-value=".trains" class="portofoliobutton">Trains</a></li>
+			<li><a href="#filter" data-option-value=".castles" class="portofoliobutton">Castles</a></li>
+		</ul>
+		</section>
+	</div>
+</div>
+<div class="row">
+
+	<div id="portofolio">
+		<!-- Project 1-->
+		<div class="four columns threeportofolio category trains">
+			<h5>Project Title</h5>
+			<p>Short Description</p>
+			<div class="portofoliothumb">
+				<div class="portofoliothumboverlay threeoverlay">
+				
+					<div class="viewgallery threegallery">
+						<a rel="prettyPhoto[gallery]" href="images/yourimage1.jpg" alt="">
+						<img src="images/playgal.png" class="left galleryicon" alt=""> Gallery</a>
+					</div>
+					
+					<div class="inner threedetail">
+						<a class="projectdetail" href="portofoliodetail.html">+ Project Details</a>
+					</div>
+					
+				</div>
+				<img src="images/yourimage1.jpg" class="threeimage" alt=""/>
+			</div>
+		</div>
+		<!-- Project 2-->
+	    <!-- Project 3-->
+		<!-- Project 4 etc-->
+	</div>
+</div>
+</pre>
+   <p>STEP A. <br/>Notice "nature", "trains", "castle" from lines 7,8,9. These are categories. Replace them with your own and add some more if needed.</p>
+  <p>STEP B. <br/>Line 18, after "category", include the category(or categories) in which you want this image displayed. Example:"six columns category trains nature". So, I have just included two cateories:trains and nature.</p>
+  <p>STEP C. <br/>Line 25, replace <b>images/yourimage1.jpg</b> with your own image path.</p>
+  <p>STEP D. <br/>Line 30, replace <b>portofoliodetail.html</b> with the path (link) to the detailed project document.</p>
+  <P>STEP E. <br/>Line 34, repeat the third step, so replace <b>images/yourimage1.jpg</b> with your own image path.</p>
+ <p><b><span style="color:red;">4 COLUMNS PORTOFOLIO STRUCTURE: (see explanation after code)</span></b></p> 
+<pre class="brush:css"> 
+ <div class="row">
+	<div class="twelve columns">
+		<!-- CATEGORIES-->
+		<section id="options" class="clearfix">
+		<ul id="filters" class="option-set clearfix" data-option-key="filter">
+			<li><a href="#filter" data-option-value="*" class="portofoliobutton selected">Show all</a></li>
+			<li><a href="#filter" data-option-value=".nature" class="portofoliobutton">Nature</a></li>
+			<li><a href="#filter" data-option-value=".trains" class="portofoliobutton">Trains</a></li>
+			<li><a href="#filter" data-option-value=".castles" class="portofoliobutton">Castles</a></li>
+		</ul>
+		</section>
+	</div>
+</div>
+
+<div class="row">
+	<div id="portofolio">
+		<!-- Project 1-->
+		<div class="three columns category trains">
+			<h5>Project Title</h5>
+			<p>Short Description</p>
+			<div class="portofoliothumb">
+				<div class="portofoliothumboverlay fouroverlay">
+				
+					<div class="viewgallery fourgallery">
+						<a rel="prettyPhoto[gallery]" href="images/yourimage1.jpg" alt=""><img src="images/playgal.png" class="left galleryicon" alt=""> Gallery</a>
+					</div>
+					
+					<div class="inner fourdetail">
+						<a class="projectdetail" href="portofoliodetail.html">+ Project Details</a>
+					</div>
+					
+				</div>
+				<img src="images/yourimage1.jpg" class="fourimage" alt=""/>
+			</div>
+		</div>
+		<!-- Project 2-->
+		<!-- Project 3-->
+		<!-- Project 4-->
+		<!-- Project 5 etc-->	
+</div>
+</pre>
+  <p>STEP A. <br/>Notice "nature", "trains", "castle" from lines 7,8,9. These are categories. Replace them with your own and add some more if needed.</p>
+  <p>STEP B. <br/>Line 18, after "category", include the category(or categories) in which you want this image displayed. Example:"six columns category trains nature". So, I have just included two cateories:trains and nature.</p>
+  <p>STEP C. <br/>Line 25, replace <b>images/yourimage1.jpg</b> with your own image path.</p>
+  <p>STEP D. <br/>Line 29, replace <b>portofoliodetail.html</b> with the path (link) to the detailed project document.</p>
+  <P>STEP E. <br/>Line 33, repeat the third step, so replace <b>images/yourimage1.jpg</b> with your own image path.</p>
+<p class="info">
+Pay attention to image and thumbs path locations, in my themes I have used placeholders.
+</p>
+</section> 
+
+<section id="twitter">
+	<h3>Twitter Feeds</h3><hr class="notop">
+<p>Change the username associated with your twitter account by opening <b>twitterusername.js</b> from javascripts folder. The default account in my theme is twitter, but change this line <pre class="brush:css">username: "twitter"</pre> with your own. Example: <pre class="brush:css">username: "wowthemesnet"</pre>.
+</section>
+
+<section id="contact">
+	<h3>Contact Forms</h3><hr class="notop">
+	I've used the same contact form twice in 2 different pages: <b>contact.html</b> and <b>services.html</b>.
+	Just find the following line in <b>contact.php</b> file (23 if you're using Notepad++ editor) and replace the existing e-mail address with your own. 
+	<pre class="brush:js">$to = 'wowthemesnet@gmail.com';</pre>
+</section>
+<section id="sources_and_credits">
+	<h3>Sources and Credits</h3><hr class="notop"><p>
+	I&#39;ve used the following images, icons or other files as listed. I do not own any credits for it.</p>
+<ul>
+<li><a href="http://www.pixeden.com/media-icons/soft-media-icons-set-vol-1">Icons</a></li>
+<li><a href="http://pixabay.com/">Pixabay</a></li>
+<li><a href="http://users.tpg.com.au/j_birch/plugins/superfish/">Superfish</a></li>
+<li><a href="http://nivo.dev7studios.com/">Nivo Slider</a></li>
+<li><a href="http://caroufredsel.dev7studios.com/index.php">carouFredsel</a></li>
+<li><a href="http://jquery.malsup.com/cycle/">Cycle Plugin</a></li>
+<li><a href="http://tweet.seaofclouds.com/">See of Clouds</a></li>
+<li><a href="http://www.no-margin-for-errors.com/projects/prettyphoto-jquery-lightbox-clone/">Pretty Photo</a></li>
+<li><a href="http://www.ajaxshake.com/plugin/EN/1006/39b09b96/elastic-slideshow-with-jquery-elasticslideshow.html">Elastic Slideshow Tutorial</a></li>
+<li><a href="http://gsgd.co.uk/sandbox/jquery/easing/">Jquery Easing</a></li>
+<li><a href="http://modernizr.com/download/#-inlinesvg-svg-svgclippaths-touch-shiv-cssclasses-teststyles-prefixes-ie8compat-load/">Modernizr</a></li>
+<li><a href="http://http://www.fontsquirrel.com/">Fonts Bitter, Droid Sans</a></li>
+<li><a href="http://www.justbenicestudio.com/studio/websymbols/">Web Symbols</a></li>
+<li><a href="http://umumble.com/profile/Killer/">Menu Animation & Hover Effects</a></li>
+<li><a href="http://foundation.zurb.com/">Foundation Responsive Framework</a></li>
+</ul>
+<hr>
+<p>
+	Once again, thank you so much for purchasing this theme. As I said at the beginning, I&#39;d be glad to help you if you have any questions relating to this theme. No guarantees, but I&#39;ll do my best to assist.</p>
+<p>
+	<strong>WowThemes.net</strong></p>
+</section>
+
+	</div>
+</body>
+</html>
