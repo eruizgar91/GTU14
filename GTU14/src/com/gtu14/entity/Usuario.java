@@ -1,140 +1,81 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package com.gtu14.entity;
 
-import com.gtu14.entity.Tipos.rol;
+//package com.gtu14.entity;
+
 import java.io.Serializable;
+
 import javax.enterprise.context.SessionScoped;
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.Pattern;
 
 @SessionScoped
 @Entity
-@Table(name="USUARIO")
+@Table(name="USERS")// USER no se puede usar 
 public class Usuario implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="ID")
-    private Long id;
-    @Column(name="NOMBRE")
-    private String nombre;
-    @Column(name="APELLIDOS")
-    private String apellidos;
-    @Column(name="ENTIDAD")
-    private String entidad;
-    @Column(name="CORREO")
-    private String correo;
-    @Column(name="CONTRASENA")
-    private String contrasena;
-    @Column(name="ROL")
-    private rol rol;
+    private String username;
+	private String password;
+	private String email;
+    private int role; // 0  Universidad,1 Banco,2 Estampadora,3 Administrador
+    private long cif_general; // si role 3 entonces este campo va vacio
 
     public Usuario() {
     }
 
-    public Usuario(Long id, String nombre, String apellidos, String entidad, String correo, String contrasena, rol rol) {
-        this.id = id;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.entidad = entidad;
-        this.correo = correo;
-        this.contrasena = contrasena;
-        this.rol = rol;
-    }
+	public Usuario(String username, String password, String email, int role,
+			long cif_general) {
+		this.username = username;
+		this.password = password;
+		this.email = email;
+		this.role = role;
+		this.cif_general = cif_general;
+	}
 
-    public String getEntidad() {
-        return entidad;
-    }
+	public String getUsername() {
+		return username;
+	}
 
-    public void setEntidad(String entidad) {
-        this.entidad = entidad;
-    }
-    
-    public rol getRol() {
-        return rol;
-    }
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
-    public void setRol(rol rol) {
-        this.rol = rol;
-    }
-    
-    public String getContrasena() {
-        return contrasena;
-    }
+	public String getPassword() {
+		return password;
+	}
 
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
-    }
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-    @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\."
-        +"[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@"
-        +"(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?",
-             message="Email incorrecto.")
-    public String getCorreo() {
-        return correo;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public String getApellidos() {
-        return apellidos;
-    }
+	public int getRole() {
+		return role;
+	}
 
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
-    }
+	public void setRole(int role) {
+		this.role = role;
+	}
 
-    public String getNombre() {
-        return nombre;
-    }
+	public long getCif_general() {
+		return cif_general;
+	}
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+	public void setCif_general(long cif_general) {
+		this.cif_general = cif_general;
+	}
 
-    public Long getId() {
-        return id;
-    }
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Usuario)) {
-            return false;
-        }
-        Usuario other = (Usuario) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "com.gtu14.entity.Usuario[ id=" + id + " ]";
-    }
     
 }

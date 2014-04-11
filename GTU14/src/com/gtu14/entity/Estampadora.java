@@ -2,47 +2,73 @@ package com.gtu14.entity;
 
 import java.io.Serializable;
 import java.lang.String;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * Entity implementation class for Entity: Estampadora
  *
  */
 @Entity
-@Table(name="ESTAMPADORA")
+@Table(name="STAMPING")
 public class Estampadora implements Serializable {
 
-	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="ID")
-	private long ID;
-	private String Nombre;
-	private String CIF;
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
-
-	public Estampadora() {
-		super();
-	}   
-	public long getID() {
-		return this.ID;
+	@Id
+	@NotNull
+	private long cif_stamping;
+	private String name;
+	private String email;
+	private String address;
+	private int telephone;
+	
+	public Estampadora(){}
+	public Estampadora(long cif_stamping, String name, String email, String address,
+			int telephone) {
+		this.cif_stamping = cif_stamping;
+		this.name = name;
+		this.email = email;
+		this.address = address;
+		this.telephone = telephone;
 	}
-
-	public void setID(long ID) {
-		this.ID = ID;
-	}   
-	public String getNombre() {
-		return this.Nombre;
+	public long getCif_stamping() {
+		return cif_stamping;
 	}
-
-	public void setNombre(String Nombre) {
-		this.Nombre = Nombre;
-	}   
-	public String getCIF() {
-		return this.CIF;
+	public void setCif_stamping(long cif_stamping) {
+		this.cif_stamping = cif_stamping;
 	}
-
-	public void setCIF(String CIF) {
-		this.CIF = CIF;
+	public String getName() {
+		return name;
 	}
-   
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public int getTelephone() {
+		return telephone;
+	}
+	public void setTelephone(int telephone) {
+		this.telephone = telephone;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
 }
+
+	

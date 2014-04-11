@@ -1,4 +1,4 @@
-package javaeetutorial.dukesbookstore.entity;
+package com.gtu14.entity;
 
 import java.io.Serializable;
 import java.sql.Date;
