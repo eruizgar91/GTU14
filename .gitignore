@@ -3,6 +3,7 @@ Thumbs.db
 *.class
 *.*~
 .metadata/
+dukes-bookstore/
 RemoteSystemsTempFiles/
 # Package Files #
 *.jar

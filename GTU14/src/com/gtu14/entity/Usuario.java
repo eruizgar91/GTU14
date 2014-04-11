@@ -3,7 +3,6 @@ package com.gtu14.entity;
 //package com.gtu14.entity;
 
 import java.io.Serializable;
-
 import javax.enterprise.context.SessionScoped;
 import javax.persistence.Entity;
 import javax.persistence.Id;

@@ -28,17 +28,17 @@
                         <input type="hidden" name="_method" value="POST"/>
                         <div class="form-group">
                             <label for="nombre">Nombre</label>
-                            <h:inputText class="form-control" id="nombre" value="#{modelo.usuario.nombre}" p:placeholder="Escribe el nombre" required="true"/>
+                            <h:inputText class="form-control" id="nombre" value="#{modelo.usuario.username}" p:placeholder="Escribe el nombre" required="true"/>
                             <label for="apellidos">Apellidos</label>
-                            <h:inputText class="form-control" id="apellidos" value="#{modelo.usuario.apellidos}" p:placeholder="Escribe los apellidos" required="true"/>
+                            <h:inputText class="form-control" id="apellidos" value="" p:placeholder="Escribe los apellidos" required="true"/>
                             <label for="entidad">Entidad</label>
-                            <h:inputText class="form-control" id="entidad" value="#{modelo.usuario.entidad}" p:placeholder="Escribe la entidad" required="true"/>
+                            <h:inputText class="form-control" id="entidad" value="" p:placeholder="Escribe la entidad" required="true"/>
                             <label for="correo">Correo electrónico</label>
-                            <h:inputText p:type="email" class="form-control" id="correo" value="#{modelo.usuario.correo}" p:placeholder="Escribe el correo electrónico" required="true"/>
+                            <h:inputText p:type="email" class="form-control" id="correo" value="" p:placeholder="Escribe el correo electrónico" required="true"/>
                             <label for="contrasena">Contraseña</label>
-                            <h:inputSecret class="form-control" id="contrasena" value="#{modelo.usuario.contrasena}" p:placeholder="Escribe la contraseña" required="true"/>
+                            <h:inputSecret class="form-control" id="contrasena" value="" p:placeholder="Escribe la contraseña" required="true"/>
                             <label for="rol">Rol</label>
-                            <h:selectOneListbox id="rol" value="#{modelo.usuario.rol}" size="4" class="form-control" required="true">
+                            <h:selectOneListbox id="rol" value="" size="4" class="form-control" required="true">
                                 <f:selectItems value="#{modelo.rolValues}" />
                             </h:selectOneListbox>
                         </div>
