@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="Content-type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Formulario solicitante</title>
+        <!-- BootStrap -->
+        <link rel="stylesheet" href="css/bootstrap.min.css"/>
+        <script src="js/jquery-2.1.0.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </h:head>
+    <h:body>
+        <div class="container-fluid">
+            <div class="page-header text-center">
+                <h1>Formulario de solicitud</h1>
+            </div>
+            <div class="row center-block">
+                <div class="col-xs-12 col-md-3 col-md-offset-2">
+                    <div class="page-header">
+                        <h3>Campos de solicitud</h3>
+                    </div>
+                    <h:form p:method="post">
+                        <input type="hidden" name="_method" value="POST"/>
+                        <div class="form-group">
+                            <label for="name">Nombre</label>
+                            <h:inputText class="form-control" id="name" p:placeholder="Nombre" required="true"/>
+                            <label for="surname">Apellidos</label>
+                            <h:inputText class="form-control" id="surname" p:placeholder="Apellidos" required="true"/>
+                            <label for="birthday">Fecha de nacimiento</label>
+                            <h:inputText p:type="date" class="form-control" id="birthday" p:placeholder="dd-mm-aaaa" required="true">
+                            	<f:convertDateTime pattern="dd-MM-yyyy" />
+                            </h:inputText>
+                            <label for="ID">ID</label>
+                            <h:inputText class="form-control" id="ID" p:placeholder="DNI/NIF" required="true"/>
+                            <label for="nationality">Nacionalidad</label>
+                            <h:inputText class="form-control" id="nationality" p:placeholder="Nacionalidad" required="true"/>
+                            <label for="mail">Correo electrónico</label>
+                            <h:inputText p:type="email" class="form-control" id="mail" p:placeholder="Correo electrónico" required="true"/>
+                            <label for="address">Dirección</label>
+                            <h:inputText class="form-control" id="address" p:placeholder="Dirección" required="true"/>
+                            <label for="city">Población</label>
+                            <h:inputText  class="form-control" id="city" p:placeholder="Población" required="true"/>
+                            <label for="province">Provincia</label>
+                            <h:inputText  class="form-control" id="province" p:placeholder="Provincia" required="true"/>
+                            <label for="phone">Teléfono fijo</label>
+                            <h:inputText p:type="tel" class="form-control" id="phone" p:placeholder="Teléfono fijo" required="true"/>
+                            <label for="mobille">Teléfono móvil</label>
+                            <h:inputText p:type="tel" class="form-control" id="mobille" p:placeholder="Teléfono móvil" required="true"/>
+                            <label for="university">Universidad</label>
+                            <h:inputText class="form-control" id="university" p:placeholder="Universidad" required="true"/>
+                            <label for="college">Centro</label>
+                            <h:inputText class="form-control" id="college" p:placeholder="Escuela o facultad" required="true"/>
+                            <label>Función</label>
+                            <h:selectOneListbox id="function" size="4" class="form-control" required="true">
+                            	<f:selectItems value="#{modelo.functionValues}" />
+                            </h:selectOneListbox>
+                        </div>
+                        <div class="form-group text-left">
+                            <h:commandButton type="reset" value="Borrar formulario" class="btn btn-default btn-lg"/>
+                            <h:commandButton type="submit" value="Enviar solicitud" class="btn btn-default btn-lg"/>
+                        </div>
+                    </form>
+                </div>
+                <hr class="visible-xs"/>
+            </div>
+        </div>
+    </h:body>
+</html>
