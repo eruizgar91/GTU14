@@ -59,7 +59,7 @@ public class Modelo implements Serializable {
         }
         return items;
     }
-    public SelectItem[] getFuncionValues() {
+    public SelectItem[] getFunctionValues() {
         SelectItem[] items = new SelectItem[Tipos.funcion.values().length];
         int i = 0;
         for (Tipos.funcion g : Tipos.funcion.values()) {
