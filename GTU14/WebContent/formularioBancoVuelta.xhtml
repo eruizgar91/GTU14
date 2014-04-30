@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="Content-type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Formulario administrador</title>
+        <!-- BootStrap -->
+        <link rel="stylesheet" href="css/bootstrap.min.css"/>
+        <script src="js/jquery-2.1.0.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </h:head>
+<h:body>
+  <div class="container-fluid">
+  <div class="page-header text-center">
+    <h1>Formulario de banco</h1>
+  </div>
+  <div class="row center-block">
+    <div class="col-xs-12 col-md-3 col-md-offset-2">
+          <div class="page-header">
+            <h3>Campos banco</h3>
+         </div>
+      <h:form method="post" action="#">
+          <input type="hidden" name="_method" value="post">
+          <div class="form-group">
+              <label for="bancoID">Banco</label>
+              <h:inputText type="text" class="form-control" name="banco" value="#{modelo.banco.name}" id="bancoID" p:placeholder="Escribe el banco" readonly = "readonly"/>
+              <label for="cifbancoID">CIF Banco</label>
+              <h:inputText type="text" class="form-control" name="cifbanco" value="#{modelo.banco.cif_bank}" id="cifbancoID" p:placeholder="Escribe el CIF del banco" readonly = "readonly"/>
+              <label for="numtarjetaID">Número de tarjeta</label>
+              <h:inputText type="text" class="form-control" name="numtarjeta" value="#{modelo.solicitud.cardnumber}" id="numtarjetaID" p:placeholder="Escribe el número de tarjeta" readonly = "readonly"/>
+              <label for="numcuentaID">Número de cuenta</label>
+              <h:inputText type="text" class="form-control" name="numcuenta" value="#{modelo.solicitud.accountnumber}" id="numcuentaID" p:placeholder="Escribe el número de cuenta" readonly = "readonly"/>
+              <label for="estampadoraID">Estampadora</label>
+              <h:inputText type="text" class="form-control" name="estampadora" value="#{modelo.banco.stamping}" id="estampadoraID" p:placeholder="Escribe la estampadora" readonly = "readonly"/>
+          </div>
+          
+      <div class="page-header">
+        <h3>Campos universidad</h3>
+      </div>
+          
+          <div class="form-group">
+              <label for="university">Universidad</label>
+              <h:inputText type="text" class="form-control" name="university" value="#{modelo.universidad.name}" id="university" p:placeholder="Universidad" readonly = "readonly"/>
+              <label for="cifuniversidadID">CIF Universidad</label>
+              <h:inputText type="text" class="form-control" name="cifuniversidad" value="#{modelo.universidad.cif_university}" id="cifuniversidadID" p:placeholder="Escribe el CIF de la universidad" readonly = "readonly"/>
+              <label for="idacademicoID">ID Academico</label>
+              <h:inputText type="text" class="form-control" name="idacademico" value="" id="idacademicoID" p:placeholder="Escribe el ID academico" readonly = "readonly"/>
+	      
+          </div>
+      <div class="page-header">
+        <h3>Campos solicitante</h3>
+      </div>
+          <div class="form-group">
+              <label for="name">Nombre</label>
+              <h:inputText type="text" class="form-control" name="name" value="#{modelo.solicitante.firstname}" id="name" p:placeholder="Nombre" readonly = "readonly"/>
+              <label for="surname">Apellidos</label>
+              <h:inputText type="text" class="form-control" name="surname" value="#{modelo.solicitante.lastname}" id="surname" p:placeholder="Apellidos" readonly = "readonly"/>
+              <label for="birthday">Fecha de nacimiento</label>
+              <h:inputText type="date" class="form-control" value="#{modelo.solicitante.borndate}" name="birthday" id="birthday" readonly = "readonly"/>
+              <label for="ID">ID</label>
+              <h:inputText type="text" class="form-control" value="#{modelo.solicitante.cif_applicant}" name="ID" id="ID" p:placeholder="DNI/NIF" readonly = "readonly"/>
+              <label for="nationality">Nacionalidad</label>
+              <h:inputText type="text" class="form-control" value="#{modelo.solicitante.nacionality}" name="nationality" id="nationality" p:placeholder="Nacionalidad" readonly = "readonly"/>
+              <label for="mail">Correo electronico</label>
+              <h:inputText type="email" class="form-control" value="#{modelo.solicitante.email}" name="mail" id="mail" p:placeholder="Correo electronico" readonly = "readonly"/>
+              <label for="address">Direccion</label>
+              <h:inputText type="text" class="form-control" name="address" value="#{modelo.solicitante.address}" id="address" p:placeholder="Direccion" readonly = "readonly"/>
+              <label for="city">Poblacion</label>
+              <h:inputText type="text" class="form-control" name="city" value="#{modelo.solicitante.population}" id="city" p:placeholder="Poblacion" readonly = "readonly"/>
+              <label for="province">Provincia</label>
+              <h:inputText type="text" class="form-control" name="province" value="#{modelo.solicitante.province}" id="province" p:placeholder="Provincia" readonly = "readonly"/>
+              <label for="phone">Telefono</label>
+              <h:inputText type="tel" class="form-control" name="phone" value="#{modelo.solicitante.telephone}" id="phone" p:placeholder="Telefono fijo" readonly = "readonly"/>
+              <label for="college">Centro</label>
+              <h:inputText type="text" class="form-control" name="college" value="#{modelo.solicitante.university}" id="college" p:placeholder="Escuela o facultad" readonly = "readonly"/>
+              <label>Funcion</label>
+              <h:selectOneListbox name="function" size="4" value="#{modelo.solicitante.role}" class="form-control" disabled = "disabled">
+                <option value="ALUMNO">Alumno</option>
+                <option value="DOCENTE">Docente</option>
+                <option value="PAS">PAS</option>
+                <option value="INVESTIGADOR">Investigador</option>
+              </h:selectOneListbox>
+          </div>
+          <div class="form-group text-left">
+              <h:commandButton type="submit" class="btn btn-default btn-lg text-left">Validar Tarjeta</h:commandButton>
+         </div> 
+         </input> 
+       </h:form>
+    </div>
+     
+
+
+    <hr class="visible-xs"/>
+    <div class="col-xs-12 col-md-3 col-md-offset-2">
+      <div class="page-header">
+        <h3>Tarjeta incorrecta</h3>
+      </div>
+       <h:form method="post" action="#">
+	<div class="form-group text-left">
+		<label for="motivoID">Motivo rechazo:</label>
+                <textarea name="comentarios" id="motivoID" rows="10" cols="30" class="btn btn-default btn-lg" placeholder="Escribe aquí motivo de rechazo"></textarea> 
+        </div>
+        <h:commandButton type="submit" class="btn btn-danger btn-sm">Rechazar tarjeta</h:commandButton>
+       </h:form>       
+    </div>
+  </div>
+</div>
+
+</h:body>
+</html>
