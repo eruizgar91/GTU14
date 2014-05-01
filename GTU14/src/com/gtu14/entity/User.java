@@ -3,6 +3,7 @@ package com.gtu14.entity;
 //package com.gtu14.entity;
 
 import java.io.Serializable;
+
 import javax.enterprise.context.SessionScoped;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -10,27 +11,38 @@ import javax.persistence.Table;
 
 @SessionScoped
 @Entity
-@Table(name="USERS")// USER no se puede usar 
+@Table(name="USER")// USER no se puede usar 
 public class User implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     private String username;
 	private String password;
 	private String email;
-    private int role; // 0  Universidad,1 Banco,2 Estampadora,3 Administrador
-    private long cif_general; // si role 3 entonces este campo va vacio
+	private String firstname;
+    private String lastname;
+	private int telephone;
+    private boolean admin; // 0  usuario 1 Administrador
+    private String cif; // si admin 1 entonces este campo va vacio, si no, se pone el cif de la entidad que va a gestionar(universidad,estampadora,banco)
 
     public User() {
     }
 
-	public User(String username, String password, String email, int role,
-			long cif_general) {
+	
+
+	public User(String username, String password, String email,
+			String firstname, String lastname, int telephone, boolean admin,
+			String cif) {
 		this.username = username;
 		this.password = password;
 		this.email = email;
-		this.role = role;
-		this.cif_general = cif_general;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.telephone = telephone;
+		this.admin = admin;
+		this.cif = cif;
 	}
+
+
 
 	public String getUsername() {
 		return username;
@@ -56,24 +68,53 @@ public class User implements Serializable {
 		this.email = email;
 	}
 
-	public int getRole() {
-		return role;
+	public boolean getAdmin() {
+		return admin;
 	}
 
-	public void setRole(int role) {
-		this.role = role;
+	public void setAdmin(boolean admin) {
+		this.admin= admin;
 	}
 
-	public long getCif_general() {
-		return cif_general;
+	public String getCif() {
+		return cif;
 	}
 
-	public void setCif_general(long cif_general) {
-		this.cif_general = cif_general;
+	public void setCif(String cif) {
+		this.cif= cif;
 	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+
+
+	public String getFirstname() {
+		return firstname;
+	}
+
+
+
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
+
+
+
+	public String getLastname() {
+		return lastname;
+	}
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+
+	public int getTelephone() {
+		return telephone;
+	}
+
+	public void setTelephone(int telephone) {
+		this.telephone = telephone;
 	}
 
     

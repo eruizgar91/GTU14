@@ -27,8 +27,11 @@ public class UserModel {
 		User newUser = userDAO.newUser(	user.getUsername(), 
 										user.getPassword(), 
 										user.getEmail(), 
-										(int) user.getRole(), 
-										(long) user.getCif_general());
+										user.getFirstname(),
+										user.getLastname(),
+										user.getTelephone(),
+										(boolean) user.getAdmin(), 
+										user.getCif());
 		if(newUser == null){
 			//TODO mostrar error "usuario ya existía"
 		}else{

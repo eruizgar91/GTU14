@@ -10,27 +10,27 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="FACULTY_UNIVERSITY")
- class Facultad implements Serializable {
+ class Faculty implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	@ManyToOne
 	@JoinColumn(name="cif_university")
-	private Universidad university;
+	private University university;
 	@Id
 	private String faculty;
-	public Facultad(){
+	public Faculty(){
 		
 	}
-	public Facultad(Universidad university, String faculty) {
+	public Faculty(University university, String faculty) {
 		this.university = university;
 		this.faculty = faculty;
 	}
-	public Universidad getUniversity() {
+	public University getUniversity() {
 		return university;
 	}
-	public void setUniversity(Universidad university) {
+	public void setUniversity(University university) {
 		this.university = university;
 	}
 	public String getFaculty() {

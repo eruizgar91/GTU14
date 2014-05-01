@@ -19,14 +19,17 @@ public class UserDAO {
 	 */
 	public User newUser(String username, 
 						String password, 
-						String email, 
-						int role,
-						long cif_general){
+						String email,
+						String firstname,
+					    String lastname,
+						int telephone,
+						boolean admin,
+						String cif){
 		//Vemos si existe
 		if(findUser(username) != null)
 			return null;
 		
-		User newUser = new User(username,password,email,role,cif_general);
+		User newUser = new User(username,password,email,firstname,lastname,telephone,admin,cif);
 		try{
 			em.persist(newUser);
 		}catch(Exception ex){

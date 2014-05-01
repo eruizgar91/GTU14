@@ -2,43 +2,44 @@ package com.gtu14.entity;
 
 import java.io.Serializable;
 import java.lang.String;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
- * Entity implementation class for Entity: Banco
+ * Entity implementation class for Entity: Estampadora
  *
  */
 @Entity
-@Table(name="BANK")
-public class Banco implements Serializable {
+@Table(name="STAMPING")
+public class Stamping implements Serializable {
 
-    @Id
-	private long cif_bank;
-    private String name;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Id
+	@NotNull
+	private String cif_stamping;
+	private String name;
 	private String email;
 	private String address;
 	private int telephone;
-	@ManyToOne
-	@JoinColumn(name="cif_stamping")
-	private Estampadora stamping;
-	private static final long serialVersionUID = 1L;
-	public Banco(){
-		
-	}
-	public Banco(long cif_bank, String name, String email, String address,
-			int telephone, Estampadora stamping) {
-		this.cif_bank = cif_bank;
+	
+	public Stamping(){}
+	public Stamping(String cif_stamping, String name, String email, String address,
+			int telephone) {
+		this.cif_stamping = cif_stamping;
 		this.name = name;
 		this.email = email;
 		this.address = address;
 		this.telephone = telephone;
-		this.stamping = stamping;
 	}
-	public long getCif_bank() {
-		return cif_bank;
+	public String getCif_stamping() {
+		return cif_stamping;
 	}
-	public void setCif_bank(long cif_bank) {
-		this.cif_bank = cif_bank;
+	public void setCif_stamping(String cif_stamping) {
+		this.cif_stamping = cif_stamping;
 	}
 	public String getName() {
 		return name;
@@ -64,14 +65,10 @@ public class Banco implements Serializable {
 	public void setTelephone(int telephone) {
 		this.telephone = telephone;
 	}
-	public Estampadora getStamping() {
-		return stamping;
-	}
-	public void setStamping(Estampadora stamping) {
-		this.stamping = stamping;
-	}
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-
+	
 }
+
+	

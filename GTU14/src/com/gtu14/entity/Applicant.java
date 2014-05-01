@@ -10,13 +10,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 @Entity
 @Table(name="APPLICANT")
-public class Solicitante implements Serializable{
+public class Applicant implements Serializable{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
-	private long cif_applicant;
+	private String cif_applicant;
     private String firstname;
     private String lastname;
     private int typecif; //0 dni 1 passaporte 
@@ -32,14 +32,14 @@ public class Solicitante implements Serializable{
 	@JoinColumn(name="cif_university")
 	
 	
-	private Universidad university;
-	public Solicitante(){
+	private University university;
+	public Applicant(){
 		
 	}
-	public Solicitante(long cif_applicant, String firstname, String lastname,
+	public Applicant(String cif_applicant, String firstname, String lastname,
 			int typecif, Date borndate, String nacionality, String email,
 			String address, String population, String province, String role,
-			int telephone, Universidad university) {
+			int telephone, University university) {
 		this.cif_applicant = cif_applicant;
 		this.firstname = firstname;
 		this.lastname = lastname;
@@ -54,10 +54,10 @@ public class Solicitante implements Serializable{
 		this.telephone = telephone;
 		this.university = university;
 	}
-	public long getCif_applicant() {
+	public String getCif_applicant() {
 		return cif_applicant;
 	}
-	public void setCif_applicant(long cif_applicant) {
+	public void setCif_applicant(String cif_applicant) {
 		this.cif_applicant = cif_applicant;
 	}
 	public String getFirstname() {
@@ -126,10 +126,10 @@ public class Solicitante implements Serializable{
 	public void setTelephone(int telephone) {
 		this.telephone = telephone;
 	}
-	public Universidad getUniversity() {
+	public University getUniversity() {
 		return university;
 	}
-	public void setUniversity(Universidad university) {
+	public void setUniversity(University university) {
 		this.university = university;
 	}
 	

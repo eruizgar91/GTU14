@@ -2,45 +2,43 @@ package com.gtu14.entity;
 
 import java.io.Serializable;
 import java.lang.String;
-
 import javax.persistence.*;
 
 /**
- * Entity implementation class for Entity: Universidad
+ * Entity implementation class for Entity: Banco
  *
  */
 @Entity
-@Table(name="UNIVERSITY")
-public class Universidad implements Serializable {
+@Table(name="BANK")
+public class Bank implements Serializable {
 
-	@Id
-	private long cif_university;
+    @Id
+	private String cif_bank;
     private String name;
 	private String email;
 	private String address;
 	private int telephone;
 	@ManyToOne
-	@JoinColumn(name="cif_bank")
-	private Banco bank;
+	@JoinColumn(name="cif_stamping")
+	private Stamping stamping;
 	private static final long serialVersionUID = 1L;
-	public Universidad(){
+	public Bank(){
 		
 	}
-	public Universidad(long cif_university, String name, String email,
-			String address, int telephone, Banco bank) {
-		this.cif_university = cif_university;
+	public Bank(String cif_bank, String name, String email, String address,
+			int telephone, Stamping stamping) {
+		this.cif_bank = cif_bank;
 		this.name = name;
 		this.email = email;
 		this.address = address;
 		this.telephone = telephone;
-		this.bank = bank;
+		this.stamping = stamping;
 	}
-	
-	public long getCif_university() {
-		return cif_university;
+	public String getCif_bank() {
+		return cif_bank;
 	}
-	public void setCif_university(long cif_university) {
-		this.cif_university = cif_university;
+	public void setCif_bank(String cif_bank) {
+		this.cif_bank = cif_bank;
 	}
 	public String getName() {
 		return name;
@@ -66,15 +64,14 @@ public class Universidad implements Serializable {
 	public void setTelephone(int telephone) {
 		this.telephone = telephone;
 	}
-	public Banco getBank() {
-		return bank;
+	public Stamping getStamping() {
+		return stamping;
 	}
-	public void setBank(Banco bank) {
-		this.bank = bank;
+	public void setStamping(Stamping stamping) {
+		this.stamping = stamping;
 	}
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
-}	
 
+}

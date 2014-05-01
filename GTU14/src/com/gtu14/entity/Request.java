@@ -23,35 +23,35 @@ import javax.persistence.Table;
 @RequestScoped
 @Entity
 @Table(name="REQUEST")
-public class Solicitud implements Serializable {
+public class Request implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id_request;
     @ManyToOne
 	@JoinColumn(name="cif_applicant")
-	private Solicitante applicant;
+	private Applicant applicant;
     @ManyToOne
 	@JoinColumn(name="cif_bank")
-	private Banco bank;
+	private Bank bank;
     @ManyToOne
 	@JoinColumn(name="cif_university")
-	private Universidad university;
+	private University university;
     @ManyToOne
 	@JoinColumn(name="cif_stamping")
-	private Estampadora stamping;
+	private Stamping stamping;
     private Date requestdate;
     private String state;
     private String comment;
     private long cardnumber;
     private String accountnumber;
     
-    public Solicitud(){
+    public Request(){
     	
     }
 
-    public Solicitud(Long id_request, Solicitante applicant, Banco bank,
-			Universidad university, Estampadora stamping, Date requestdate,
+    public Request(Long id_request, Applicant applicant, Bank bank,
+			University university, Stamping stamping, Date requestdate,
 			String state, String comment, long cardnumber, String accountnumber) {
 		this.id_request = id_request;
 		this.applicant = applicant;
@@ -73,35 +73,35 @@ public class Solicitud implements Serializable {
 		this.id_request = id_request;
 	}
 
-	public Solicitante getApplicant() {
+	public Applicant getApplicant() {
 		return applicant;
 	}
 
-	public void setApplicant(Solicitante applicant) {
+	public void setApplicant(Applicant applicant) {
 		this.applicant = applicant;
 	}
 
-	public Banco getBank() {
+	public Bank getBank() {
 		return bank;
 	}
 
-	public void setBank(Banco bank) {
+	public void setBank(Bank bank) {
 		this.bank = bank;
 	}
 
-	public Universidad getUniversity() {
+	public University getUniversity() {
 		return university;
 	}
 
-	public void setUniversity(Universidad university) {
+	public void setUniversity(University university) {
 		this.university = university;
 	}
 
-	public Estampadora getStamping() {
+	public Stamping getStamping() {
 		return stamping;
 	}
 
-	public void setStamping(Estampadora stamping) {
+	public void setStamping(Stamping stamping) {
 		this.stamping = stamping;
 	}
 
@@ -167,10 +167,10 @@ public class Solicitud implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Solicitud)) {
+        if (!(object instanceof Request)) {
             return false;
         }
-        Solicitud other = (Solicitud) object;
+        Request other = (Request) object;
         if ((this.id_request == null && other.id_request != null) || (this.id_request != null && !this.id_request.equals(other.id_request))) {
             return false;
         }
