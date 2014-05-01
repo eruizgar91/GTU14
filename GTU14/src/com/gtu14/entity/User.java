@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @SessionScoped
 @Entity
 @Table(name="USERS")// USER no se puede usar 
-public class Usuario implements Serializable {
+public class User implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     private String username;
@@ -20,10 +20,10 @@ public class Usuario implements Serializable {
     private int role; // 0  Universidad,1 Banco,2 Estampadora,3 Administrador
     private long cif_general; // si role 3 entonces este campo va vacio
 
-    public Usuario() {
+    public User() {
     }
 
-	public Usuario(String username, String password, String email, int role,
+	public User(String username, String password, String email, int role,
 			long cif_general) {
 		this.username = username;
 		this.password = password;

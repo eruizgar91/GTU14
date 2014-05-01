@@ -27,23 +27,24 @@
                     <h:form p:method="post">
                         <input type="hidden" name="_method" value="POST"/>
                         <div class="form-group">
-                            <label for="nombre">Nombre</label>
-                            <h:inputText class="form-control" id="nombre" value="#{modelo.usuario.username}" p:placeholder="Escribe el nombre" required="true"/>
-                            <label for="apellidos">Apellidos</label>
-                            <h:inputText class="form-control" id="apellidos" value="" p:placeholder="Escribe los apellidos" required="true"/>
-                            <label for="entidad">Entidad</label>
-                            <h:inputText class="form-control" id="entidad" value="" p:placeholder="Escribe la entidad" required="true"/>
-                            <label for="correo">Correo electrónico</label>
-                            <h:inputText p:type="email" class="form-control" id="correo" value="" p:placeholder="Escribe el correo electrónico" required="true"/>
-                            <label for="contrasena">Contraseña</label>
-                            <h:inputSecret class="form-control" id="contrasena" value="" p:placeholder="Escribe la contraseña" required="true"/>
-                            <label for="rol">Rol</label>
-                            <h:selectOneListbox id="rol" value="" size="4" class="form-control" required="true">
-                                <f:selectItems value="#{modelo.rolValues}" />
-                            </h:selectOneListbox>
+                            <label for="username">Nombre de usuario</label>
+                            <h:inputText class="form-control" id="username" value="#{userModel.user.username}" p:placeholder="Escribe el nombre de usuario" required="true"/>
+                            <label for="cif">CIF</label>
+                            <h:inputText class="form-control" id="cif" value="#{userModel.user.cif_general}" p:placeholder="Escribe el cif de la empresa" required="true"/>
+                            <label for="email">Correo electrónico</label>
+                            <h:inputText p:type="email" class="form-control" id="email" value="#{userModel.user.email}" p:placeholder="Escribe el correo electrónico" required="true"/>
+                            <label for="password">Contraseña</label>
+                            <h:inputSecret class="form-control" id="password" value="#{userModel.user.password}" p:placeholder="Escribe la contraseña" required="true"/>
+                            <label for="role">Rol</label>
+                            <h:selectOneListbox id="role" size="4" class="form-control" required="true" value="#{userModel.user.role}">
+							   	<f:selectItem itemValue="0" itemLabel="Universidad" />
+							   	<f:selectItem itemValue="1" itemLabel="Banco" />
+							   	<f:selectItem itemValue="2" itemLabel="Estampadora" />
+							   	<f:selectItem itemValue="3" itemLabel="Administrador" />
+							</h:selectOneListbox>
                         </div>
                         <div class="form-group text-left">
-                            <h:commandButton type="submit" value="Nuevo usuario" class="btn btn-default btn-lg"/>
+                            <h:commandButton type="submit" value="Nuevo usuario" action="#{userModel.submitUser}" class="btn btn-default btn-lg" render="userDescriptionWrapper"/>
                         </div>
                     </h:form>
                 </div>
@@ -56,24 +57,12 @@
                         <input type="hidden" name="_method" value="DELETE"/>
                         <div class="form-group">
                             <label for="IdUsuario">ID del usuario</label>
-                            <h:inputText class="form-control" id="IdUsuario" p:placeholder="Escribe el identificador del usuario" required="true"/>
+                            <h:inputText class="form-control" id="IdUsuario" value="#{userModel.user.username}" p:placeholder="Escribe el identificador del usuario" required="true"/>
                         </div>
                         <div class="form-group text-right">
-                            <h:commandButton type="submit" value="Eliminar usuario" class="btn btn-danger btn-xs"/>
+                            <h:commandButton type="submit" value="Eliminar usuario" action="#{userModel.deleteUser}" class="btn btn-danger btn-xs"/>
                         </div>
                     </h:form>
-                    <h:panelGroup rendered="#{request.getParameter('_method') == 'POST'}">
-                        <hr/><p><strong>Añadido usuario con éxito</strong></p>
-                        <p>Nombre: #{modelo.usuario.nombre}</p>
-                        <p>Apellidos: #{modelo.usuario.entidad}</p>
-                        <p>Entidad #{modelo.usuario.apellidos}</p>
-                        <p>Correo electrónico: #{modelo.usuario.correo}</p>
-                        <p>Contraseña: #{modelo.usuario.contrasena}</p>
-                        <p>Rol: #{modelo.usuario.rol}</p>
-                    </h:panelGroup>
-                    <h:panelGroup rendered="#{request.getParameter('_method') == 'DELETE'}">
-                        <hr/><p><strong>Eliminado usuario con éxito</strong></p>
-                    </h:panelGroup>
                 </div>
             </div>
         </div>
