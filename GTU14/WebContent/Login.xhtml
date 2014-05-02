@@ -1,12 +1,56 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<!DOCTYPE html>
+<html lang="es"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
     <h:head>
-        <title>Login</title>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="Content-type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Formulario login</title>
+        <!-- BootStrap -->
+        <link rel="stylesheet" href="css/bootstrap.min.css"/>
+        <script src="js/jquery-2.1.0.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
     </h:head>
     <h:body>
-        Vista dinámica de login.
+        <div class="container-fluid">
+            <div class="page-header text-left">
+                <h1>Formulario de login</h1>
+            </div>
+            <div class="row center-block">
+            	<div class="col-xs-12 col-md-3">
+                    <h:form p:method="post">
+                    	<div class="form-group">
+	                    	<!-- Username userId -->
+							<h:outputLabel for="username" value="Nombre de usuario" />
+							<h:inputText class="form-control" id="username" value="#{accessControlModel.user.username}"
+								required="true" p:placeholder="Introduzca su usuario" requiredMessage="Es necesario el nombre de usuario.">
+							</h:inputText>
+							<h:message for="username" />
+							<br/>
+							<!-- Customer password -->
+							<h:outputLabel for="password" value="Contraseña de usuario" />
+							<h:inputSecret class="form-control" id="password"
+								value="#{accessControlModel.user.password}" required="true"
+								p:placeholder="Introduzca su suntraseña"
+								requiredMessage="Es necesaria la contraseña del usuario.">
+							</h:inputSecret>
+							<br/>
+							<h:message for="password" />
+						</div>
+						<div class="form-group tex-left">	
+							<h:commandButton	class="btn btn-default btn-lg"
+												value="Entrar"
+												action="#{accessControlModel.submitLogin}">
+							</h:commandButton>
+							<br/><br/>
+							<h:outputLabel binding="#{accessControlModel.wrongPassword}" for="password" value="El usuario no existe o ha introducido una contraseña inválida." rendered="false" />
+						</div>
+                    </h:form>
+                 </div>
+            </div>
+        </div>
     </h:body>
 </html>
-

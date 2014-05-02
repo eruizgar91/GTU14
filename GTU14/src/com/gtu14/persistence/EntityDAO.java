@@ -195,5 +195,4 @@ public class EntityDAO { //Entidad = Universidad || Banco || Estampadora
 			return entityRole.STAMPING;
 		return null;
 	}
-	
 }

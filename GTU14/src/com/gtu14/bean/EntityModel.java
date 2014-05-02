@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.component.UIOutput;
 import javax.inject.Named;
 
 import com.gtu14.entity.Bank;
@@ -29,6 +30,9 @@ public class EntityModel implements Serializable{ //Entidad = Universidad || Ban
 	@EJB
 	private EntityDAO entityDao;
 	
+	private UIOutput createEntityMsg;
+	private UIOutput deleteEntityMsg;
+	
 	private entityRole entityRole;
 	private String entityname;
 	private String name;
@@ -39,6 +43,18 @@ public class EntityModel implements Serializable{ //Entidad = Universidad || Ban
 	private String address;
 	private int telephone;
 	
+	public UIOutput getCreateEntityMsg() {
+		return createEntityMsg;
+	}
+	public void setCreateEntityMsg(UIOutput createEntityMsg) {
+		this.createEntityMsg = createEntityMsg;
+	}
+	public UIOutput getDeleteEntityMsg() {
+		return deleteEntityMsg;
+	}
+	public void setDeleteEntityMsg(UIOutput deleteEntityMsg) {
+		this.deleteEntityMsg = deleteEntityMsg;
+	}
 	public String getEntityname() {
 		return entityname;
 	}
@@ -98,18 +114,51 @@ public class EntityModel implements Serializable{ //Entidad = Universidad || Ban
 	 * Da de alta una entidad universidad, banco o estampadora con datos del .xhtml
 	 */
 	public String submitEntity(){
+		createEntityMsg.setRendered(true);
+		
+		//Vemos si existe ya una entidad con ese cif
+		com.gtu14.bean.EntityModel.entityRole existingEntityRole = entityDao.getEntityRole(this.cif);
+		if(existingEntityRole != null){
+			switch (existingEntityRole) {
+			case UNIVERSITY:
+				createEntityMsg.setValue("[ERROR] Ya existe una universidad con ese cif.");
+				break;
+			case BANK:
+				createEntityMsg.setValue("[ERROR] Ya existe un banco con ese cif.");
+				break;
+			case STAMPING:
+				createEntityMsg.setValue("[ERROR] Ya existe una estampadora con ese cif.");
+				break;
+			}
+			return null;
+		}
+		
+		//Si no, la creamos.
 		switch (this.entityRole) {
 		case UNIVERSITY:
-			submitUniversity();
+			if(submitUniversity() != null){
+				createEntityMsg.setValue("[OK] Universidad creada.");
+			}else{
+				createEntityMsg.setValue("[ERROR] Ya existe la universidad.");
+			}
 			break;
 		case BANK:
-			submitBank();
+			if(submitBank() != null){
+				createEntityMsg.setValue("[OK] Banco creado.");
+			}else{
+				createEntityMsg.setValue("[ERROR] Ya existe el banco.");
+			}
 			break;
 		case STAMPING:
-			submitStamping();
+			if(submitStamping() != null){
+				createEntityMsg.setValue("[OK] Estampadora creada.");
+			}else{
+				createEntityMsg.setValue("[ERROR] Ya existe la estampadora.");
+			}
 			break;
 		default:
-			break; //Se ha enviado un valor inválido. No hacer nada.
+			createEntityMsg.setValue("[ERROR] Información inválida.");
+			break; //No hacer nada.
 		}
 		return null;
 	}
@@ -117,20 +166,26 @@ public class EntityModel implements Serializable{ //Entidad = Universidad || Ban
 	 * Da de baja una entidad universidad, banco o estampadora con dado el cif en el .xhtml
 	 */
 	public String deleteEntity(){
+		deleteEntityMsg.setRendered(true);
 		//Vemos si existe
 		entityRole role = entityDao.getEntityRole(this.cif);
-		if(role == null)
-			return null; //No existe.
+		if(role == null){
+			deleteEntityMsg.setValue("[ERROR] No existe la entidad.");
+			return null;
+		}
 		
 		switch (entityDao.getEntityRole(this.cif)) {
 		case UNIVERSITY:
-			entityDao.deleteUniversity(this.cif);
+			if(entityDao.deleteUniversity(this.cif) != null)
+				deleteEntityMsg.setValue("[OK] Universidad borrada.");
 			break;
 		case BANK:
-			entityDao.deleteBank(this.cif);
+			if(entityDao.deleteBank(this.cif) != null)
+				deleteEntityMsg.setValue("[OK] Banco borrado.");
 			break;
 		case STAMPING:
-			entityDao.deleteStamping(this.cif);
+			if(entityDao.deleteStamping(this.cif) != null)
+				deleteEntityMsg.setValue("[OK] Estampadora borrada.");
 			break;
 		}
 		return null;

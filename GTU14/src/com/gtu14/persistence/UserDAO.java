@@ -56,12 +56,28 @@ public class UserDAO {
 		return userTmp;
 	}
 	/**
+	 * Valida que el username y la password sean correctos.
+	 * 
+	 * @param 	username	Nombre del usuario.
+	 * @param 	password	Contraseá del usuario.
+	 * @return	validatedUser	Usuario validado o null si es incorrecto.
+	 */
+	public User validateUser(String username, String password){
+		User validatedUser = findUser(username);
+		if(validatedUser == null)
+			return null; //No existe el usuario
+		if(!validatedUser.getPassword().equals(password))
+			return null; //Password incorrecto
+		return validatedUser;
+	}
+	
+	/**
 	 * Busca un usuario de la base de datos.
 	 * 
 	 * @param 	username	Nombre del usuario.
 	 * @return	resultUser	Usuario encontrado o null.
 	 */
-	public User findUser(String username){
+	private User findUser(String username){
 		try{
 			User resultUser = em.find(User.class, username);
 			return resultUser;
