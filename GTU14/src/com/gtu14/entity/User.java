@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 @SessionScoped
 @Entity
-@Table(name="USER")// USER no se puede usar 
+@Table(name="USERS")// USER no se puede usar 
 public class User implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id

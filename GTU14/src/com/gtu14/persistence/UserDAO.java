@@ -22,10 +22,10 @@ public class UserDAO {
 						String email,
 						String firstname,
 					    String lastname,
-						int telephone,
+					    int telephone,
 						boolean admin,
 						String cif){
-		//Vemos si existe
+		//Vemos si existe el usuario
 		if(findUser(username) != null)
 			return null;
 		
@@ -33,12 +33,12 @@ public class UserDAO {
 		try{
 			em.persist(newUser);
 		}catch(Exception ex){
-			return null; //Ya existe ese usuario
+			return null;
 		}
 		return newUser;
 	}
 	/**
-	 * Elimina un usuario de la base de datos y su entidad correspondiente.
+	 * Elimina un usuario de la base de datos.
 	 * 
 	 * @param 	username	Nombre del usuario.
 	 * @return	userTmp		Usuario borrado o null si no existía antes.
