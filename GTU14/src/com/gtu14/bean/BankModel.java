@@ -51,9 +51,7 @@ public class BankModel implements Serializable{ //Entidad = Universidad || Banco
 				request.getApplicant().getCif_applicant());
 		return ("index");
 	}
-	/**
-	 * Da de baja una entidad universidad, banco o estampadora con dado el cif en el .xhtml
-	 */
+	
 	
 	public String cancelRequest(){
 		bankDAO.backRequest(request.getApplicant().getCif_applicant(), request.getComment());

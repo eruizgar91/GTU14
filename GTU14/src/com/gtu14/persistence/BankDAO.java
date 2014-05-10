@@ -20,7 +20,7 @@ import com.gtu14.entity.Request;
  *
  */
 @Stateful
-public class BankDAO { //Entidad = Universidad || Banco || Estampadora
+public class BankDAO { 
 	@PersistenceContext
 	private EntityManager em;
 	
