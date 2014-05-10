@@ -45,15 +45,19 @@ public class BankModel implements Serializable{ //Entidad = Universidad || Banco
 	/**
 	 * Da de alta una entidad universidad, banco o estampadora con datos del .xhtml
 	 */
-	public void submitRequest(){
+	public String submitRequest(){
 		bankDAO.sendRequest(request.getBank().getName(), request.getBank().getCif_bank(),
 				request.getCardnumber(), request.getAccountnumber(), request.getBank().getStamping(),
 				request.getApplicant().getCif_applicant());
+		return ("index");
 	}
 	/**
 	 * Da de baja una entidad universidad, banco o estampadora con dado el cif en el .xhtml
 	 */
 	
-	
+	public String cancelRequest(){
+		bankDAO.backRequest(request.getApplicant().getCif_applicant(), request.getComment());
+		return ("index");
+	}
 	
 }

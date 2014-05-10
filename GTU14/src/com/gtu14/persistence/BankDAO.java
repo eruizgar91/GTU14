@@ -37,4 +37,15 @@ public class BankDAO { //Entidad = Universidad || Banco || Estampadora
 		}
 	}
 	
+	public void backRequest(String cif_applicant, String comment){
+		try{
+			Request request = em.find(Request.class, cif_applicant);
+			request.setComment(comment);
+			request.setState("Cancelada en el banco");
+			em.merge(request);
+		} catch (Exception ex) {
+			throw new EJBException(ex.getMessage());
+		}
+	}
+	
 }
