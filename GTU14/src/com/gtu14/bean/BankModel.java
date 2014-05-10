@@ -58,4 +58,9 @@ public class BankModel implements Serializable{ //Entidad = Universidad || Banco
 		return ("index");
 	}
 	
+	public String validateRequest(){
+		bankDAO.validateRequest(request.getApplicant().getCif_applicant());
+		return ("index");
+	}
+	
 }

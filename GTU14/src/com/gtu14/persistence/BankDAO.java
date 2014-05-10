@@ -48,4 +48,13 @@ public class BankDAO {
 		}
 	}
 	
+	public void validateRequest(String cif_applicant){
+		try{
+			Request request = em.find(Request.class, cif_applicant);
+			request.setState("Entregada desde el banco a la universidad");
+			em.merge(request);
+		} catch (Exception ex) {
+			throw new EJBException(ex.getMessage());
+		}
+	}
 }
