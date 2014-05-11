@@ -4,15 +4,12 @@ import java.io.Serializable;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
-import javax.faces.component.UIOutput;
+//import javax.faces.component.UIOutput;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import com.gtu14.entity.Bank;
-import com.gtu14.entity.Stamping;
-import com.gtu14.entity.University;
+
 import com.gtu14.entity.Request;
-import com.gtu14.entity.User;
 import com.gtu14.persistence.UniversityDAO;
 
 
@@ -45,14 +42,20 @@ public class UniversityModel implements Serializable{ //Entidad = Universidad ||
 	/**
 	 * Da de alta una entidad universidad, banco o estampadora con datos del .xhtml
 	 */
-	public void submitRequest(){
+	public String submitRequest(){
 		universityDAO.sendRequest(request.getUniversity().getName(), request.getUniversity().getCif_university(),
 				 request.getUniversity().getBank(),request.getApplicant().getCif_applicant());
+		return "index";
 	}
-	/**
-	 * Da de baja una entidad universidad, banco o estampadora con dado el cif en el .xhtml
-	 */
+	public String cancelRequest(){
+		universityDAO.backRequest(request.getApplicant().getCif_applicant(), request.getComment());
+		return ("index");
+	}
 	
+	public String validateRequest(){
+		universityDAO.validateRequest(request.getApplicant().getCif_applicant());
+		return ("index");
+	}
 	
 	
 }

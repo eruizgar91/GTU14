@@ -6,10 +6,10 @@ import javax.ejb.Stateful;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import com.gtu14.bean.EntityModel.entityRole;
+//import com.gtu14.bean.EntityModel.entityRole;
 import com.gtu14.entity.Bank;
-import com.gtu14.entity.Stamping;
-import com.gtu14.entity.University;
+
+//import com.gtu14.entity.University;
 import com.gtu14.entity.Request;
 
 /**
@@ -29,6 +29,26 @@ public class UniversityDAO {
 			Request request = em.find(Request.class, cif_applicant);
 			request.setBank(bank);
 			request.setState("De universidad a banco");
+			em.merge(request);
+		} catch (Exception ex) {
+			throw new EJBException(ex.getMessage());
+		}
+	}
+	public void backRequest(String cif_applicant, String comment){
+		try{
+			Request request = em.find(Request.class, cif_applicant);
+			request.setComment(comment);
+			request.setState("Cancelada en la universidad");
+			em.merge(request);
+		} catch (Exception ex) {
+			throw new EJBException(ex.getMessage());
+		}
+	}
+	
+	public void validateRequest(String cif_applicant){
+		try{
+			Request request = em.find(Request.class, cif_applicant);
+			request.setState("Entregada desde la universidad al solicitante");
 			em.merge(request);
 		} catch (Exception ex) {
 			throw new EJBException(ex.getMessage());
