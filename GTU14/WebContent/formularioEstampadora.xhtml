@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Formulario Estampadora</title>
+	<!-- BootStrap -->
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<script src="js/jquery-2.1.0.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+</h:head>
+<h:body>
+<div class="container-fluid">
+   <div class="page-header text-center">
+					<h1>Formulario de estampadora</h1>
+	</div> 
+	<div class="row center-block">
+		<div class="col-xs-12 col-md-3 col-md-offset-2">
+
+			
+			<h:form action="#">
+				<div class="page-header">
+					<h3>Campos banco</h3>
+				</div>
+				<div class="form-group">
+					<h:outputLabel for="bancoID" value="Banco"/>
+						<h:inputText type="text" class="form-control" name="banco"
+							id="bancoID" placeholder="Escribe el banco" readonly="true"></h:inputText>
+						<h:outputLabel for="numtarjetaID" value="Número de tarjeta"/>
+						<h:inputText type="text" class="form-control" name="numtarjeta"
+							id="numtarjetaID" placeholder="Escribe el número de tarjeta"
+							readonly="true"></h:inputText>
+						<div class="page-header">
+							<h3>Campos universidad</h3>
+						</div>
+						<div class="form-group">
+							<h:outputLabel for="university" value="Universidad"/>
+								<h:inputText type="text" class="form-control" name="university"
+									id="university" placeholder="Universidad" readonly="true"></h:inputText>	
+								<h:outputLabel for="college" value="Centro"/>
+									<h:inputText type="text" class="form-control" name="college"
+										id="college" placeholder="Escuela o facultad" readonly="true"></h:inputText>
+						</div>
+						<div class="page-header">
+							<h3>Campos solicitante</h3>
+						</div>
+
+						<h:outputLabel for="name" value="Nombre"/>
+							<h:inputText type="text" class="form-control" name="name"
+								id="name" placeholder="Nombre" readonly="true"></h:inputText>
+							<h:outputLabel for="surname" value="Apellidos"/>
+								<h:inputText type="text" class="form-control" name="surname"
+									id="surname" placeholder="Apellidos" readonly="true"></h:inputText>
+								<h:outputLabel for="ID" value="SID"/>
+									<h:inputText type="text" class="form-control" name="ID"
+										id="ID" placeholder="DNI/NIF" readonly="true">
+										</h:inputText>
+										<h:outputLabel value="Funcion"/>
+											<select name="function" size="4" class="form-control"
+												disabled="disabled">
+												<option value="ALUMNO">Alumno</option>
+												<option value="DOCENTE">Docente</option>
+												<option value="PAS">PAS</option>
+												<option value="INVESTIGADOR">Investigador</option>
+											</select>
+											<h:outputLabel for="idacademicoID" value="ID Academico"/>
+				</div>
+				<button type="submit" class="btn btn-default btn-lg">Enviar
+					Tarjeta</button>
+			</h:form>
+			
+		</div>
+		<div class="col-xs-12 col-md-3 col-md-offset-2">
+      <div class="page-header">
+        <h3>Tarjeta incorrecta</h3>
+      </div>
+      <h:form method="post" action="#">
+	    <div class="form-group text-left">
+		  <h:outputLabel for="motivoID" value="Motivo rechazo:"/>
+          <textarea name="comentarios" id="motivoID" rows="10" cols="30" class="btn btn-default btn-lg" placeholder="Escribe aquí motivo de rechazo"></textarea> 
+        </div>
+		<button type="submit" class="btn btn-danger btn-sm">Rechazar tarjeta</button>
+	  </h:form>
+	</div>
+	</div>
+	</div>
+</h:body>
+</html>
