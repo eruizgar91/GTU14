@@ -20,6 +20,10 @@
   <div class="page-header text-center">
     <h1>Formulario de banco</h1>
   </div>
+  <h:form p:method="post">
+        <input type="hidden" name="_method" value="POST"/>
+  <h:commandButton type="submit" value="Prueba" class="btn btn-default btn-lg" action="#{bankModel.testingBank}" />
+  </h:form>
   <div class="row center-block">
     <div class="col-xs-12 col-md-3 col-md-offset-2">
       <div class="page-header">
@@ -31,13 +35,15 @@
           <label for="bancoID">Banco</label>
           <h:inputText type="text" class="form-control" name="banco" value="#{bankModel.request.bank.name}" id="bancoID" p:placeholder="Escribe el banco" readonly = "true"/>
           <label for="cifbancoID">CIF Banco</label>
-          <h:inputText type="text" class="form-control" name="cifbanco" value="#{bankModel.request.bank.cif_bank}" id="cifbancoID" p:placeholder="Escribe el CIF del banco" required = "true"/>
+          <h:inputText type="text" class="form-control" name="cifbanco" value="#{bankModel.request.bank.cif_bank}" id="cifbancoID" p:placeholder="Escribe el CIF del banco" readonly = "true"/>
           <label for="numtarjetaID">Número de tarjeta</label>
           <h:inputText type="text" class="form-control" name="numtarjeta" value="#{bankModel.request.cardnumber}" id="numtarjetaID" p:placeholder="Escribe el número de tarjeta" required = "true"/>
           <label for="numcuentaID">Número de cuenta</label>
           <h:inputText type="text" class="form-control" name="numcuenta" value="#{bankModel.request.accountnumber}" id="numcuentaID" p:placeholder="Escribe el número de cuenta" required = "true"/>
           <label for="estampadoraID">Estampadora</label>
-          <h:inputText type="text" class="form-control" name="estampadora" value="#{bankModel.request.bank.stamping}" id="estampadoraID" p:placeholder="Escribe la estampadora" required = "true"/>
+          <h:inputText type="text" class="form-control" name="estampadora" value="#{bankModel.request.bank.stamping.name}" id="estampadoraID" p:placeholder="Escribe la estampadora" readonly = "true"/>
+          <label for="estampadoraID">ID Solicitud</label>
+          <h:inputText type="text" class="form-control" name="id" value="#{bankModel.request.id_request}" id="idID" p:placeholder="ID de la solicitud" required = "true"/>
         </div>
       <div class="page-header">
         <h3>Campos universidad</h3>
@@ -76,7 +82,7 @@
           <label for="phone">Telefono</label>
           <h:inputText type="tel" class="form-control" name="phone" value="#{bankModel.request.applicant.telephone}" id="phone" p:placeholder="Telefono" readonly = "true"/>
           <label for="college">Centro</label>
-          <h:inputText type="text" class="form-control" name="college" value="#{bankModel.request.applicant.university}" id="college" p:placeholder="Escuela o facultad" readonly = "true"/>
+          <h:inputText type="text" class="form-control" name="college" value="#{bankModel.request.applicant.university.name}" id="college" p:placeholder="Escuela o facultad" readonly = "true"/>
           <label>Funcion</label>
           <h:selectOneListbox id="applicantRole" size="4" value="#{bankModel.request.applicant.role}" class="form-control" disabled = "true">
             <f:selectItem itemValue="ALUMNO" itemLabel="Alumno"/>
@@ -101,7 +107,7 @@
         <div class="form-group">
           <label>Motivo cancelación</label>
           <h:inputText type="text" class="form-control" size="500" name="comments" value="#{bankModel.request.comment}" id="comments" p:placeholder="Escribe aquí motivo de cancelación" required = "true"/>
-          <textarea name="comments" class="btn btn-default btn-lg" rows="10" cols="30" value="#{bankModel.request.comment}" placeholder="Escribe aquí motivo de cancelación" required = "true"/>
+          
         </div>
         <div class="form-group text-right">
           <h:commandButton type="submit" class="btn btn-danger btn-xs" value="Cancelar solicitud" action="#{bankModel.cancelRequest}"/>

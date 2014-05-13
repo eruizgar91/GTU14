@@ -1,12 +1,15 @@
 package com.gtu14.persistence;
 
 
+import java.sql.Date;
+
 import javax.ejb.EJBException;
 import javax.ejb.Stateful;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import com.gtu14.bean.EntityModel.entityRole;
+import com.gtu14.entity.Applicant;
 import com.gtu14.entity.Bank;
 import com.gtu14.entity.Stamping;
 import com.gtu14.entity.University;
@@ -24,14 +27,16 @@ public class BankDAO {
 	@PersistenceContext
 	private EntityManager em;
 	
-	public void sendRequest(String bankName, String cif_Bank, long cardNumber, String accountNumber, Stamping stamping, String cif_applicant){
+	public void sendRequest(long cardNumber, String accountNumber, long id_request){
 		try{
-			Request request = em.find(Request.class, cif_applicant);
+			Request request = em.find(Request.class, id_request);
+			System.out.println("HECHO FIND");
 			request.setAccountnumber(accountNumber);
 			request.setCardnumber(cardNumber);
-			request.setStamping(stamping);
 			request.setState("De banco a estampadora");
+			System.out.println("ANTES DEL MERGE");
 			em.merge(request);
+			System.out.println("DESPUES DEL MERGE");
 		} catch (Exception ex) {
 			throw new EJBException(ex.getMessage());
 		}
@@ -56,5 +61,63 @@ public class BankDAO {
 		} catch (Exception ex) {
 			throw new EJBException(ex.getMessage());
 		}
+	}
+	
+	public Request fillRequest(){
+		try{
+			Date d = new Date(0);
+			
+				/*Stamping dels = em.find(Stamping.class, "5a");
+				if(dels==null){
+					em.remove(dels);
+				}
+				Bank delb = em.find(Bank.class, "4a");
+				if(delb==null){
+					em.remove(delb);
+				}
+				University delu = em.find(University.class, "3a");
+				if(delu==null){
+					em.remove(delu);
+				}
+				Applicant dela = em.find(Applicant.class, "2a");
+				if(dela==null){
+					em.remove(dela);
+				}
+				Request delr = em.find(Request.class, "1");
+				if(delr==null){
+					em.remove(delr);
+				}*/
+			
+			
+			Stamping s = new Stamping("5a", "Estampadora Manolo", "a@manolo.es",
+					"Carretera v" , 711);
+			em.persist(s);
+			
+			Bank b = new Bank("4a", "Santander", "a@santander.es", "Plaza c",
+					888, s);
+			em.persist(b);
+			
+			University u = new University("3a", "UPM", "a@upm.es",
+					"Avenida b", 955, b);
+			em.persist(u);
+			
+			Applicant a = new Applicant("2a", "Jorge", "Ulloa",
+					1, d , "Español", "a@mail.com",
+					"Calle a", "Madrid", "Madrid", "Estudiante",
+					695, u);
+			em.persist(a);
+			
+			Request request= new Request ((long)1, a, u.getBank(),
+					a.getUniversity(), b.getStamping(), d,
+					"Prueba", "", (long)0, "");
+			em.persist(request);
+			return request;
+			
+			
+		}catch (Exception ex) {
+			throw new EJBException(ex.getMessage());
+		}
+		
+		
 	}
 }

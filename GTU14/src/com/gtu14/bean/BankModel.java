@@ -46,12 +46,22 @@ public class BankModel implements Serializable{ //Entidad = Universidad || Banco
 	 * Da de alta una entidad universidad, banco o estampadora con datos del .xhtml
 	 */
 	public String submitRequest(){
-		bankDAO.sendRequest(request.getBank().getName(), request.getBank().getCif_bank(),
-				request.getCardnumber(), request.getAccountnumber(), request.getBank().getStamping(),
-				request.getApplicant().getCif_applicant());
+		System.out.println("ENTRO AL MODEL");
+		System.out.println("cif = "+ request.getId());
+		bankDAO.sendRequest(request.getCardnumber(), request.getAccountnumber(), 
+				request.getId_request());
+		System.out.println("VUELVO AL MODEL");
 		return ("index");
 	}
 	
+	public String testingBank(){
+		Request r = bankDAO.fillRequest();
+		request.setApplicant(r.getApplicant());
+		request.setUniversity(r.getUniversity());
+		request.setBank(r.getBank());
+		request.setId_request(r.getId_request());
+		return ("formularioBancoIda");
+	}
 	
 	public String cancelRequest(){
 		bankDAO.backRequest(request.getApplicant().getCif_applicant(), request.getComment());
