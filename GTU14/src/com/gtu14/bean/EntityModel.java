@@ -11,6 +11,7 @@ import com.gtu14.entity.Bank;
 import com.gtu14.entity.Stamping;
 import com.gtu14.entity.University;
 import com.gtu14.persistence.EntityDAO;
+import com.sun.xml.ws.developer.Stateful;
 
 /**
  * Modelo para el manejo de propiedades relacionadas con
@@ -19,6 +20,7 @@ import com.gtu14.persistence.EntityDAO;
  * @author Gonzalo Pérez-Tomé Estévez
  *
  */
+
 @Named
 @RequestScoped
 public class EntityModel implements Serializable{ //Entidad = Universidad || Banco || Estampadora

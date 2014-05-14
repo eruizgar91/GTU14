@@ -73,8 +73,10 @@ public class EntityDAO { //Entidad = Universidad || Banco || Estampadora
 		//Vemos si existe
 		if(findStamping(cif_stamping) != null)
 			return null;
-		//Si no, la creamos.			
+		//Si no, la creamos.	
+		
 		Stamping newStamping = new Stamping(cif_stamping, name, email, address, telephone);
+		
 		try {
 			em.persist(newStamping);
 		} catch (Exception e) {

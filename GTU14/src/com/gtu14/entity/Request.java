@@ -40,6 +40,7 @@ public class Request implements Serializable {
     @ManyToOne
 	@JoinColumn(name="cif_stamping")
 	private Stamping stamping;
+    
     private Date requestdate;
     private String state;
     private String comment;
