@@ -14,16 +14,16 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
-import javax.persistence.PersistenceContext;
 
-import com.gtu14.bean.EntityModel.entityRole;
 import com.gtu14.entity.Applicant;
 import com.gtu14.entity.Bank;
 import com.gtu14.entity.Request;
 import com.gtu14.entity.Stamping;
 import com.gtu14.entity.University;
 import com.gtu14.entity.User;
+import com.gtu14.persistence.ApplicantDAO;
 import com.gtu14.persistence.EntityDAO;
+import com.gtu14.persistence.RequestDAO;
 import com.gtu14.persistence.UserDAO;
 import com.sun.istack.logging.Logger;
 
@@ -36,11 +36,16 @@ import com.sun.istack.logging.Logger;
 @Startup
 public class ConfigBean {
 
-	private static final Logger logger = Logger.getLogger("Login log", AccessControlModel.class);
+	private static final Logger logger = Logger.getLogger("Login log",
+			AccessControlModel.class);
 	@EJB
 	private EntityDAO entityDao;
 	@EJB
 	private UserDAO userDao;
+	@EJB
+	private ApplicantDAO applicantDao;
+	@EJB
+	private RequestDAO requestDao;
 
 	@PostConstruct
 	public void createData() {
@@ -49,7 +54,6 @@ public class ConfigBean {
 		Stamping auxStamping = entityDao.newStamping("cifEstampadora",
 				"Estampadora", "estampadora@gmail.com", "Avenida", 722539834);
 		if (auxStamping == null)
-			// System.out.println("Error al crear estampadora");
 			logger.log(Level.SEVERE, "Error al crear estampadora");
 
 		// Crear un banco
@@ -57,7 +61,6 @@ public class ConfigBean {
 				"banco@gmail.com", "Avenida complutense", 722539845,
 				auxStamping);
 		if (auxBank == null)
-			// System.out.println("Error al crear banco");
 			logger.log(Level.SEVERE, "Error al crear banco");
 
 		// Crear una Universidad
@@ -65,23 +68,30 @@ public class ConfigBean {
 				"Universidad", "universidad@gmail.com", "Avenida paraninfo",
 				722539578, auxBank);
 		if (auxUniversity == null)
-			// System.out.println("Error al crear la universidad");
 			logger.log(Level.SEVERE, "Error al crear la universidad");
 
 		// Crear un usuario administrador
 		User adminUser = userDao.newUser("root", "root", "admin1t@gtu14.com",
 				"Gonzalo", "Perez-Tome", 123456789, true, "");
 		if (adminUser == null)
-			// System.out.println("Error al crear el administrador");
 			logger.log(Level.SEVERE, "Error al crear el administrador");
 
-		// Solicitante
-		Applicant auxaApplicant = new Applicant("G12364489", "Brian",
-				"Vazquez", 1, new Date(19922699), "Mexico", "brian@gmail.com",
-				"Calle villagarica 2", "Madrid", "Madrid", "Estudiante",
-				525535596, auxUniversity);
-		Request auxRequest = new Request();
-		System.out.println(auxaApplicant.getBorndate());
+		// Crear un Solicitante
+		Applicant auxApplicant = applicantDao.newApplicant(new Applicant(
+				"G12364489", "Brian", "Vazquez", 1, new Date(19922699),
+				"Mexico", "brian@gmail.com", "Calle villagarica 2", "Madrid",
+				"Madrid", "Estudiante", 525535596, auxUniversity));
+		if (auxApplicant == null)
+			logger.log(Level.SEVERE, "Error al crear el solicitante");
+
+		// Crear una solicitud
+		Request auxRequest = requestDao.newRequest((long) 1,
+				"1234-1234-1234-1234", auxApplicant, auxBank, auxUniversity,
+				auxStamping, "Comentario bla bla..", new Date(0),
+				"estado en pruebas", (long) 1234123412);
+
+		if (auxRequest == null)
+			logger.log(Level.SEVERE, "Error al crear la solicitud");
 
 	}
 }

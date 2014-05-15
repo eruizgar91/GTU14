@@ -1,6 +1,7 @@
 package com.gtu14.bean;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.logging.Level;
 
 import javax.ejb.EJB;
@@ -12,8 +13,11 @@ import javax.inject.Named;
 import javax.servlet.http.HttpSession;
 
 import com.gtu14.bean.EntityModel.entityRole;
+import com.gtu14.entity.Request;
+import com.gtu14.entity.University;
 import com.gtu14.entity.User;
 import com.gtu14.persistence.EntityDAO;
+import com.gtu14.persistence.RequestDAO;
 import com.gtu14.persistence.UserDAO;
 import com.sun.istack.logging.Logger;
 
@@ -27,9 +31,12 @@ public class AccessControlModel implements Serializable {
 	private UserDAO userDao;
 	@EJB
 	private EntityDAO entityDao;
+	@EJB
+	private RequestDAO requestDao;
 	@Inject
 	private User user;
 	private UIOutput wrongPassword;
+	
 	
 	public UIOutput getWrongPassword() {
 		return wrongPassword;
@@ -62,8 +69,13 @@ public class AccessControlModel implements Serializable {
 		logger.log(Level.INFO, "Sesión de usuario creada con éxito. SessionID = {0}", session.getId());
 		
 		//Redireccionamos a la página según el rol del usuario.
-		if(validatedUser.isAdmin())
+		if(validatedUser.isAdmin()){
+			//Probamos la búsqueda de solicitudes.
+			University auxUniversity = entityDao.findUniversity("cifUniversidad");
+			List<Request> list = requestDao.getRequest(auxUniversity);
+			logger.log(Level.INFO, list.size()+"");
 			return "Administrador";
+		}
 		
 		entityRole userRole = entityDao.getEntityRole(validatedUser.getCif());
 		switch (userRole) {
