@@ -8,6 +8,7 @@
 package com.gtu14.bean;
 
 import java.sql.Date;
+import java.util.logging.Level;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -21,44 +22,66 @@ import com.gtu14.entity.Bank;
 import com.gtu14.entity.Request;
 import com.gtu14.entity.Stamping;
 import com.gtu14.entity.University;
+import com.gtu14.entity.User;
 import com.gtu14.persistence.EntityDAO;
+import com.gtu14.persistence.UserDAO;
+import com.sun.istack.logging.Logger;
 
 /**
- * <p>Singleton bean that initializes the book database for the bookstore
- * example.</p>
+ * <p>
+ * Singleton bean that initializes the book database for the bookstore example.
+ * </p>
  */
 @Singleton
 @Startup
 public class ConfigBean {
 
+	private static final Logger logger = Logger.getLogger("Login log", AccessControlModel.class);
 	@EJB
-	private EntityDAO request;
-	
-
+	private EntityDAO entityDao;
+	@EJB
+	private UserDAO userDao;
 
 	@PostConstruct
 	public void createData() {
-		
-		//Crear una estampadora
-		Stamping auxStamping=request.newStamping("cifEstampadora", "Estampadora", "estampadora@gmail.com", "Avenida",722539834);
-		if(auxStamping==null)		
-		System.out.println("Error al crear estampadora");
-		
-		//Crear un banco
-				Bank auxBank=request.newBank("cifBanco", "Banco", "banco@gmail.com", "Avenida complutense",722539845,auxStamping);
-				if(auxBank==null)		
-				System.out.println("Error al crear banco");
-				
-	    //Crear una Universidad
-				University auxUniversity=request.newUniversity("cifUniversidad", "Universidad", "universidad@gmail.com", "Avenida paraninfo",722539578,auxBank);
-				if(auxUniversity==null)		
-				System.out.println("Error al crear banco");
-		//Solicitante
-				Applicant auxaApplicant=new Applicant(
-						"G12364489","Brian","Vazquez",1,new Date(19922699),"Mexico","brian@gmail.com","Calle villagarica 2","Madrid","Madrid","Estudiante",525535596,auxUniversity);
-				Request auxRequest= new Request();
-				System.out.println(auxaApplicant.getBorndate());
-				
+
+		// Crear una estampadora
+		Stamping auxStamping = entityDao.newStamping("cifEstampadora",
+				"Estampadora", "estampadora@gmail.com", "Avenida", 722539834);
+		if (auxStamping == null)
+			// System.out.println("Error al crear estampadora");
+			logger.log(Level.SEVERE, "Error al crear estampadora");
+
+		// Crear un banco
+		Bank auxBank = entityDao.newBank("cifBanco", "Banco",
+				"banco@gmail.com", "Avenida complutense", 722539845,
+				auxStamping);
+		if (auxBank == null)
+			// System.out.println("Error al crear banco");
+			logger.log(Level.SEVERE, "Error al crear banco");
+
+		// Crear una Universidad
+		University auxUniversity = entityDao.newUniversity("cifUniversidad",
+				"Universidad", "universidad@gmail.com", "Avenida paraninfo",
+				722539578, auxBank);
+		if (auxUniversity == null)
+			// System.out.println("Error al crear la universidad");
+			logger.log(Level.SEVERE, "Error al crear la universidad");
+
+		// Crear un usuario administrador
+		User adminUser = userDao.newUser("root", "root", "admin1t@gtu14.com",
+				"Gonzalo", "Perez-Tome", 123456789, true, "");
+		if (adminUser == null)
+			// System.out.println("Error al crear el administrador");
+			logger.log(Level.SEVERE, "Error al crear el administrador");
+
+		// Solicitante
+		Applicant auxaApplicant = new Applicant("G12364489", "Brian",
+				"Vazquez", 1, new Date(19922699), "Mexico", "brian@gmail.com",
+				"Calle villagarica 2", "Madrid", "Madrid", "Estudiante",
+				525535596, auxUniversity);
+		Request auxRequest = new Request();
+		System.out.println(auxaApplicant.getBorndate());
 
 	}
 }
