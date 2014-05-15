@@ -42,9 +42,9 @@ public class BankDAO {
 		}
 	}
 	
-	public void backRequest(String cif_applicant, String comment){
+	public void backRequest(long id_request, String comment){
 		try{
-			Request request = em.find(Request.class, cif_applicant);
+			Request request = em.find(Request.class, id_request);
 			request.setComment(comment);
 			request.setState("Cancelada en el banco");
 			em.merge(request);
@@ -66,28 +66,6 @@ public class BankDAO {
 	public Request fillRequest(){
 		try{
 			Date d = new Date(0);
-			
-				/*Stamping dels = em.find(Stamping.class, "5a");
-				if(dels==null){
-					em.remove(dels);
-				}
-				Bank delb = em.find(Bank.class, "4a");
-				if(delb==null){
-					em.remove(delb);
-				}
-				University delu = em.find(University.class, "3a");
-				if(delu==null){
-					em.remove(delu);
-				}
-				Applicant dela = em.find(Applicant.class, "2a");
-				if(dela==null){
-					em.remove(dela);
-				}
-				Request delr = em.find(Request.class, "1");
-				if(delr==null){
-					em.remove(delr);
-				}*/
-			
 			
 			Stamping s = new Stamping("5a", "Estampadora Manolo", "a@manolo.es",
 					"Carretera v" , 711);

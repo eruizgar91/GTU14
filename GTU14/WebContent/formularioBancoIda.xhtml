@@ -42,8 +42,7 @@
           <h:inputText type="text" class="form-control" name="numcuenta" value="#{bankModel.request.accountnumber}" id="numcuentaID" p:placeholder="Escribe el número de cuenta" required = "true"/>
           <label for="estampadoraID">Estampadora</label>
           <h:inputText type="text" class="form-control" name="estampadora" value="#{bankModel.request.bank.stamping.name}" id="estampadoraID" p:placeholder="Escribe la estampadora" readonly = "true"/>
-          <label for="estampadoraID">ID Solicitud</label>
-          <h:inputText type="text" class="form-control" name="id" value="#{bankModel.request.id_request}" id="idID" p:placeholder="ID de la solicitud" required = "true"/>
+          <h:inputText type="text" class="form-control" name="id" value="#{bankModel.request.id_request}" id="idID" p:placeholder="ID de la solicitud" required = "true" style="display:none" />
         </div>
       <div class="page-header">
         <h3>Campos universidad</h3>
@@ -53,8 +52,7 @@
           <h:inputText type="text" class="form-control" name="university" value="#{bankModel.request.university.name}" id="university" p:placeholder="Universidad" readonly = "true"/>
           <label for="cifuniversidadID">CIF Universidad</label>
           <h:inputText type="text" class="form-control" name="cifuniversidad" value="#{bankModel.request.university.cif_university}" id="cifuniversidadID" p:placeholder="Escribe el CIF de la universidad" readonly = "true"/>
-          <label for="idacademicoID">ID Academico</label>
-          <h:inputText type="text" class="form-control" name="idacademico" value="" id="idacademicoID" p:placeholder="Escribe el ID academico" readonly = "true"/>
+          
           
         </div>
       <div class="page-header">
@@ -107,7 +105,7 @@
         <div class="form-group">
           <label>Motivo cancelación</label>
           <h:inputText type="text" class="form-control" size="500" name="comments" value="#{bankModel.request.comment}" id="comments" p:placeholder="Escribe aquí motivo de cancelación" required = "true"/>
-          
+          <h:inputText type="text" class="form-control" name="id" value="#{bankModel.request.id_request}" id="idID" p:placeholder="ID de la solicitud" required = "true" style="display:none" />
         </div>
         <div class="form-group text-right">
           <h:commandButton type="submit" class="btn btn-danger btn-xs" value="Cancelar solicitud" action="#{bankModel.cancelRequest}"/>

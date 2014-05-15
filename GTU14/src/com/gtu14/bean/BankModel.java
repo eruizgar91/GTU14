@@ -4,15 +4,11 @@ import java.io.Serializable;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
-import javax.faces.component.UIOutput;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import com.gtu14.entity.Bank;
-import com.gtu14.entity.Stamping;
-import com.gtu14.entity.University;
+
 import com.gtu14.entity.Request;
-import com.gtu14.entity.User;
 import com.gtu14.persistence.BankDAO;
 
 
@@ -47,7 +43,7 @@ public class BankModel implements Serializable{ //Entidad = Universidad || Banco
 	 */
 	public String submitRequest(){
 		System.out.println("ENTRO AL MODEL");
-		System.out.println("cif = "+ request.getId());
+		System.out.println("ID = "+ request.getId_request());
 		bankDAO.sendRequest(request.getCardnumber(), request.getAccountnumber(), 
 				request.getId_request());
 		System.out.println("VUELVO AL MODEL");
@@ -64,7 +60,7 @@ public class BankModel implements Serializable{ //Entidad = Universidad || Banco
 	}
 	
 	public String cancelRequest(){
-		bankDAO.backRequest(request.getApplicant().getCif_applicant(), request.getComment());
+		bankDAO.backRequest(request.getId_request(), request.getComment());
 		return ("index");
 	}
 	
