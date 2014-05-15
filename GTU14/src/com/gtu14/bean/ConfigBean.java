@@ -89,7 +89,6 @@ public class ConfigBean {
 				"1234-1234-1234-1234", auxApplicant, auxBank, auxUniversity,
 				auxStamping, "Comentario bla bla..", new Date(0),
 				"estado en pruebas", (long) 1234123412);
-
 		if (auxRequest == null)
 			logger.log(Level.SEVERE, "Error al crear la solicitud");
 

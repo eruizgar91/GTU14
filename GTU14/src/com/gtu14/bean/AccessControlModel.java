@@ -69,13 +69,8 @@ public class AccessControlModel implements Serializable {
 		logger.log(Level.INFO, "Sesión de usuario creada con éxito. SessionID = {0}", session.getId());
 		
 		//Redireccionamos a la página según el rol del usuario.
-		if(validatedUser.isAdmin()){
-			//Probamos la búsqueda de solicitudes.
-			University auxUniversity = entityDao.findUniversity("cifUniversidad");
-			List<Request> list = requestDao.getRequest(auxUniversity);
-			logger.log(Level.INFO, list.size()+"");
+		if(validatedUser.isAdmin())
 			return "Administrador";
-		}
 		
 		entityRole userRole = entityDao.getEntityRole(validatedUser.getCif());
 		switch (userRole) {
