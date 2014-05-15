@@ -87,10 +87,9 @@ public class AccessControlModel implements Serializable {
 	/**
 	 * Cierra la sesión que hubiese en curso.
 	 */
-	public String logout(){
+	public void logout(){
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 		if(session != null)
 			session.invalidate();
-		return null;
 	}
 }
