@@ -1,15 +1,16 @@
 package com.gtu14.bean;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-
 import com.gtu14.entity.Request;
 import com.gtu14.persistence.BankDAO;
+import com.gtu14.persistence.RequestDAO;
 
 
 /**
@@ -29,6 +30,8 @@ public class BankModel implements Serializable{ //Entidad = Universidad || Banco
 	
 	@EJB
 	private BankDAO bankDAO;
+	@EJB
+	private RequestDAO requestDAO;
 	@Inject
 	private Request request;
 		
@@ -47,7 +50,7 @@ public class BankModel implements Serializable{ //Entidad = Universidad || Banco
 		bankDAO.sendRequest(request.getCardnumber(), request.getAccountnumber(), 
 				request.getId_request());
 		System.out.println("VUELVO AL MODEL");
-		return ("index");
+		return "tablaSolicitudes";
 	}
 	
 	public String testingBank(){
@@ -61,12 +64,35 @@ public class BankModel implements Serializable{ //Entidad = Universidad || Banco
 	
 	public String cancelRequest(){
 		bankDAO.backRequest(request.getId_request(), request.getComment());
-		return ("index");
+		return "tablaSolicitudes";
 	}
 	
 	public String validateRequest(){
-		bankDAO.validateRequest(request.getApplicant().getCif_applicant());
-		return ("index");
+		bankDAO.validateRequest(request.getId_request());
+		return "tablaSolicitudes";
+	}
+	
+	public List<Request> getrequestList(){
+		
+		return requestDAO.getRequest(request.getId_request());
+	}
+	
+	public String putRequest(){
+		Request r = bankDAO.putRequest(request.getId_request(), request.getState());
+		if(r.getState().equals("De banco a estampadora")){
+			request.setApplicant(r.getApplicant());
+			request.setUniversity(r.getUniversity());
+			request.setBank(r.getBank());
+			request.setId_request(r.getId_request());
+			return "formularioBancoIda";
+		}
+		else{
+			request.setApplicant(r.getApplicant());
+			request.setUniversity(r.getUniversity());
+			request.setBank(r.getBank());
+			request.setId_request(r.getId_request());
+			return "formularioBancoVuelta";
+		}
 	}
 	
 }

@@ -53,9 +53,18 @@ public class BankDAO {
 		}
 	}
 	
-	public void validateRequest(String cif_applicant){
+	public Request putRequest(long id_request, String comment){
 		try{
-			Request request = em.find(Request.class, cif_applicant);
+			Request request = em.find(Request.class, id_request);
+			return request;
+		} catch (Exception ex) {
+			throw new EJBException(ex.getMessage());
+		}
+	}
+	
+	public void validateRequest(long id_request){
+		try{
+			Request request = em.find(Request.class, id_request);
 			request.setState("Entregada desde el banco a la universidad");
 			em.merge(request);
 		} catch (Exception ex) {
@@ -85,7 +94,7 @@ public class BankDAO {
 					695, u);
 			em.persist(a);
 			
-			Request request= new Request ((long)1, a, u.getBank(),
+			Request request= new Request ((long)2, a, u.getBank(),
 					a.getUniversity(), b.getStamping(), d,
 					"Prueba", "", (long)0, "");
 			em.persist(request);
