@@ -72,6 +72,15 @@ public class BankDAO {
 		}
 	}
 	
+	public Bank findBank (String cif_bank){
+		try{
+			Bank b = em.find(Bank.class, cif_bank);
+			return b;
+		} catch (Exception ex) {
+			throw new EJBException(ex.getMessage());
+		}
+	}
+	
 	public Request fillRequest(){
 		try{
 			Date d = new Date(0);

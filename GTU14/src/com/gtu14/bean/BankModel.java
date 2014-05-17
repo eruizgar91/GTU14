@@ -9,6 +9,8 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.gtu14.entity.Request;
+import com.gtu14.entity.Bank;
+import com.gtu14.entity.User;
 import com.gtu14.persistence.BankDAO;
 import com.gtu14.persistence.RequestDAO;
 
@@ -34,6 +36,8 @@ public class BankModel implements Serializable{ //Entidad = Universidad || Banco
 	private RequestDAO requestDAO;
 	@Inject
 	private Request request;
+	@Inject
+	private User user;
 		
 	public Request getRequest() {
 		return request;
@@ -50,7 +54,7 @@ public class BankModel implements Serializable{ //Entidad = Universidad || Banco
 		bankDAO.sendRequest(request.getCardnumber(), request.getAccountnumber(), 
 				request.getId_request());
 		System.out.println("VUELVO AL MODEL");
-		return "tablaSolicitudes";
+		return "Banco";
 	}
 	
 	public String testingBank(){
@@ -59,22 +63,22 @@ public class BankModel implements Serializable{ //Entidad = Universidad || Banco
 		request.setUniversity(r.getUniversity());
 		request.setBank(r.getBank());
 		request.setId_request(r.getId_request());
-		return ("formularioBancoIda");
+		return "formularioBancoIda";
 	}
 	
 	public String cancelRequest(){
 		bankDAO.backRequest(request.getId_request(), request.getComment());
-		return "tablaSolicitudes";
+		return "Banco";
 	}
 	
 	public String validateRequest(){
 		bankDAO.validateRequest(request.getId_request());
-		return "tablaSolicitudes";
+		return "Banco";
 	}
 	
 	public List<Request> getrequestList(){
-		
-		return requestDAO.getRequest(request.getId_request());
+		Bank b = bankDAO.findBank(user.getCif());
+		return requestDAO.getRequest(b);
 	}
 	
 	public String putRequest(){
