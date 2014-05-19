@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!-- BootStrap -->
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<script src="js/jquery-2.1.0.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Set the viewport width to device width for mobile -->
+	<meta name="viewport" content="width=device-width" />
+	<title>Gestión de Tarjetas Universitarias</title>
+	<!-- CSS Files-->
+	<link rel="stylesheet" href="stylesheets/style.css"/>
+	<link rel="stylesheet" href="stylesheets/logincss.css"/>
+	<link rel="stylesheet" href="stylesheets/homepage.css"/>
+		<!-- homepage stylesheet -->
+	<link rel="stylesheet" href="stylesheets/skins/blue.css"/>
+		<!-- skin color -->
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<script src="js/jquery-2.1.0.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+</h:head>
+<h:body>
+
+
+	<!-- HEADER
+================================================== -->
+	<div class="row">
+		<div class="four columns">
+			<div class="logo">
+			<h4>
+			<a href="index.html">Gestión de Tarjetas
+						Universitarias</a>
+						</h4>
+			</div>
+		</div>
+		<div class="eight columns noleftmarg">
+			<nav id="nav-wrap">
+				<ul class="nav-bar sf-menu">
+
+					<li class="current"><a href="index.html">Inicio</a></li>
+
+					<li><a href="#">Universidades</a>
+						<ul>
+							<li><a>UPM</a></li>
+							<li><a>CEU San Pablo</a></li>
+							<li><a>UCM</a></li>
+							<li><a href="formularioUniversidadIda.html">Gestión
+									de solicitudes</a></li>
+						</ul></li>
+
+					<li><a href="#">Bancos</a>
+						<ul>
+							<li><a>BBVA</a></li>
+							<li><a>Santander</a></li>
+							<li><a>Bankia</a></li>
+							<li><a href="formularioBancoIda.html">Gestión de
+									solicitudes</a></li>
+						</ul></li>
+
+					<li><a href="#">Estampadoras</a>
+						<ul>
+							<li><a href="formularioEstampadora.html">Gestión
+									de solicitudes</a></li>
+						</ul></li>
+
+
+					<li><a href="contact.html">Contacto</a></li>
+					<li><a href="formularioAdministrador.html">Administrador</a></li>
+
+				</ul>
+			</nav>
+		</div>
+	</div>
+	<div class="clear"></div>
+	<!-- SUBHEADER
+================================================== -->
+	<div id="subheader">
+		<div class="row">
+			<div class="twelve columns">
+				<a href="formularioSolicitante.html">
+					<p class="text-center">SOLICITA TU TARJETA AQUÍ</p>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- SLIDER 
+================================================== -->
+	<div id="ei-slider" class="ei-slider">
+	<ul class="ei-slider-large">
+		<li>
+		<img src="img/banner/banner01.png" alt="image01" class="responsiveslide"/>
+			
+				<div class="ei-title">
+					<h2>Adquiere tu carnet</h2>
+					<h3>YA</h3>
+			   </div>
+		</li>
+		<li>
+		<img src="img/banner/banner02.jpg" alt="image02" class="responsiveslide"/>
+		<div class="ei-title">
+			<h2>Bancos</h2>
+			<h3>participantes</h3>
+		</div>
+		</li>
+		<li>
+		<img src="img/banner/banner03.png" alt="image03" class="responsiveslide"/>
+		<div class="ei-title">
+			<h2>Nuevas</h2>
+			<h3>universidades</h3>
+		</div>
+		</li>
+		
+	</ul>
+	<!-- slider-thumbs -->
+	<ul class="ei-slider-thumbs">
+		<li class="ei-slider-element">Current</li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>	
+</div>
+<div class="minipause">
+</div>
+	<!-- JAVASCRIPTS 
+================================================== -->
+	<!-- Javascript files placed here for faster loading -->
+	<script src="javascripts/foundation.min.js"></script>
+	<script src="javascripts/jquery.easing.1.3.js"></script>
+	<script src="javascripts/elasticslideshow.js"></script>
+	<script src="javascripts/jquery.carouFredSel-6.0.5-packed.js"></script>
+	<script src="javascripts/jquery.cycle.js"></script>
+	<script src="javascripts/app.js"></script>
+	<script src="javascripts/modernizr.foundation.js"></script>
+	<script src="javascripts/slidepanel.js"></script>
+	<script src="javascripts/scrolltotop.js"></script>
+	<script src="javascripts/hoverIntent.js"></script>
+	<script src="javascripts/superfish.js"></script>
+	<script src="javascripts/responsivemenu.js"></script>
+	<script src="javascripts/jquery.tweet.js"></script>
+	<script src="javascripts/twitterusername.js"></script>
+<!-- LOGIN
+================================================== -->
+<div id="login">
+<div class="container-fluid">
+            <div class="page-header text-left">
+                <h1>Formulario de login</h1>
+            </div>
+            <div class="row center-block">
+            	<div class="col-xs-12 col-md-3">
+                    <h:form p:method="post">
+                    	<div class="form-group">
+	                    	<!-- Username userId -->
+							<h:outputLabel for="username" value="Nombre de usuario" />
+							<h:inputText class="form-control" id="username" value="#{accessControlModel.user.username}"
+								required="true" p:placeholder="Introduzca su usuario" requiredMessage="Es necesario el nombre de usuario.">
+							</h:inputText>
+							<h:message for="username" />
+							<br/>
+							<!-- Customer password -->
+							<h:outputLabel for="password" value="Contraseña de usuario" />
+							<h:inputSecret class="form-control" id="password"
+								value="#{accessControlModel.user.password}" required="true"
+								p:placeholder="Introduzca su suntraseña"
+								requiredMessage="Es necesaria la contraseña del usuario.">
+							</h:inputSecret>
+							<br/>
+							<h:message for="password" />
+						</div>
+						<div class="form-group tex-left">	
+							<h:commandButton	class="btn btn-default btn-lg"
+												value="Entrar"
+												action="#{accessControlModel.submitLogin}">
+							</h:commandButton>
+							<br/><br/>
+							<h:outputLabel binding="#{accessControlModel.wrongPassword}" for="password" value="El usuario no existe o ha introducido una contraseña inválida." rendered="false" />
+						</div>
+                    </h:form>
+                 </div>
+            </div>
+        </div>
+</div>
+
+	</h:body>
+</html>
