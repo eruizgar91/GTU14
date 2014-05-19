@@ -24,7 +24,7 @@
          </div>
        <h:dataTable id="solicitudes"
                          value="#{bankModel.requestList}"
-                         var="request"
+                         var="req"
                          headerClass="list-header"
                          styleClass="list-background"
                          rowClasses="list-row-even, list-row-odd"
@@ -34,30 +34,50 @@
                     <f:facet name="header">
                         <h:outputText value="ID" />
                     </f:facet>
-                    <h:outputText value="#{request.id_request}" />
+                    <h:outputText value="#{req.id_request}" />
                 </h:column>
-                
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="cif_applicant" />
+                    </f:facet>
+                    <h:outputText value="#{req.applicant.cif_applicant}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="accountnumber" />
+                    </f:facet>
+                    <h:outputText value="#{req.accountnumber}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="cardnumber" />
+                    </f:facet>
+                    <h:outputText value="#{req.cardnumber}" />
+                </h:column>
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="Estado" />
                     </f:facet>
-                    <h:outputText value="#{request.state}" />
+                    <h:outputText value="#{req.state}" />
                 </h:column>
                 
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="CIF Bank" />
                     </f:facet>
-                    <h:outputText value="#{request.bank.cif_bank}" />
+                    <h:outputText value="#{req.bank.cif_bank}" />
                 </h:column>
                 
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText  value="#Ir a..."/>
+                        <h:outputText  value="Ir a..."/>
                     </f:facet>
                     <h:commandButton id="ir"
                                      action="#{bankModel.putRequest}" 
                                      value="Ir a la solicitud">
+                           <f:setPropertyActionListener target="#{bankModel.request}" 
+                                                     value="#{req}"/>
+                                      
                     </h:commandButton>
                 </h:column>
 

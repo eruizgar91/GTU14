@@ -75,6 +75,11 @@ public class ConfigBean {
 				"Gonzalo", "Perez-Tome", 123456789, true, "");
 		if (adminUser == null)
 			logger.log(Level.SEVERE, "Error al crear el administrador");
+		
+		User bankUser = userDao.newUser("banco", "banco", "banco@gmail.com",
+				"Banco", "b", 916667788, false, "cifBanco");
+		if (bankUser == null)
+			logger.log(Level.SEVERE, "Error al crear el administrador");
 
 		// Crear un Solicitante
 		Applicant auxApplicant = applicantDao.newApplicant(new Applicant(

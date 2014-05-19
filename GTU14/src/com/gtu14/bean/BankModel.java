@@ -5,6 +5,10 @@ import java.util.List;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -23,8 +27,9 @@ import com.gtu14.persistence.RequestDAO;
  *
  */
 @Named
-@RequestScoped
-public class BankModel implements Serializable{ //Entidad = Universidad || Banco || Estampadora
+@ManagedBean
+@SessionScoped
+public class BankModel implements Serializable{ 
 	
 	private static final long serialVersionUID = -2633611667469166418L;
 	
@@ -38,7 +43,7 @@ public class BankModel implements Serializable{ //Entidad = Universidad || Banco
 	private Request request;
 	@Inject
 	private User user;
-		
+	
 	public Request getRequest() {
 		return request;
 	}
@@ -49,11 +54,9 @@ public class BankModel implements Serializable{ //Entidad = Universidad || Banco
 	 * Da de alta una entidad universidad, banco o estampadora con datos del .xhtml
 	 */
 	public String submitRequest(){
-		System.out.println("ENTRO AL MODEL");
-		System.out.println("ID = "+ request.getId_request());
+		
 		bankDAO.sendRequest(request.getCardnumber(), request.getAccountnumber(), 
 				request.getId_request());
-		System.out.println("VUELVO AL MODEL");
 		return "Banco";
 	}
 	
@@ -79,24 +82,29 @@ public class BankModel implements Serializable{ //Entidad = Universidad || Banco
 	public List<Request> getrequestList(){
 		Bank b = bankDAO.findBank(user.getCif());
 		return requestDAO.getRequest(b);
+		
 	}
 	
+	
 	public String putRequest(){
+		System.out.println("ENTRO AL MODEL");
+		System.out.println("ID = "+ request.getId_request());
 		Request r = bankDAO.putRequest(request.getId_request(), request.getState());
-		if(r.getState().equals("De banco a estampadora")){
+		System.out.println("VUELVO AL MODEL");
+		//if(r.getState().equals("De banco a estampadora")){
 			request.setApplicant(r.getApplicant());
 			request.setUniversity(r.getUniversity());
 			request.setBank(r.getBank());
 			request.setId_request(r.getId_request());
 			return "formularioBancoIda";
-		}
-		else{
+		/*}else{
 			request.setApplicant(r.getApplicant());
 			request.setUniversity(r.getUniversity());
 			request.setBank(r.getBank());
 			request.setId_request(r.getId_request());
 			return "formularioBancoVuelta";
-		}
+		}*/
 	}
+	
 	
 }

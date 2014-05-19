@@ -72,9 +72,9 @@ public class BankDAO {
 		}
 	}
 	
-	public Bank findBank (String cif_bank){
+	public Bank findBank (String username){
 		try{
-			Bank b = em.find(Bank.class, cif_bank);
+			Bank b = em.find(Bank.class, username);
 			return b;
 		} catch (Exception ex) {
 			throw new EJBException(ex.getMessage());

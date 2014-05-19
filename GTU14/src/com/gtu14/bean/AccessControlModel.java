@@ -73,6 +73,7 @@ public class AccessControlModel implements Serializable {
 			return "Administrador";
 		
 		entityRole userRole = entityDao.getEntityRole(validatedUser.getCif());
+		user.setCif(validatedUser.getCif());
 		switch (userRole) {
 		case UNIVERSITY:
 			return "Universidad"; //TODO Nombre del xhtml a redireccionar cuando sea un usuario de una universidad.
