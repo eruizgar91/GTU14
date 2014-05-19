@@ -19,23 +19,25 @@ public class University implements Serializable {
 	private String email;
 	private String address;
 	private int telephone;
+	private String faculty;
 	@ManyToOne
 	@JoinColumn(name="cif_bank")
 	private Bank bank;
 	private static final long serialVersionUID = 1L;
-	public University(){
-		
-	}
+	
 	public University(String cif_university, String name, String email,
-			String address, int telephone, Bank bank) {
+			String address, int telephone, String faculty, Bank bank) {
 		this.cif_university = cif_university;
 		this.name = name;
 		this.email = email;
 		this.address = address;
 		this.telephone = telephone;
+		this.faculty = faculty;
 		this.bank = bank;
 	}
-	
+	public University(){
+		
+	}
 	public String getCif_university() {
 		return cif_university;
 	}
@@ -65,6 +67,12 @@ public class University implements Serializable {
 	}
 	public void setTelephone(int telephone) {
 		this.telephone = telephone;
+	}
+	public String getFaculty() {
+		return faculty;
+	}
+	public void setFaculty(String faculty) {
+		this.faculty = faculty;
 	}
 	public Bank getBank() {
 		return bank;

@@ -28,13 +28,13 @@ public class EntityDAO { //Entidad = Universidad || Banco || Estampadora
 	 * @return	newUniversity		Universidad creada o null si no existía antes.
 	 */
 	public University newUniversity(String cif_university, String name, String email,
-			String address, int telephone, Bank bank) {
+			String address, int telephone,String faculty, Bank bank) {
 		
 		//Vemos si existe
 		if(findUniversity(cif_university) != null)
 			return null;
 		//Si no, la creamos.
-		University newUniversity = new University(cif_university,name, email, address, telephone, bank);
+		University newUniversity = new University(cif_university,name, email, address, telephone,faculty, bank);
 		try {
 			em.persist(newUniversity);
 		} catch (Exception e) {

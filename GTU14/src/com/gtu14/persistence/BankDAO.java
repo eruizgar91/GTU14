@@ -94,7 +94,7 @@ public class BankDAO {
 			em.persist(b);
 			
 			University u = new University("3a", "UPM", "a@upm.es",
-					"Avenida b", 955, b);
+					"Avenida b", 955,"ETSIT", b);
 			em.persist(u);
 			
 			Applicant a = new Applicant("2a", "Jorge", "Ulloa",

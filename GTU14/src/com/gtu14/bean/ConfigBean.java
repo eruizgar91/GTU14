@@ -8,6 +8,8 @@
 package com.gtu14.bean;
 
 import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 
 import javax.annotation.PostConstruct;
@@ -66,7 +68,7 @@ public class ConfigBean {
 		// Crear una Universidad
 		University auxUniversity = entityDao.newUniversity("cifUniversidad",
 				"Universidad", "universidad@gmail.com", "Avenida paraninfo",
-				722539578, auxBank);
+				722539578,"ETSIT" ,auxBank);
 		if (auxUniversity == null)
 			logger.log(Level.SEVERE, "Error al crear la universidad");
 
@@ -82,8 +84,9 @@ public class ConfigBean {
 			logger.log(Level.SEVERE, "Error al crear el administrador");
 
 		// Crear un Solicitante
+
 		Applicant auxApplicant = applicantDao.newApplicant(new Applicant(
-				"G12364489", "Brian", "Vazquez", 1, new Date(19922699),
+				"G12364489", "Brian", "Vazquez", 1, new Date(19920992),
 				"Mexico", "brian@gmail.com", "Calle villagarica 2", "Madrid",
 				"Madrid", "Estudiante", 525535596, auxUniversity));
 		if (auxApplicant == null)

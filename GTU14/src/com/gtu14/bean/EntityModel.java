@@ -44,6 +44,7 @@ public class EntityModel implements Serializable{ //Entidad = Universidad || Ban
 	private String password;
 	private String address;
 	private int telephone;
+	private String faculty;
 	
 	public UIOutput getCreateEntityMsg() {
 		return createEntityMsg;
@@ -206,10 +207,11 @@ public class EntityModel implements Serializable{ //Entidad = Universidad || Ban
 		}
 
 		University newUniversity = entityDao.newUniversity(	this.cif,
-															this.name,
+															this.entityname,
 															this.email,
 															this.address,
 															this.telephone,
+															this.name,
 															bankTmp);
 		return newUniversity;
 	}

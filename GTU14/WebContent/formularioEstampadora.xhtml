@@ -25,24 +25,27 @@
 				<div class="page-header">
 					<h3>Campos banco</h3>
 				</div>
+				<h:form p:method="post">
+  <h:commandButton type="submit" value="Prueba" class="btn btn-default btn-lg" action="#{stampingModel.getRequest}" />
+  </h:form>
 				<div class="form-group">
 					<h:outputLabel for="bancoID" value="Banco"/>
 						<h:inputText type="text" class="form-control" name="banco"
-							id="bancoID" placeholder="Escribe el banco" readonly="true"></h:inputText>
+							id="bancoID" placeholder="Escribe el banco" readonly="true" value="#{stampingModel.r.bank.name}"></h:inputText>
 						<h:outputLabel for="numtarjetaID" value="Número de tarjeta"/>
 						<h:inputText type="text" class="form-control" name="numtarjeta"
 							id="numtarjetaID" placeholder="Escribe el número de tarjeta"
-							readonly="true"></h:inputText>
+							readonly="true" value="#{stampingModel.r.cardnumber}"></h:inputText>
 						<div class="page-header">
 							<h3>Campos universidad</h3>
 						</div>
 						<div class="form-group">
 							<h:outputLabel for="university" value="Universidad"/>
 								<h:inputText type="text" class="form-control" name="university"
-									id="university" placeholder="Universidad" readonly="true"></h:inputText>	
+									id="university" placeholder="Universidad" readonly="true" value="#{stampingModel.r.university.name}"></h:inputText>	
 								<h:outputLabel for="college" value="Centro"/>
 									<h:inputText type="text" class="form-control" name="college"
-										id="college" placeholder="Escuela o facultad" readonly="true"></h:inputText>
+										id="college" placeholder="Escuela o facultad" readonly="true" value="#{stampingModel.r.university.faculty}"></h:inputText>
 						</div>
 						<div class="page-header">
 							<h3>Campos solicitante</h3>
@@ -50,23 +53,19 @@
 
 						<h:outputLabel for="name" value="Nombre"/>
 							<h:inputText type="text" class="form-control" name="name"
-								id="name" placeholder="Nombre" readonly="true"></h:inputText>
+								id="name" placeholder="Nombre" readonly="true" value="#{stampingModel.r.applicant.firstname}"></h:inputText>
 							<h:outputLabel for="surname" value="Apellidos"/>
 								<h:inputText type="text" class="form-control" name="surname"
-									id="surname" placeholder="Apellidos" readonly="true"></h:inputText>
+									id="surname" placeholder="Apellidos" readonly="true" value="#{stampingModel.r.applicant.lastname}"></h:inputText>
 								<h:outputLabel for="ID" value="SID"/>
 									<h:inputText type="text" class="form-control" name="ID"
-										id="ID" placeholder="DNI/NIF" readonly="true">
+										id="ID" placeholder="DNI/NIF" readonly="true" value="#{stampingModel.r.applicant.cif_applicant}">
 										</h:inputText>
 										<h:outputLabel value="Funcion"/>
-											<select name="function" size="4" class="form-control"
-												disabled="disabled">
-												<option value="ALUMNO">Alumno</option>
-												<option value="DOCENTE">Docente</option>
-												<option value="PAS">PAS</option>
-												<option value="INVESTIGADOR">Investigador</option>
-											</select>
-											<h:outputLabel for="idacademicoID" value="ID Academico"/>
+											<h:inputText type="text" class="form-control" name="ID"
+										id="role" placeholder="función" readonly="true" value="#{stampingModel.r.applicant.role}">
+										</h:inputText>
+											
 				</div>
 				<button type="submit" class="btn btn-default btn-lg">Enviar
 					Tarjeta</button>
