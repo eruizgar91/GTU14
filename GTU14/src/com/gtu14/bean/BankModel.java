@@ -28,19 +28,17 @@ import com.gtu14.persistence.RequestDAO;
  */
 @Named
 @ManagedBean
-@SessionScoped
+@RequestScoped
 public class BankModel implements Serializable{ 
 	
 	private static final long serialVersionUID = -2633611667469166418L;
-	
-	public enum applicantRole {ALUMNO, DOCENTE, PAS, INVESTIGADOR};
 	
 	@EJB
 	private BankDAO bankDAO;
 	@EJB
 	private RequestDAO requestDAO;
 	@Inject
-	private Request request;
+	Request request;
 	@Inject
 	private User user;
 	
@@ -60,14 +58,14 @@ public class BankModel implements Serializable{
 		return "Banco";
 	}
 	
-	public String testingBank(){
+	/*public String testingBank(){
 		Request r = bankDAO.fillRequest();
 		request.setApplicant(r.getApplicant());
 		request.setUniversity(r.getUniversity());
 		request.setBank(r.getBank());
 		request.setId_request(r.getId_request());
 		return "formularioBancoIda";
-	}
+	}*/
 	
 	public String cancelRequest(){
 		bankDAO.backRequest(request.getId_request(), request.getComment());
@@ -80,30 +78,16 @@ public class BankModel implements Serializable{
 	}
 	
 	public List<Request> getrequestList(){
-		Bank b = bankDAO.findBank(user.getCif());
+		User u=(User) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user");
+		Bank b = bankDAO.findBank(u.getCif());
 		return requestDAO.getRequest(b);
 		
 	}
-	
+		
 	
 	public String putRequest(){
-		System.out.println("ENTRO AL MODEL");
-		System.out.println("ID = "+ request.getId_request());
-		Request r = bankDAO.putRequest(request.getId_request(), request.getState());
-		System.out.println("VUELVO AL MODEL");
-		//if(r.getState().equals("De banco a estampadora")){
-			request.setApplicant(r.getApplicant());
-			request.setUniversity(r.getUniversity());
-			request.setBank(r.getBank());
-			request.setId_request(r.getId_request());
-			return "formularioBancoIda";
-		/*}else{
-			request.setApplicant(r.getApplicant());
-			request.setUniversity(r.getUniversity());
-			request.setBank(r.getBank());
-			request.setId_request(r.getId_request());
-			return "formularioBancoVuelta";
-		}*/
+		
+		return "formularioBancoIda";
 	}
 	
 	

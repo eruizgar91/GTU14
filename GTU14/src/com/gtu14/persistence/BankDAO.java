@@ -81,7 +81,7 @@ public class BankDAO {
 		}
 	}
 	
-	public Request fillRequest(){
+	/*public Request fillRequest(){
 		try{
 			Date d = new Date(0);
 			
@@ -115,5 +115,5 @@ public class BankDAO {
 		}
 		
 		
-	}
+	}*/
 }
