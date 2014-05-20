@@ -97,20 +97,27 @@ public class ConfigBean {
 			logger.log(Level.SEVERE, "Error al crear el solicitante");
 
 		// Crear una solicitud
-		Request auxRequest = requestDao.newRequest((long) 1,
-				"1234-1234-1234-1234", auxApplicant, auxBank, auxUniversity,
+		 
+		  Request auxRequest = requestDao.newRequest((long) 1,
+				"2342-3454-6756-7865", auxApplicant, auxBank, auxUniversity,
 				auxStamping, "Comentario bla bla..", new Date(0),
 				"estado en pruebas", (long) 1234123412);
 		if (auxRequest == null)
 			logger.log(Level.SEVERE, "Error al crear la solicitud");
-		//crear otra solicitud
-		auxApplicant.setFirstname("Jorge");
-	             auxRequest = requestDao.newRequest((long) 2,
-				"4321-4321-4321-4321", auxApplicant, auxBank, auxUniversity,
-				auxStamping, "Comentario bla bla..", new Date(0),
-				"estado en pruebas", (long) 1234123412);
-		if (auxRequest == null)
-			logger.log(Level.SEVERE, "Error al crear la solicitud");
+		
+		// Crear una solicitud
+		 
+		 Applicant aux=applicantDao.newApplicant(new Applicant(
+					"12232234", "Jorge", "Ulloa", 1, new Date(19920992),
+					"España", "jorge@gmail.com", "Calle villagarica 2", "Madrid",
+					"Madrid", "Estudiante", 855535596, auxUniversity));
+				Request auxRequest1 = requestDao.newRequest((long) 2,
+						"1234-1234-1234-1234", aux, auxBank, auxUniversity,
+						auxStamping, "Comentario bla bla..", new Date(0),
+						"estado en pruebas", (long) 1234123412);
+				if (auxRequest1 == null)
+					logger.log(Level.SEVERE, "Error al crear la solicitud");
+				
 
 	}
 }

@@ -25,7 +25,6 @@ import com.gtu14.entity.User;
 import com.gtu14.persistence.StampingDAO;
 
 @Named
-@ManagedBean
 @RequestScoped
 public class StampingModel {
 	@EJB
