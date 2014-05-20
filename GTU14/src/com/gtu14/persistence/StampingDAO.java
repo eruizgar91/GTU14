@@ -12,7 +12,7 @@ import com.gtu14.entity.Stamping;
 
 
 @Stateful
-public class StampingDAO { 
+public class StampingDAO  { 
 	@PersistenceContext
 	private EntityManager em;
 	
@@ -35,7 +35,7 @@ public class StampingDAO {
 	}
 	 public List<Request> getRequests(String cif_estampadora)  {
 	        
-	      List<Request> resultList = (List<Request>) em.createQuery("Select * from Request r where r.cif_stamping="+"'"+cif_estampadora+"'").getResultList();
+	      List<Request> resultList = (List<Request>) em.createQuery("SELECT r FROM Request r WHERE r.stamping.cif_stamping="+"'"+cif_estampadora+"'").getResultList();
 		return resultList;
 	        
      }

@@ -8,7 +8,7 @@
         <meta charset="UTF-8"/>
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <title>Formulario banco</title>
+        <title>Formulario estampadora</title>
         <!-- BootStrap -->
         <link rel="stylesheet" href="css/bootstrap.min.css"/>
         <script src="js/jquery-2.1.0.min.js"></script>
@@ -23,8 +23,8 @@
             <h3>Solicitudes pendientes</h3>
          </div>
          <h:form>
-       <h:dataTable id="solicitudes"
-                         value="#{bankModel.requestList}"
+         <h:dataTable id="solicitudes"
+                         value="#{stampingModel.requestList}"
                          var="req"
                          headerClass="list-header"
                          styleClass="list-background"
@@ -73,17 +73,16 @@
                     <f:facet name="header">
                         <h:outputText  value="Ir a..."/>
                     </f:facet>
-                    <h:commandButton id="ir"
-                                     action="#{bankModel.putRequest}" 
-                                     value="Ir a la solicitud">
-                           <f:setPropertyActionListener target="#{bankModel.request}" 
+                    <h:commandButton id="id#{req.id_request}"
+                                     action="#{stampingModel.getRequest}" 
+                                     value="ver solicitud">
+                           <f:setPropertyActionListener target="#{stampingModel.r}" 
                                                      value="#{req}"/>
-                                      
+                                                          
                     </h:commandButton>
                 </h:column>
 
             </h:dataTable> 
             </h:form>
-      
  </h:body>
 </html>

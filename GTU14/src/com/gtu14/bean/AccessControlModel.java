@@ -64,6 +64,7 @@ public class AccessControlModel implements Serializable {
 			wrongPassword.setRendered(true);
 			return null;
 		}
+		
 		//Creamos la sesión si el usuario es válido.
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
 		logger.log(Level.INFO, "Sesión de usuario creada con éxito. SessionID = {0}", session.getId());
@@ -74,6 +75,7 @@ public class AccessControlModel implements Serializable {
 		
 		entityRole userRole = entityDao.getEntityRole(validatedUser.getCif());
 		user.setCif(validatedUser.getCif());
+		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user",validatedUser);
 		switch (userRole) {
 		case UNIVERSITY:
 			return "Universidad"; //TODO Nombre del xhtml a redireccionar cuando sea un usuario de una universidad.
@@ -90,6 +92,7 @@ public class AccessControlModel implements Serializable {
 	 */
 	public void logout(){
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().clear();
 		if(session != null)
 			session.invalidate();
 	}

@@ -82,6 +82,10 @@ public class ConfigBean {
 				"Banco", "b", 916667788, false, "cifBanco");
 		if (bankUser == null)
 			logger.log(Level.SEVERE, "Error al crear el administrador");
+		User stampingUser = userDao.newUser("estampadora", "estampadora", "estampadora@gmail.com",
+				"estampa", "e", 916667788, false, "cifEstampadora");
+		if (stampingUser == null)
+			logger.log(Level.SEVERE, "Error al crear el stamping");
 
 		// Crear un Solicitante
 
@@ -95,6 +99,14 @@ public class ConfigBean {
 		// Crear una solicitud
 		Request auxRequest = requestDao.newRequest((long) 1,
 				"1234-1234-1234-1234", auxApplicant, auxBank, auxUniversity,
+				auxStamping, "Comentario bla bla..", new Date(0),
+				"estado en pruebas", (long) 1234123412);
+		if (auxRequest == null)
+			logger.log(Level.SEVERE, "Error al crear la solicitud");
+		//crear otra solicitud
+		auxApplicant.setFirstname("Jorge");
+	             auxRequest = requestDao.newRequest((long) 2,
+				"4321-4321-4321-4321", auxApplicant, auxBank, auxUniversity,
 				auxStamping, "Comentario bla bla..", new Date(0),
 				"estado en pruebas", (long) 1234123412);
 		if (auxRequest == null)
