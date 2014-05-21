@@ -1,5 +1,6 @@
 package com.gtu14.persistence;
 
+import java.util.Calendar;
 import java.util.List;
 
 import javax.ejb.EJBException;
@@ -41,10 +42,34 @@ public class StampingDAO  {
 	    	  if(request.getState()!=Request.state.ESTAMPADORA)
 	    		  removedReq = request;
 		}
-	      if(removedReq!=null)
+	      if(removedReq!=null){
 	      resultList.remove(removedReq);
+	      
+	      }
 		return resultList;
 	        
      }
+	 
+	 public void sendRequest(long id_request){
+			try{
+				Request request = em.find(Request.class, id_request);
+				
+				request.setState(Request.state.BANCO_VUELTA);
+				em.merge(request);
+			} catch (Exception ex) {
+				throw new EJBException(ex.getMessage());
+			}
+		}
+	 
+	 public void backRequest(long id_request, String comment){
+			try{
+				Request request = em.find(Request.class, id_request);
+				request.setComment(comment);
+				request.setState(Request.state.CANCELADO);
+				em.merge(request);
+			} catch (Exception ex) {
+				throw new EJBException(ex.getMessage());
+			}
+		}
 	
 }

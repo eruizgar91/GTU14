@@ -21,7 +21,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
-@RequestScoped
 @Entity
 @Table(name="REQUEST")
 public class Request implements Serializable {

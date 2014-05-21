@@ -1,6 +1,9 @@
 package com.gtu14.bean;
 
+import java.io.Serializable;
 import java.util.List;
+
+
 
 
 
@@ -26,14 +29,35 @@ import com.gtu14.persistence.StampingDAO;
 
 @Named
 @RequestScoped
-public class StampingModel {
+public class StampingModel implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	String comment;
 	@EJB
 	StampingDAO s;
 	
 	@Inject
-	Request r;	
+	Request request;	
 	
 	
+
+	public String getComment() {
+		return comment;
+	}
+
+
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 
 	public StampingModel() {
 	}
@@ -51,13 +75,13 @@ public class StampingModel {
 
 
 
-	public Request getR() {
-		return r;
+	public Request getRequest() {
+		return request;
 	}
 
 
-	public void setR(Request r) {
-		this.r = r;
+	public void setRequest(Request request) {
+		this.request = request;
 	}
 	public List<Request> getrequestList(){
 		
@@ -78,10 +102,24 @@ public class StampingModel {
         return (request);
     }
 
-	public String getRequest(){
+	public String findRequest(){
 		
+		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("request",request);
 		return "formularioEstampadora";
 		
+	}
+	public String sendRequest(){
+		request=(Request)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("request");
+		s.sendRequest(request.getId_request());
+		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("request");
+		return "Estampadora";
+	}
+	
+	public String cancelRequest(){
+		request=(Request)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("request");
+		s.backRequest(request.getId_request(), comment);
+		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("request");
+		return "Estampadora";
 	}
 	
 

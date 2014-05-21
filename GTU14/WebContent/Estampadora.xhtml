@@ -73,10 +73,10 @@
                     <f:facet name="header">
                         <h:outputText  value="Ir a..."/>
                     </f:facet>
-                    <h:commandButton id="id#{req.id_request}"
-                                     action="#{stampingModel.getRequest}" 
+                    <h:commandButton id="idbut"
+                                     action="#{stampingModel.findRequest}" 
                                      value="ver solicitud">
-                           <f:setPropertyActionListener target="#{stampingModel.r}" 
+                           <f:setPropertyActionListener target="#{stampingModel.request}" 
                                                      value="#{req}"/>
                                                           
                     </h:commandButton>
