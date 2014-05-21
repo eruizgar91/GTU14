@@ -33,7 +33,7 @@ public class BankDAO {
 			System.out.println("HECHO FIND");
 			request.setAccountnumber(accountNumber);
 			request.setCardnumber(cardNumber);
-			request.setState("De banco a estampadora");
+			request.setState(Request.state.ESTAMPADORA);
 			System.out.println("ANTES DEL MERGE");
 			em.merge(request);
 			System.out.println("DESPUES DEL MERGE");
@@ -46,7 +46,7 @@ public class BankDAO {
 		try{
 			Request request = em.find(Request.class, id_request);
 			request.setComment(comment);
-			request.setState("Cancelada en el banco");
+			request.setState(Request.state.CANCELADO);
 			em.merge(request);
 		} catch (Exception ex) {
 			throw new EJBException(ex.getMessage());
@@ -65,7 +65,7 @@ public class BankDAO {
 	public void validateRequest(long id_request){
 		try{
 			Request request = em.find(Request.class, id_request);
-			request.setState("Entregada desde el banco a la universidad");
+			request.setState(Request.state.UNIVERSIDAD_VUELTA);
 			em.merge(request);
 		} catch (Exception ex) {
 			throw new EJBException(ex.getMessage());

@@ -26,6 +26,7 @@ import javax.persistence.Table;
 @Table(name="REQUEST")
 public class Request implements Serializable {
     private static final long serialVersionUID = 1L;
+    public enum state{UNIVERSIDAD_IDA,BANCO_IDA,ESTAMPADORA,BANCO_VUELTA,UNIVERSIDAD_VUELTA,FINALIZADO,CANCELADO}
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id_request;
@@ -41,9 +42,9 @@ public class Request implements Serializable {
     @ManyToOne
 	@JoinColumn(name="cif_stamping")
 	private Stamping stamping;
-    
+ 
     private Date requestdate;
-    private String state;
+    private state state;
     private String comment;
     private long cardnumber;
     private String accountnumber;
@@ -54,7 +55,7 @@ public class Request implements Serializable {
 
     public Request(Long id_request, Applicant applicant, Bank bank,
 			University university, Stamping stamping, Date requestdate,
-			String state, String comment, long cardnumber, String accountnumber) {
+			Request.state state, String comment, long cardnumber, String accountnumber) {
 		this.id_request = id_request;
 		this.applicant = applicant;
 		this.bank = bank;
@@ -115,11 +116,11 @@ public class Request implements Serializable {
 		this.requestdate = requestdate;
 	}
 
-	public String getState() {
+	public state getState() {
 		return state;
 	}
 
-	public void setState(String state) {
+	public void setState(state state) {
 		this.state = state;
 	}
 

@@ -10,6 +10,8 @@ package com.gtu14.bean;
 import java.sql.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.logging.Level;
 
 import javax.annotation.PostConstruct;
@@ -88,9 +90,9 @@ public class ConfigBean {
 			logger.log(Level.SEVERE, "Error al crear el stamping");
 
 		// Crear un Solicitante
-
+        Calendar cumple= new GregorianCalendar(1992,Calendar.SEPTEMBER,26);
 		Applicant auxApplicant = applicantDao.newApplicant(new Applicant(
-				"G12364489", "Brian", "Vazquez", 1, new Date(19920992),
+				"G12364489", "Brian", "Vazquez", 1, new Date(cumple.getTimeInMillis()),
 				"Mexico", "brian@gmail.com", "Calle villagarica 2", "Madrid",
 				"Madrid", "Estudiante", 525535596, auxUniversity));
 		if (auxApplicant == null)
@@ -101,7 +103,7 @@ public class ConfigBean {
 		  Request auxRequest = requestDao.newRequest((long) 1,
 				"2342-3454-6756-7865", auxApplicant, auxBank, auxUniversity,
 				auxStamping, "Comentario bla bla..", new Date(0),
-				"estado en pruebas", (long) 1234123412);
+				Request.state.ESTAMPADORA, (long) 1234123412);
 		if (auxRequest == null)
 			logger.log(Level.SEVERE, "Error al crear la solicitud");
 		
@@ -114,7 +116,7 @@ public class ConfigBean {
 				Request auxRequest1 = requestDao.newRequest((long) 2,
 						"1234-1234-1234-1234", aux, auxBank, auxUniversity,
 						auxStamping, "Comentario bla bla..", new Date(0),
-						"estado en pruebas", (long) 1234123412);
+						Request.state.UNIVERSIDAD_IDA, (long) 1234123412);
 				if (auxRequest1 == null)
 					logger.log(Level.SEVERE, "Error al crear la solicitud");
 				

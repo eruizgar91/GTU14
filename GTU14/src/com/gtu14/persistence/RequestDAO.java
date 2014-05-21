@@ -119,7 +119,7 @@ public class RequestDAO {
 								Stamping stamping,
 								String comment, 
 								Date requestDate, 
-								String state, 
+								Request.state state, 
 								long cardNumber){
 		//Vemos si existe la solicitud
 		if(findRequest(requestId) != null)

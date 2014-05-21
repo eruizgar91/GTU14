@@ -28,7 +28,7 @@ public class UniversityDAO {
 		try{
 			Request request = em.find(Request.class, cif_applicant);
 			request.setBank(bank);
-			request.setState("De universidad a banco");
+			request.setState(Request.state.BANCO_IDA);
 			em.merge(request);
 		} catch (Exception ex) {
 			throw new EJBException(ex.getMessage());
@@ -38,7 +38,7 @@ public class UniversityDAO {
 		try{
 			Request request = em.find(Request.class, cif_applicant);
 			request.setComment(comment);
-			request.setState("Cancelada en la universidad");
+			request.setState(Request.state.CANCELADO);
 			em.merge(request);
 		} catch (Exception ex) {
 			throw new EJBException(ex.getMessage());
@@ -48,7 +48,7 @@ public class UniversityDAO {
 	public void validateRequest(String cif_applicant){
 		try{
 			Request request = em.find(Request.class, cif_applicant);
-			request.setState("Entregada desde la universidad al solicitante");
+			request.setState(Request.state.FINALIZADO);
 			em.merge(request);
 		} catch (Exception ex) {
 			throw new EJBException(ex.getMessage());

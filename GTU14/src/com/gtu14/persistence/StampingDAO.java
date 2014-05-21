@@ -36,6 +36,13 @@ public class StampingDAO  {
 	 public List<Request> getRequests(String cif_estampadora)  {
 	        
 	      List<Request> resultList = (List<Request>) em.createQuery("SELECT r FROM Request r WHERE r.stamping.cif_stamping="+"'"+cif_estampadora+"'").getResultList();
+	      Request removedReq=null;
+	      for (Request request : resultList) {
+	    	  if(request.getState()!=Request.state.ESTAMPADORA)
+	    		  removedReq = request;
+		}
+	      if(removedReq!=null)
+	      resultList.remove(removedReq);
 		return resultList;
 	        
      }
