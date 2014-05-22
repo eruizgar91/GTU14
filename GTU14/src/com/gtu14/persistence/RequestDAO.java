@@ -100,6 +100,8 @@ public class RequestDAO {
 		List<Request> requestList;
 		try{
 			requestList = queryRequestByBank.getResultList();
+			
+		     
 		}catch(Exception ex){
 			return null;
 		}

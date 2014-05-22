@@ -1,6 +1,7 @@
 package com.gtu14.bean;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -20,14 +21,13 @@ import com.gtu14.persistence.RequestDAO;
 
 
 /**
- * Modelo para el manejo de propiedades relacionadas con
- * universidad, banco o estampadora (entidades jurídicas).
+ * Modelo para el manejo de peticiones y cambios
+ * sobre una solicitud en el banco
  * 
  * @author Jorge Ulloa Núñez
  *
  */
 @Named
-@ManagedBean
 @RequestScoped
 public class BankModel implements Serializable{ 
 	
@@ -80,14 +80,24 @@ public class BankModel implements Serializable{
 	public List<Request> getrequestList(){
 		User u=(User) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user");
 		Bank b = bankDAO.findBank(u.getCif());
-		return requestDAO.getRequest(b);
+		List<Request> lr = requestDAO.getRequest(b);
+		List<Request> lrFinal = new ArrayList<Request>() ;
+		for (Request request : lr){
+			if((request.getState().equals(Request.state.BANCO_IDA))||(request.getState().equals(Request.state.BANCO_VUELTA))){
+				lrFinal.add(request);
+			}
+		}
+		return lrFinal;
 		
 	}
 		
 	
 	public String putRequest(){
-		
-		return "formularioBancoIda";
+		if(request.getState().equals(Request.state.UNIVERSIDAD_IDA)){
+			return "formularioBancoIda";
+		} else{
+			return "formularioBancoVuelta";
+		}
 	}
 	
 	
