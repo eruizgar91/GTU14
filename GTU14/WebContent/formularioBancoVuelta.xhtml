@@ -36,7 +36,7 @@
               <label for="numcuentaID">Número de cuenta</label>
               <h:inputText type="text" class="form-control" name="numcuenta" value="#{bankModel.request.accountnumber}" id="numcuentaID" p:placeholder="Escribe el número de cuenta" readonly = "true"/>
               <label for="estampadoraID">Estampadora</label>
-              <h:inputText type="text" class="form-control" name="estampadora" value="#{bankModel.request.bank.stamping}" id="estampadoraID" p:placeholder="Escribe la estampadora" readonly = "true"/>
+              <h:inputText type="text" class="form-control" name="estampadora" value="#{bankModel.request.bank.stamping.name}" id="estampadoraID" p:placeholder="Escribe la estampadora" readonly = "true"/>
               <h:inputText type="text" class="form-control" name="id" value="#{bankModel.request.id_request}" id="idID" p:placeholder="ID de la solicitud" required = "true" style="display:none" />
           </div>
           
@@ -76,7 +76,7 @@
               <label for="phone">Telefono</label>
               <h:inputText type="tel" class="form-control" name="phone" value="#{bankModel.request.applicant.telephone}" id="phone" p:placeholder="Telefono" readonly = "true"/>
               <label for="college">Centro</label>
-              <h:inputText type="text" class="form-control" name="college" value="#{bankModel.request.applicant.university}" id="college" p:placeholder="Escuela o facultad" readonly = "true"/>
+              <h:inputText type="text" class="form-control" name="college" value="#{bankModel.request.applicant.university.name}" id="college" p:placeholder="Escuela o facultad" readonly = "true"/>
               <label>Funcion</label>
               <h:selectOneListbox id="applicantRole" size="4" value="#{bankModel.request.applicant.role}" class="form-control" disabled = "true">
 	            <f:selectItem itemValue="ALUMNO" itemLabel="Alumno"/>

@@ -16,8 +16,8 @@ import com.gtu14.entity.University;
 import com.gtu14.entity.Request;
 
 /**
- * Objeto de acceso a datos (DAO) que maneja las entidades
- * (jurídicas): Universidad, banco y estampadora.
+ * Objeto de acceso a datos (DAO) que maneja las solicitudes
+ * a su paso por el banco
  * 
  * @author Jorge Ulloa Núñez
  *
