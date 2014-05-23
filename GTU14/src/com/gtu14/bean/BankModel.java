@@ -93,7 +93,7 @@ public class BankModel implements Serializable{
 		
 	
 	public String putRequest(){
-		if(request.getState().equals(Request.state.UNIVERSIDAD_IDA)){
+		if(request.getState().equals(Request.state.BANCO_IDA)){
 			return "formularioBancoIda";
 		} else{
 			return "formularioBancoVuelta";
