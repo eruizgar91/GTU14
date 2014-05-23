@@ -1,15 +1,21 @@
 package com.gtu14.bean;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.context.FacesContext;
 //import javax.faces.component.UIOutput;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-
+import com.gtu14.entity.Bank;
 import com.gtu14.entity.Request;
+import com.gtu14.entity.University;
+import com.gtu14.entity.User;
+import com.gtu14.persistence.RequestDAO;
 import com.gtu14.persistence.UniversityDAO;
 
 
@@ -26,12 +32,14 @@ public class UniversityModel implements Serializable{ //Entidad = Universidad ||
 	
 	private static final long serialVersionUID = -2633611667469166418L;
 	
-	public enum applicantRole {ALUMNO, DOCENTE, PAS, INVESTIGADOR};
-	
 	@EJB
 	private UniversityDAO universityDAO;
+	@EJB
+	private RequestDAO requestDAO;
 	@Inject
 	private Request request;
+	@Inject
+	private User user;
 		
 	public Request getRequest() {
 		return request;
@@ -40,21 +48,43 @@ public class UniversityModel implements Serializable{ //Entidad = Universidad ||
 		this.request = request;
 	}
 	/**
-	 * Da de alta una entidad universidad, banco o estampadora con datos del .xhtml
+	 *
 	 */
 	public String submitRequest(){
-		universityDAO.sendRequest(request.getUniversity().getName(), request.getUniversity().getCif_university(),
-				 request.getUniversity().getBank(),request.getApplicant().getCif_applicant());
-		return "index";
+		universityDAO.sendRequest(request.getId_request());
+		return "Universidad";
 	}
 	public String cancelRequest(){
-		universityDAO.backRequest(request.getApplicant().getCif_applicant(), request.getComment());
-		return ("index");
+		universityDAO.backRequest(request.getId_request(), request.getComment());
+		return "Universidad";
 	}
 	
 	public String validateRequest(){
-		universityDAO.validateRequest(request.getApplicant().getCif_applicant());
-		return ("index");
+		universityDAO.validateRequest(request.getId_request());
+		return "Universidad";
+	}
+	
+	public List<Request> getrequestList(){
+		User u=(User) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user");
+		University uni = universityDAO.findUniversity(u.getCif());
+		List<Request> lr = requestDAO.getRequest(uni);
+		List<Request> lrFinal = new ArrayList<Request>() ;
+		for (Request request : lr){
+			if((request.getState().equals(Request.state.UNIVERSIDAD_IDA))||(request.getState().equals(Request.state.UNIVERSIDAD_VUELTA))){
+				lrFinal.add(request);
+			}
+		}
+		return lrFinal;
+		
+	}
+		
+	
+	public String putRequest(){
+		if(request.getState().equals(Request.state.UNIVERSIDAD_IDA)){
+			return "formularioUniversidadIda";
+		} else{
+			return "formularioUniversidadVuelta";
+		}
 	}
 	
 	

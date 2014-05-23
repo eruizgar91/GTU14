@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="Content-type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Formulario Universidad</title>
+        <!-- BootStrap -->
+        <link rel="stylesheet" href="css/bootstrap.min.css"/>
+        <script src="js/jquery-2.1.0.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </h:head>
+<h:body>
+   <div class="page-header text-center">
+    <h1>Solicitudes pendientes</h1>
+  </div>
+    
+          <div class="page-header">
+            <h3>Solicitudes pendientes</h3>
+         </div>
+       <h:form>
+       <h:dataTable id="solicitudes"
+                         value="#{universityModel.requestList}"
+                         var="req"
+                         headerClass="list-header"
+                         styleClass="list-background"
+                         rowClasses="list-row-even, list-row-odd"
+                         border="1" 
+                         summary="Lista de solicitudes pendientes" >
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="ID" />
+                    </f:facet>
+                    <h:outputText value="#{req.id_request}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="cif_applicant" />
+                    </f:facet>
+                    <h:outputText value="#{req.applicant.cif_applicant}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Estado" />
+                    </f:facet>
+                    <h:outputText value="#{req.state}" />
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="CIF University" />
+                    </f:facet>
+                    <h:outputText value="#{req.university.cif_university}" />
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText  value="Ir a..."/>
+                    </f:facet>
+                    <h:commandButton id="ir"
+                                     action="#{universityModel.putRequest}" 
+                                     value="Ir a la solicitud">
+                           <f:setPropertyActionListener target="#{universityModel.request}" 
+                                                     value="#{req}"/>
+                                      
+                    </h:commandButton>
+                </h:column>
+
+            </h:dataTable> 
+            </h:form>
+      
+ </h:body>
+</html>
