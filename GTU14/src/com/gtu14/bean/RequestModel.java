@@ -1,12 +1,18 @@
 package com.gtu14.bean;
 
+
+import java.util.Date;
+
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.component.UIOutput;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import com.gtu14.entity.User;
+import com.gtu14.entity.Applicant;
+import com.gtu14.entity.Bank;
+import com.gtu14.entity.Request;
+import com.gtu14.entity.Stamping;
 import com.gtu14.persistence.RequestDAO;
 import com.gtu14.persistence.ApplicantDAO;
 
@@ -14,16 +20,18 @@ import com.gtu14.persistence.ApplicantDAO;
 @RequestScoped
 public class RequestModel {
 	@EJB
-	private UserDAO userDAO;
+	private RequestDAO requestDAO;
 	@EJB
 	private ApplicantDAO applicantDAO;
 	@Inject
 	private Request request;
 	@Inject
 	private Applicant applicant;
+	
+	private static long request_id = 0;
 
-	private UIOutput createUserMsg;
-	private UIOutput deleteUserMsg;
+	private UIOutput createRequestMsg;
+	private UIOutput deleteRequestMsg;
 	
 	public UIOutput getDeleteRequestMsg() {
 		return deleteRequestMsg;
@@ -52,37 +60,32 @@ public class RequestModel {
 	
 	public String submitRequest(){
 		
-		Applicant newApplicant = applicantDAO.newApplicant( applicant.getCif_applicant(),
-															applicant.getFirstname(),
-															applicant.getLastname(),
-															applicant.getTypecif(),
-															applicant.getBorndate(),
-															applicant.getEmail(),
-															applicant.getAddress(),
-															applicant.getPopulation(),
-															applicant.getProvince(),
-															applicant.getRole(),
-															applicant.getTelephone(),
-															applicant.getUniversity );
-
-		Request newRequest = requestDAO.newRequest( newApplicant,
-													null,
-													applicant.getUniversity(),
-													null,
-													'',
-													new Date(),
+		String vacio = "vacio";
+			
+		Applicant newApplicant = applicantDAO.newApplicant(applicant);
+		
+		request_id =+ request_id;
+	
+		Request newRequest = requestDAO.newRequest(request_id, 
+													vacio , 
+													newApplicant, 
+													(Bank) null , 
+													applicant.getUniversity(), 
+													(Stamping) null , 												
+													vacio ,
+													(java.sql.Date) new Date(), 
 													Request.state.UNIVERSIDAD_IDA,
-													null);
-
+													(long) 0 );
+		
 		if(newApplicant == null){
 			createRequestMsg.setRendered(true);
 			createRequestMsg.setValue("[ERROR] El aplicante ya existe.");
-		}else if(){
+		}else if(newRequest == null){
 			createRequestMsg.setRendered(true);
 			createRequestMsg.setValue("[ERROR] La solicitud ya existe.");
 		}else{
 			createRequestMsg.setRendered(true);
-			createRequestMsg.setValue("[OK] La solicitud ha sido creado.");
+			createRequestMsg.setValue("[OK] La solicitud ha sido creada.");
 		}
 		
 		return null;
