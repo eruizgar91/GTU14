@@ -55,7 +55,7 @@ public class UniversityDAO {
 			return request;
 		} catch (Exception ex) {
 			throw new EJBException(ex.getMessage());
-		}
+		} 
 	}
 	public void validateRequest(long id_request){
 		try{
@@ -64,7 +64,7 @@ public class UniversityDAO {
 			em.merge(request);
 		} catch (Exception ex) {
 			throw new EJBException(ex.getMessage());
-		}
+		} 
 	}
 	public University findUniversity (String username){
 		try{

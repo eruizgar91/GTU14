@@ -74,7 +74,7 @@ public class UniversityModel implements Serializable{ //Entidad = Universidad ||
 				lrFinal.add(request);
 			}
 		}
-		return lrFinal;
+		return lrFinal; 
 		
 	}
 		

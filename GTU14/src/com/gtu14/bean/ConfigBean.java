@@ -86,7 +86,7 @@ public class ConfigBean {
 			logger.log(Level.SEVERE, "Error al crear el banco");
 		User universityUser = userDao.newUser("uni", "uni", "uni@gmail.com",
 				"uni", "uni", 916667788, false, "cifUniversidad");
-		if (universityUser == null)
+		if (universityUser == null) 
 			logger.log(Level.SEVERE, "Error al crear el universidad");
 		User stampingUser = userDao.newUser("estampadora", "estampadora", "estampadora@gmail.com",
 				"estampa", "e", 916667788, false, "cifEstampadora");
