@@ -25,13 +25,15 @@ import com.gtu14.persistence.UniversityDAO;
 public class UniversityModel implements Serializable{ //Entidad = Universidad || Banco || Estampadora
 	
 	private static final long serialVersionUID = -2633611667469166418L;
-	
-	public enum applicantRole {ALUMNO, DOCENTE, PAS, INVESTIGADOR};
-	
+		
 	@EJB
 	private UniversityDAO universityDAO;
+	@EJB
+	private RequestDAO requestDAO;
 	@Inject
 	private Request request;
+	@Inject
+	private User user;
 		
 	public Request getRequest() {
 		return request;
@@ -43,18 +45,30 @@ public class UniversityModel implements Serializable{ //Entidad = Universidad ||
 	 * Da de alta una entidad universidad, banco o estampadora con datos del .xhtml
 	 */
 	public String submitRequest(){
-		universityDAO.sendRequest(request.getUniversity().getName(), request.getUniversity().getCif_university(),
-				 request.getUniversity().getBank(),request.getApplicant().getCif_applicant());
-		return "index";
+		universityDAO.sendRequest(request.getId_request());
+		return "universidad";
 	}
 	public String cancelRequest(){
-		universityDAO.backRequest(request.getApplicant().getCif_applicant(), request.getComment());
-		return ("index");
+		universityDAO.backRequest(request.getId_request(), request.getComment());
+		return "universidad";
 	}
 	
 	public String validateRequest(){
-		universityDAO.validateRequest(request.getApplicant().getCif_applicant());
-		return ("index");
+		universityDAO.validateRequest(request.getId_request());
+		return "universidad";
+	}
+	
+	public List<Request> getrequestList(){
+		User u=(User) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user");
+		University uni = universityDAO.findUniversity(u.getCif());
+		return requestDAO.getRequest(uni);
+		
+	}
+		
+	
+	public String putRequest(){
+		
+		return "formularioUniversidadIda";
 	}
 	
 	
