@@ -83,7 +83,11 @@ public class ConfigBean {
 		User bankUser = userDao.newUser("banco", "banco", "banco@gmail.com",
 				"Banco", "b", 916667788, false, "cifBanco");
 		if (bankUser == null)
-			logger.log(Level.SEVERE, "Error al crear el administrador");
+			logger.log(Level.SEVERE, "Error al crear el banco");
+		User universityUser = userDao.newUser("uni", "uni", "uni@gmail.com",
+				"uni", "uni", 916667788, false, "cifUniversidad");
+		if (universityUser == null) 
+			logger.log(Level.SEVERE, "Error al crear el universidad");
 		User stampingUser = userDao.newUser("estampadora", "estampadora", "estampadora@gmail.com",
 				"estampa", "e", 916667788, false, "cifEstampadora");
 		if (stampingUser == null)
@@ -111,7 +115,7 @@ public class ConfigBean {
 		 
 		 Applicant aux=applicantDao.newApplicant(new Applicant(
 					"12232234", "Jorge", "Ulloa", 1, new Date(19920992),
-					"España", "jorge@gmail.com", "Calle villagarica 2", "Madrid",
+					"Espaï¿½a", "jorge@gmail.com", "Calle villagarica 2", "Madrid",
 					"Madrid", "Estudiante", 855535596, auxUniversity));
 				Request auxRequest1 = requestDao.newRequest((long) 2,
 						"1234-1234-1234-1234", aux, auxBank, auxUniversity,

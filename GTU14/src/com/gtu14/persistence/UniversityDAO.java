@@ -6,11 +6,17 @@ import javax.ejb.Stateful;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+
+
+
+
+
 //import com.gtu14.bean.EntityModel.entityRole;
-import com.gtu14.entity.Bank;
+//import com.gtu14.entity.Bank;
 
 //import com.gtu14.entity.University;
 import com.gtu14.entity.Request;
+import com.gtu14.entity.University;
 
 /**
  * Objeto de acceso a datos (DAO) que maneja las entidades
@@ -24,19 +30,18 @@ public class UniversityDAO {
 	@PersistenceContext
 	private EntityManager em;
 	
-	public void sendRequest(String universityName, String cif_University, Bank bank, String cif_applicant){
+	public void sendRequest(long id_request){
 		try{
-			Request request = em.find(Request.class, cif_applicant);
-			request.setBank(bank);
+			Request request = em.find(Request.class, id_request);
 			request.setState(Request.state.BANCO_IDA);
 			em.merge(request);
 		} catch (Exception ex) {
 			throw new EJBException(ex.getMessage());
 		}
 	}
-	public void backRequest(String cif_applicant, String comment){
+	public void backRequest(long id_request, String comment){
 		try{
-			Request request = em.find(Request.class, cif_applicant);
+			Request request = em.find(Request.class, id_request);
 			request.setComment(comment);
 			request.setState(Request.state.CANCELADO);
 			em.merge(request);
@@ -44,12 +49,27 @@ public class UniversityDAO {
 			throw new EJBException(ex.getMessage());
 		}
 	}
-	
-	public void validateRequest(String cif_applicant){
+	public Request putRequest(long id_request, String comment){
 		try{
-			Request request = em.find(Request.class, cif_applicant);
+			Request request = em.find(Request.class, id_request);
+			return request;
+		} catch (Exception ex) {
+			throw new EJBException(ex.getMessage());
+		} 
+	}
+	public void validateRequest(long id_request){
+		try{
+			Request request = em.find(Request.class, id_request);
 			request.setState(Request.state.FINALIZADO);
 			em.merge(request);
+		} catch (Exception ex) {
+			throw new EJBException(ex.getMessage());
+		} 
+	}
+	public University findUniversity (String username){
+		try{
+			University uni = em.find(University.class, username);
+			return uni;
 		} catch (Exception ex) {
 			throw new EJBException(ex.getMessage());
 		}
