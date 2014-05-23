@@ -49,7 +49,7 @@ public class UniversityModel implements Serializable{ //Entidad = Universidad ||
 	public void setRequest(Request request) {
 		this.request = request;
 	}
-	/**
+	/** 
 	 *
 	 */
 	public String submitRequest(){

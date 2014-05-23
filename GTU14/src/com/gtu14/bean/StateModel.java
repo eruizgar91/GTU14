@@ -18,7 +18,7 @@ import com.gtu14.entity.University;
 import com.gtu14.entity.User;
 import com.gtu14.persistence.RequestDAO;
 import com.gtu14.persistence.UniversityDAO;
-
+ 
 
 /**
  * Modelo para el manejo de propiedades relacionadas con

@@ -18,7 +18,7 @@ import javax.persistence.PersistenceContext;
 import com.gtu14.entity.Request;
 import com.gtu14.entity.University;
 
-/**
+/** 
  * Objeto de acceso a datos (DAO) que maneja las entidades
  * (jurídicas): Universidad, banco y estampadora.
  * 
