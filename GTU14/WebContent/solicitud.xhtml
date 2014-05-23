@@ -1,13 +1,30 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<html lang="es"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
     <h:head>
         <title>Solicitud</title>
     </h:head>
     <h:body>
-        <label for="numtarjetaID">Número de tarjeta</label>
-          <h:inputText type="text" class="form-control" name="numtarjeta" value="#{bankModel.request.cardnumber}" id="numtarjetaID" p:placeholder="Escribe el número de tarjeta" required = "true"/>
+      <h:form p:method="post">
+          <input type="hidden" name="_method" value="POST"/>
+           <div class="form-group">
+        	<label for="ID">ID</label>
+   		  <h:inputText type="text" class="form-control" name="id" value="#{stateModel.request.id_request}" id="idID" p:placeholder="ID de la solicitud" required = "true"  />
+   			</div>
+   			
+	   		<div class="form-group text-left">
+		   		<div class="form-group">		
+		   			<h:outputLabel binding="#{stateModel.showState}" for="submit" value=""  />
+		   		</div>
+	   			<h:commandButton type="submit" value="Ver estado solicitud" class="btn btn-default btn-lg" action="#{stateModel.submitRequest}" />
+	        </div>
+
+   </h:form>
     </h:body>
 </html>
 

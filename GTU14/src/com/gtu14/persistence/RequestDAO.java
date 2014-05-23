@@ -160,7 +160,7 @@ public class RequestDAO {
 	 * @param 	requestId		Id de la solicitud.
 	 * @return	resultRequest	Solucitud encontrada o null.
 	 */
-	private Request findRequest(long requestId){
+	public Request findRequest(long requestId){
 		try{
 			Request resultRequest = em.find(Request.class, requestId);
 			return resultRequest;
