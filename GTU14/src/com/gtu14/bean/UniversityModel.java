@@ -31,11 +31,9 @@ import com.gtu14.persistence.UniversityDAO;
 public class UniversityModel implements Serializable{ //Entidad = Universidad || Banco || Estampadora
 	
 	private static final long serialVersionUID = -2633611667469166418L;
-<<<<<<< HEAD
+
 		
-=======
-	
->>>>>>> f794dfbc49e98b40be1d37071a9992792ebc52ef
+
 	@EJB
 	private UniversityDAO universityDAO;
 	@EJB
@@ -56,36 +54,23 @@ public class UniversityModel implements Serializable{ //Entidad = Universidad ||
 	 */
 	public String submitRequest(){
 		universityDAO.sendRequest(request.getId_request());
-<<<<<<< HEAD
-		return "universidad";
-	}
-	public String cancelRequest(){
-		universityDAO.backRequest(request.getId_request(), request.getComment());
-		return "universidad";
-=======
 		return "Universidad";
 	}
 	public String cancelRequest(){
 		universityDAO.backRequest(request.getId_request(), request.getComment());
 		return "Universidad";
->>>>>>> f794dfbc49e98b40be1d37071a9992792ebc52ef
 	}
+
 	
 	public String validateRequest(){
 		universityDAO.validateRequest(request.getId_request());
-<<<<<<< HEAD
-		return "universidad";
-=======
 		return "Universidad";
->>>>>>> f794dfbc49e98b40be1d37071a9992792ebc52ef
+
 	}
 	
 	public List<Request> getrequestList(){
 		User u=(User) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user");
 		University uni = universityDAO.findUniversity(u.getCif());
-<<<<<<< HEAD
-		return requestDAO.getRequest(uni);
-=======
 		List<Request> lr = requestDAO.getRequest(uni);
 		List<Request> lrFinal = new ArrayList<Request>() ;
 		for (Request request : lr){
@@ -94,22 +79,19 @@ public class UniversityModel implements Serializable{ //Entidad = Universidad ||
 			}
 		}
 		return lrFinal; 
->>>>>>> f794dfbc49e98b40be1d37071a9992792ebc52ef
+
 		
 	}
 		
 	
 	public String putRequest(){
-<<<<<<< HEAD
-		
-		return "formularioUniversidadIda";
-=======
+
 		if(request.getState().equals(Request.state.UNIVERSIDAD_IDA)){
 			return "formularioUniversidadIda";
 		} else{
 			return "formularioUniversidadVuelta";
 		}
->>>>>>> f794dfbc49e98b40be1d37071a9992792ebc52ef
+
 	}
 	
 	
