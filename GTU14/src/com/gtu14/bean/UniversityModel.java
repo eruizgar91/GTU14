@@ -55,7 +55,7 @@ public class UniversityModel implements Serializable{ //Entidad = Universidad ||
 	public String submitRequest(){
 		universityDAO.sendRequest(request.getId_request());
 		return "Universidad";
-	}
+	} 
 	public String cancelRequest(){
 		universityDAO.backRequest(request.getId_request(), request.getComment());
 		return "Universidad";

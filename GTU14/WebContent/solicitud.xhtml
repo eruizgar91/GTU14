@@ -6,7 +6,8 @@
         <title>Solicitud</title>
     </h:head>
     <h:body>
-        Vista dinámica de solicitud.
+        <label for="numtarjetaID">Número de tarjeta</label>
+          <h:inputText type="text" class="form-control" name="numtarjeta" value="#{bankModel.request.cardnumber}" id="numtarjetaID" p:placeholder="Escribe el número de tarjeta" required = "true"/>
     </h:body>
 </html>
 
