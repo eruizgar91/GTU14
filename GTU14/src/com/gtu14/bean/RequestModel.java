@@ -33,23 +33,8 @@ public class RequestModel {
 	@Inject
 	private Applicant applicant;
 	
-	private static long request_id = 0;
+	private static long request_id = 100;
 
-	private UIOutput createRequestMsg;
-	private UIOutput deleteRequestMsg;
-	
-	public UIOutput getDeleteRequestMsg() {
-		return deleteRequestMsg;
-	}
-	public void setDeleteRequestMsg(UIOutput deleteRequestMsg) {
-		this.deleteRequestMsg = deleteRequestMsg;
-	}
-	public UIOutput getCreateRequestMsg() {
-		return createRequestMsg;
-	}
-	public void setCreateRequestMsg(UIOutput createRequestMsg) {
-		this.createRequestMsg = createRequestMsg;
-	}
 	public Request getRequest() {
 		return request;
 	}
@@ -66,12 +51,10 @@ public class RequestModel {
 	public String submitRequest(){
 						
 		String vacio = "vacio";
-		
-		University newUniversity = entityDAO.findUniversity(applicant.getUniversity().getName());
-			
+						
 		Applicant newApplicant = applicantDAO.newApplicant(applicant.getCif_applicant(), 
 															applicant.getAddress(), 
-															applicant.getBorndate(), 
+															new java.sql.Date(applicant.getBorndate().getTime()), 
 															applicant.getEmail(), 
 															applicant.getFirstname(), 
 															applicant.getLastname(), 
@@ -81,7 +64,7 @@ public class RequestModel {
 															applicant.getRole(), 
 															applicant.getTypecif(), 
 															applicant.getTelephone(), 
-															newUniversity);		
+															applicant.getUniversity());		
 				
 		request_id =+ request_id;
 				
@@ -89,21 +72,13 @@ public class RequestModel {
 													vacio , 
 													newApplicant, 
 													(Bank) null , 
-													newUniversity, 
+													applicant.getUniversity(), 
 													(Stamping) null , 												
 													vacio ,
 													new java.sql.Date(new Date().getTime()), 
 													Request.state.UNIVERSIDAD_IDA,
 													(long) 0 );
-		
-		if(newRequest == null){
-			createRequestMsg.setRendered(true);
-			createRequestMsg.setValue("[ERROR] La solicitud ya existe.");
-		}else{
-			createRequestMsg.setRendered(true);
-			createRequestMsg.setValue("[OK] La solicitud ha sido creada.");
-		}
-		
+				
 		return null;
 	}
 

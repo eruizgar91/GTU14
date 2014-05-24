@@ -1,6 +1,6 @@
 package com.gtu14.persistence;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.ejb.Stateful;
 import javax.persistence.EntityManager;
