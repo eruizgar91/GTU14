@@ -32,10 +32,11 @@ public class UniversityDAO {
 	@PersistenceContext
 	private EntityManager em;
 	
-	public void sendRequest(long id_request, Bank bank){
+	public void sendRequest(long id_request, String cif_bank){
 		try{
 			Request request = em.find(Request.class, id_request);
 			request.setState(Request.state.BANCO_IDA);
+			Bank bank=em.find(Bank.class,cif_bank);
 			request.setBank(bank);
 			em.merge(request);
 		} catch (Exception ex) {

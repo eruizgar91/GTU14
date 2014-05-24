@@ -42,6 +42,7 @@ public class UniversityModel implements Serializable{ //Entidad = Universidad ||
 	private Request request;
 	@Inject
 	private User user;
+	private String cifBank;
 		
 	public Request getRequest() {
 		return request;
@@ -49,11 +50,17 @@ public class UniversityModel implements Serializable{ //Entidad = Universidad ||
 	public void setRequest(Request request) {
 		this.request = request;
 	}
+	public String getCifBank(){
+		return cifBank;
+	}
+	public void setCifBank(String cifBank){
+		this.cifBank=cifBank;
+	}
 	/** 
 	 *
 	 */
 	public String submitRequest(){
-		universityDAO.sendRequest(request.getId_request(),request.getBank());
+		universityDAO.sendRequest(request.getId_request(),getCifBank());
 		return "Universidad";
 	} 
 	public String cancelRequest(){
@@ -87,7 +94,7 @@ public class UniversityModel implements Serializable{ //Entidad = Universidad ||
 	public String putRequest(){
 
 		if(request.getState().equals(Request.state.UNIVERSIDAD_IDA)){
-			request.setBank(request.getUniversity().getBank());
+			setCifBank(request.getUniversity().getBank().getCif_bank());
 			return "formularioUniversidadIda";
 		} else{
 			return "formularioUniversidadVuelta";
