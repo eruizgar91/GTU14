@@ -41,6 +41,7 @@ public class BankModel implements Serializable{
 	Request request;
 	@Inject
 	private User user;
+	private String cifStamping;
 	
 	public Request getRequest() {
 		return request;
@@ -48,13 +49,20 @@ public class BankModel implements Serializable{
 	public void setRequest(Request request) {
 		this.request = request;
 	}
+	
+	public String getCifStamping() {
+		return cifStamping;
+	}
+	public void setCifStamping(String cifStamping) {
+		this.cifStamping = cifStamping;
+	}
 	/**
 	 * Da de alta una entidad universidad, banco o estampadora con datos del .xhtml
 	 */
 	public String submitRequest(){
 		
 		bankDAO.sendRequest(request.getCardnumber(), request.getAccountnumber(), 
-				request.getId_request(), request.getStamping());
+				request.getId_request(), getCifStamping());
 		return "Banco";
 	}
 	
@@ -94,7 +102,7 @@ public class BankModel implements Serializable{
 	
 	public String putRequest(){
 		if(request.getState().equals(Request.state.BANCO_IDA)){
-			request.setStamping(request.getBank().getStamping());
+			setCifStamping(request.getBank().getStamping().getCif_stamping());
 			return "formularioBancoIda";
 		} else{
 			return "formularioBancoVuelta";
