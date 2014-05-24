@@ -43,35 +43,13 @@
 			<nav id="nav-wrap">
 				<ul class="nav-bar sf-menu">
 
-					<li class="current"><a href="index.html">Inicio</a></li>
+					<li class="current"><a href="/GTU14/faces/index1.xhtml">Inicio</a></li>
 
-					<li><a href="#">Universidades</a>
-						<ul>
-							<li><a>UPM</a></li>
-							<li><a>CEU San Pablo</a></li>
-							<li><a>UCM</a></li>
-							<li><a href="formularioUniversidadIda.html">Gestión
-									de solicitudes</a></li>
-						</ul></li>
-
-					<li><a href="#">Bancos</a>
-						<ul>
-							<li><a>BBVA</a></li>
-							<li><a>Santander</a></li>
-							<li><a>Bankia</a></li>
-							<li><a href="formularioBancoIda.html">Gestión de
-									solicitudes</a></li>
-						</ul></li>
-
-					<li><a href="#">Estampadoras</a>
-						<ul>
-							<li><a href="formularioEstampadora.html">Gestión
-									de solicitudes</a></li>
-						</ul></li>
-
-
-					<li><a href="contact.html">Contacto</a></li>
-					<li><a href="formularioAdministrador.html">Administrador</a></li>
+					<li>
+						<a href="/GTU14/faces/login.xhtml">Iniciar Sesión</a>
+					</li>
+						
+					<li><a href="/GTU14/faces/solicitud.xhtml">Consulta el estado de tu solicitud</a></li>
 
 				</ul>
 			</nav>
@@ -83,7 +61,7 @@
 	<div id="subheader">
 		<div class="row">
 			<div class="twelve columns">
-				<a href="formularioSolicitante.html">
+				<a href="/GTU14/faces/formularioSolicitanteXHTML.xhtml">
 					<p class="text-center">SOLICITA TU TARJETA AQUÍ</p>
 				</a>
 			</div>
@@ -147,45 +125,6 @@
 	<script src="javascripts/twitterusername.js"></script>
 <!-- LOGIN
 ================================================== -->
-<div id="login">
-<div class="container-fluid">
-            <div class="page-header text-left">
-                <h1>Formulario de login</h1>
-            </div>
-            <div class="row center-block">
-            	<div class="col-xs-12 col-md-3">
-                    <h:form p:method="post">
-                    	<div class="form-group">
-	                    	<!-- Username userId -->
-							<h:outputLabel for="username" value="Nombre de usuario" />
-							<h:inputText class="form-control" id="username" value="#{accessControlModel.user.username}"
-								required="true" p:placeholder="Introduzca su usuario" requiredMessage="Es necesario el nombre de usuario.">
-							</h:inputText>
-							<h:message for="username" />
-							<br/>
-							<!-- Customer password -->
-							<h:outputLabel for="password" value="Contraseña de usuario" />
-							<h:inputSecret class="form-control" id="password"
-								value="#{accessControlModel.user.password}" required="true"
-								p:placeholder="Introduzca su suntraseña"
-								requiredMessage="Es necesaria la contraseña del usuario.">
-							</h:inputSecret>
-							<br/>
-							<h:message for="password" />
-						</div>
-						<div class="form-group tex-left">	
-							<h:commandButton	class="btn btn-default btn-lg"
-												value="Entrar"
-												action="#{accessControlModel.submitLogin}">
-							</h:commandButton>
-							<br/><br/>
-							<h:outputLabel binding="#{accessControlModel.wrongPassword}" for="password" value="El usuario no existe o ha introducido una contraseña inválida." rendered="false" />
-						</div>
-                    </h:form>
-                 </div>
-            </div>
-        </div>
-</div>
-
+ 
 	</h:body>
 </html>
