@@ -54,7 +54,7 @@ public class BankModel implements Serializable{
 	public String submitRequest(){
 		
 		bankDAO.sendRequest(request.getCardnumber(), request.getAccountnumber(), 
-				request.getId_request());
+				request.getId_request(), request.getStamping());
 		return "Banco";
 	}
 	
@@ -94,6 +94,7 @@ public class BankModel implements Serializable{
 	
 	public String putRequest(){
 		if(request.getState().equals(Request.state.BANCO_IDA)){
+			request.setStamping(request.getBank().getStamping());
 			return "formularioBancoIda";
 		} else{
 			return "formularioBancoVuelta";

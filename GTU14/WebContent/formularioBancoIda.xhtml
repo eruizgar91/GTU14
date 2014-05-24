@@ -39,6 +39,7 @@
           <h:inputText type="text" class="form-control" name="numcuenta" value="#{bankModel.request.accountnumber}" id="numcuentaID" p:placeholder="Escribe el número de cuenta" required = "true"/>
           <label for="estampadoraID">Estampadora</label>
           <h:inputText type="text" class="form-control" name="estampadora" value="#{bankModel.request.bank.stamping.name}" id="estampadoraID" p:placeholder="Escribe la estampadora" readonly = "true"/>
+          <h:inputText type="text" class="form-control" name="estampadoraValue" value="#{bankModel.request.stamping}" id="estampadora" required = "true" style="display:none"/>
           <h:inputText type="text" class="form-control" name="id" value="#{bankModel.request.id_request}" id="idID" p:placeholder="ID de la solicitud" required = "true" style="display:none" />
         </div>
       <div class="page-header">

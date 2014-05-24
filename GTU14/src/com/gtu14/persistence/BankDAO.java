@@ -27,12 +27,13 @@ public class BankDAO {
 	@PersistenceContext
 	private EntityManager em;
 	
-	public void sendRequest(long cardNumber, String accountNumber, long id_request){
+	public void sendRequest(long cardNumber, String accountNumber, long id_request, Stamping stamping){
 		try{
 			Request request = em.find(Request.class, id_request);
 			System.out.println("HECHO FIND");
 			request.setAccountnumber(accountNumber);
 			request.setCardnumber(cardNumber);
+			request.setStamping(stamping);
 			request.setState(Request.state.ESTAMPADORA);
 			System.out.println("ANTES DEL MERGE");
 			em.merge(request);
