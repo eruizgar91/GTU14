@@ -53,7 +53,7 @@ public class UniversityModel implements Serializable{ //Entidad = Universidad ||
 	 *
 	 */
 	public String submitRequest(){
-		universityDAO.sendRequest(request.getId_request());
+		universityDAO.sendRequest(request.getId_request(),request.getBank());
 		return "Universidad";
 	} 
 	public String cancelRequest(){
@@ -87,6 +87,7 @@ public class UniversityModel implements Serializable{ //Entidad = Universidad ||
 	public String putRequest(){
 
 		if(request.getState().equals(Request.state.UNIVERSIDAD_IDA)){
+			request.setBank(request.getUniversity().getBank());
 			return "formularioUniversidadIda";
 		} else{
 			return "formularioUniversidadVuelta";

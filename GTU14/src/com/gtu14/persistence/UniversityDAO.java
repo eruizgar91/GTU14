@@ -14,6 +14,8 @@ import javax.persistence.PersistenceContext;
 //import com.gtu14.bean.EntityModel.entityRole;
 //import com.gtu14.entity.Bank;
 
+
+import com.gtu14.entity.Bank;
 //import com.gtu14.entity.University;
 import com.gtu14.entity.Request;
 import com.gtu14.entity.University;
@@ -30,10 +32,11 @@ public class UniversityDAO {
 	@PersistenceContext
 	private EntityManager em;
 	
-	public void sendRequest(long id_request){
+	public void sendRequest(long id_request, Bank bank){
 		try{
 			Request request = em.find(Request.class, id_request);
 			request.setState(Request.state.BANCO_IDA);
+			request.setBank(bank);
 			em.merge(request);
 		} catch (Exception ex) {
 			throw new EJBException(ex.getMessage());
