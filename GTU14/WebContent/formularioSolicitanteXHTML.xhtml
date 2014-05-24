@@ -29,31 +29,31 @@
     <input type="hidden" name="_method" value="POST"/>
     <div class="form-group">
       <label for="firstname">Nombre</label>
-      <h:inputText class="form-control" id="firstname" p:placeholder="Nombre" required="true"/>
+      <h:inputText class="form-control" id="firstname" value="#{requestModel.applicant.firstname}" p:placeholder="Nombre" required="true"/>
       <label for="lastname">Apellidos</label>
-      <h:inputText class="form-control" id="lastname" p:placeholder="Apellidos" required="true"/>
+      <h:inputText class="form-control" id="lastname" value="#{requestModel.applicant.lastname}" p:placeholder="Apellidos" required="true"/>
       <label for="borndate">Fecha de nacimiento</label>
-      <h:inputText p:type="date" class="form-control" id="borndate" p:placeholder="dd-mm-aaaa" required="true">
+      <h:inputText p:type="date" class="form-control" id="borndate" value="#{requestModel.applicant.borndate}" p:placeholder="dd-mm-aaaa" required="true">
       	<f:convertDateTime pattern="dd-MM-yyyy" />
       </h:inputText>
       <label for="cif_applicant">ID</label>
-      <h:inputText class="form-control" id="cif_applicant" p:placeholder="DNI/NIF" required="true"/>
+      <h:inputText class="form-control" id="cif_applicant" value="#{requestModel.applicant.cif_applicant}" p:placeholder="DNI/NIF" required="true"/>
       <label for="nacionality">Nacionalidad</label>
-      <h:inputText class="form-control" id="nacionality" p:placeholder="Nacionalidad" required="true"/>
+      <h:inputText class="form-control" id="nacionality" value="#{requestModel.applicant.nacionality}" p:placeholder="Nacionalidad" required="true"/>
       <label for="email">Correo electrónico</label>
-      <h:inputText p:type="email" class="form-control" id="email" p:placeholder="Correo electrónico" required="true"/>
+      <h:inputText p:type="email" class="form-control" id="email" value="#{requestModel.applicant.email}" p:placeholder="Correo electrónico" required="true"/>
       <label for="address">Dirección</label>
-      <h:inputText class="form-control" id="address" p:placeholder="Dirección" required="true"/>
+      <h:inputText class="form-control" id="address" value="#{requestModel.applicant.address}" p:placeholder="Dirección" required="true"/>
       <label for="population">Población</label>
-      <h:inputText class="form-control" id="population" p:placeholder="Población" required="true"/>
+      <h:inputText class="form-control" id="population" value="#{requestModel.applicant.population}" p:placeholder="Población" required="true"/>
       <label for="province">Provincia</label>
-      <h:inputText  class="form-control" id="province" p:placeholder="Provincia" required="true"/>
+      <h:inputText  class="form-control" id="province" value="#{requestModel.applicant.province}" p:placeholder="Provincia" required="true"/>
       <label for="telephone">Teléfono</label>
-      <h:inputText p:type="tel" class="form-control" id="telephone" p:placeholder="Teléfono fijo" required="true"/>
+      <h:inputText p:type="tel" class="form-control" id="telephone" value="#{requestModel.applicant.telephone}" p:placeholder="Teléfono fijo" required="true"/>
       <label for="university">Universidad</label>
-      <h:inputText class="form-control" id="university" p:placeholder="Universidad" required="true"/>
+      <h:inputText class="form-control" id="university" value="#{requestModel.applicant.university}" p:placeholder="Universidad" required="true"/>
       <label>Rol</label>
-      <h:inputText class="form-control" id="role" p:placeholder="Rol" required="true"/>
+      <h:inputText class="form-control" id="role" value="#{requestModel.applicant.role}" p:placeholder="Rol" required="true"/>
     </div>
     <div class="form-group text-left">
       <h:commandButton type="reset" value="Borrar formulario" class="btn btn-default btn-lg"/>
