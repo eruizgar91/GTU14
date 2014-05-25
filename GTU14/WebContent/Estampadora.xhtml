@@ -63,8 +63,10 @@
    <div class="page-header text-center">
     <h1>Solicitudes pendientes</h1>
   </div>
+   <div align="center">
          <h:form>
          <h:dataTable id="solicitudes"
+                         class="centrado"
                          value="#{stampingModel.requestList}"
                          var="req"
                          headerClass="list-header"
@@ -80,19 +82,13 @@
                 </h:column>
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="cif_applicant" />
+                        <h:outputText value="DNI/CIF" />
                     </f:facet>
                     <h:outputText value="#{req.applicant.cif_applicant}" />
                 </h:column>
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="accountnumber" />
-                    </f:facet>
-                    <h:outputText value="#{req.accountnumber}" />
-                </h:column>
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="cardnumber" />
+                        <h:outputText value="Número de la tarjeta" />
                     </f:facet>
                     <h:outputText value="#{req.cardnumber}" />
                 </h:column>
@@ -105,7 +101,7 @@
                 
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="CIF Bank" />
+                        <h:outputText value="CIF Banco" />
                     </f:facet>
                     <h:outputText value="#{req.bank.cif_bank}" />
                 </h:column>
@@ -125,5 +121,6 @@
 
             </h:dataTable> 
             </h:form>
+            </div>
  </h:body>
 </html>

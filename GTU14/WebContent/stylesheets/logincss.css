@@ -22,3 +22,9 @@
 	z-index:10;
 	 
 }
+
+#tabla{
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+}
