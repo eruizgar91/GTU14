@@ -88,11 +88,13 @@ public class BankModel implements Serializable{
 	public List<Request> getrequestList(){
 		User u=(User) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user");
 		Bank b = bankDAO.findBank(u.getCif());
+		
 		List<Request> lr = requestDAO.getRequest(b);
 		List<Request> lrFinal = new ArrayList<Request>() ;
 		for (Request request : lr){
 			if((request.getState().equals(Request.state.BANCO_IDA))||(request.getState().equals(Request.state.BANCO_VUELTA))){
 				lrFinal.add(request);
+				
 			}
 		}
 		return lrFinal;

@@ -6,6 +6,7 @@ import java.util.logging.Level;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.component.UIOutput;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -22,7 +23,7 @@ import com.gtu14.persistence.UserDAO;
 import com.sun.istack.logging.Logger;
 
 @Named
-@RequestScoped
+@SessionScoped
 public class AccessControlModel implements Serializable {
 	private static final long serialVersionUID = -1247134159102289644L;
 	private static final Logger logger = Logger.getLogger("Login log",AccessControlModel.class);
@@ -68,13 +69,12 @@ public class AccessControlModel implements Serializable {
 		//Creamos la sesión si el usuario es válido.
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
 		logger.log(Level.INFO, "Sesión de usuario creada con éxito. SessionID = {0}", session.getId());
-		
+		user=validatedUser;
 		//Redireccionamos a la página según el rol del usuario.
 		if(validatedUser.isAdmin())
 			return "Administrador";
 		
 		entityRole userRole = entityDao.getEntityRole(validatedUser.getCif());
-		user.setCif(validatedUser.getCif());
 		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user",validatedUser);
 		switch (userRole) {
 		case UNIVERSITY:
@@ -90,10 +90,11 @@ public class AccessControlModel implements Serializable {
 	/**
 	 * Cierra la sesión que hubiese en curso.
 	 */
-	public void logout(){
+	public String logout(){
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().clear();
 		if(session != null)
 			session.invalidate();
+		return "index1";
 	}
 }

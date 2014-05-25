@@ -38,11 +38,17 @@
 		<div class="eight columns noleftmarg">
 			<nav id="nav-wrap">
 				<ul class="nav-bar sf-menu">
-
+<h:form>
 					<li class="current"><a href="/GTU14/faces/index1.xhtml">Inicio</a></li>
-
-					
-
+                     <li>		
+					<h:commandLink id="logout"
+                               action="#{accessControlModel.logout}"
+                               immediate="true"
+                               rendered="#{not empty sessionScope.user.username}">
+                    <h:outputText value="Cerrar Sesión"/>
+                    </h:commandLink>
+                    </li>
+					</h:form>
 				</ul>
 			</nav>
 		</div>
