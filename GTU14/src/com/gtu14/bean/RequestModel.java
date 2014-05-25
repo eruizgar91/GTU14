@@ -33,8 +33,6 @@ public class RequestModel {
 	@Inject
 	private Applicant applicant;
 	
-	private static long request_id = 100;
-
 	public Request getRequest() {
 		return request;
 	}
@@ -66,7 +64,7 @@ public class RequestModel {
 															applicant.getTelephone(), 
 															applicant.getUniversity());		
 				
-		request_id =+ request_id;
+		long request_id = Long.parseLong(applicant.getCif_applicant().substring(0, applicant.getCif_applicant().length()-1), 10);		
 				
 		Request newRequest = requestDAO.newRequest(request_id,
 													vacio , 
