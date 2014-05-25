@@ -13,6 +13,7 @@ import java.sql.Date;
 
 import javax.enterprise.context.RequestScoped;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -43,6 +44,7 @@ public class Request implements Serializable {
 	private Stamping stamping;
  
     private Date requestdate;
+    @Enumerated
     private state state;
     private String comment;
     private long cardnumber;
