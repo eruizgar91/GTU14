@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost:8080/" />
+<title>TestCase_Selenium</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">TestCase_Selenium</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/GTU14/faces/index1.xhtml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=p.text-center</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=j_idt6:firstname</td>
+	<td>Pepito</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=j_idt6:lastname</td>
+	<td>Perez</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=j_idt6:borndate</td>
+	<td>22-11-1990</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=j_idt6:cif_applicant</td>
+	<td>12345678P</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=j_idt6:nacionality</td>
+	<td>España</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=j_idt6:email</td>
+	<td>pepito@perez.pep</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=j_idt6:address</td>
+	<td>Calle de Don Jose</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=j_idt6:population</td>
+	<td>Madrid</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=j_idt6:province</td>
+	<td>Madrid</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=j_idt6:telephone</td>
+	<td>666666666</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=j_idt6:university</td>
+	<td>cifUniversidad</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=j_idt6:role</td>
+	<td>Estudiante</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=j_idt6:j_idt21</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Inicio</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=j_idt6:solicitud</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=j_idt6:idID</td>
+	<td>12345678</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=j_idt6:j_idt11</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Inicio</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=j_idt6:login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=j_idt6:username</td>
+	<td>uni</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=j_idt6:password</td>
+	<td>uni</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=j_idt6:j_idt15</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=j_idt11:solicitudes:1:ir</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=j_idt6:j_idt27</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=j_idt6:logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=j_idt6:solicitud</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=j_idt6:idID</td>
+	<td>12345678</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=j_idt6:j_idt11</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Inicio</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=j_idt6:login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=j_idt6:username</td>
+	<td>banco</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=j_idt6:password</td>
+	<td>banco</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=j_idt6:j_idt15</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=j_idt11:solicitudes:0:ir</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=j_idt6:numtarjetaID</td>
+	<td>1234123412341234</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=j_idt6:numcuentaID</td>
+	<td>4321432143214321</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=j_idt6:j_idt32</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=j_idt6:logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=j_idt6:solicitud</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=j_idt6:idID</td>
+	<td>12345678</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=j_idt6:j_idt11</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Inicio</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=j_idt6:login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=j_idt6:j_idt15</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=j_idt11:solicitudes:1:idbut</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=j_idt6:j_idt19</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=j_idt6:logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=j_idt6:solicitud</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=j_idt6:idID</td>
+	<td>12345678</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=j_idt6:j_idt11</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Inicio</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=j_idt6:login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=j_idt6:username</td>
+	<td>banco</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=j_idt6:password</td>
+	<td>banco</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=j_idt6:j_idt15</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=j_idt11:solicitudes:0:ir</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=j_idt6:j_idt31</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=j_idt6:logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=j_idt6:solicitud</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=j_idt6:idID</td>
+	<td>12345678</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=j_idt6:j_idt11</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Inicio</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=j_idt6:login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=j_idt6:username</td>
+	<td>uni</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=j_idt6:password</td>
+	<td>uni</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=j_idt6:j_idt15</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=j_idt11:solicitudes:1:ir</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=j_idt6:j_idt26</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=j_idt6:logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=j_idt6:solicitud</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=j_idt6:idID</td>
+	<td>12345678</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=j_idt6:j_idt11</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Inicio</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
